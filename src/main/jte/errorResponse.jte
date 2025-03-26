@@ -1,0 +1,11 @@
+@param String error
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Erro</title>
+</head>
+<body>
+    <h1>Ocorreu um erro!</h1>
+    <p>${error}</p>
+</body>
+</html>
