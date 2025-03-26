@@ -20,7 +20,7 @@
                 <img src="/front/assets/icons/botao-home-page.svg" alt="Home">
                 Home
             </a></li>
-            <li><a href="#relatorios">
+            <li><a href="/relatorio">
                 <img src="/front/assets/icons/botao-visualizar-relatorios.svg" alt="Visualizar Relatórios">
                 Visualizar Relatórios
             </a></li>
