@@ -44,45 +44,6 @@
     </div>
 </nav>
 
-<main>
-
-    <header class="cabecalho">
-        <menu id="burguer" class="material-symbols-outlined" onclick="clickMenu">
-            menu
-        </menu>
-        <div class="bem-vindo">Olá NOME DO ENTREVISTADOR, Bem-Vindo à Sustância!</div>
-        <div class="container-pesquisa">
-            <img src="/assets/icons/botao-de-pesquisar.svg" alt="Search Icon">
-            <input type="text" placeholder="Pesquise">
-        </div>
-    </header>
-    <section class="conteudo">
-        <article>
-            <h3>Novos Entrevistados</h3>
-            <div class="grafico">321</div>
-        </article>
-        <article>
-            <h3>Lorem</h3>
-            <div class="grafico">Gráfico em barras</div>
-        </article>
-        <article class="tela-inteira">
-            <h3>Lorem</h3>
-            <div class="grafico">Gráfico de linhas</div>
-        </article>
-        <article>
-            <h3>Horário do dia</h3>
-            <div class="grafico">Horário das Entrevistas</div>
-        </article>
-        <article>
-            <div class="perfil">
-                <img src="/assets/icons/botao-entrevistadores.svg" alt="Entrevistador">
-                <div class="info">10 Entrevistas realizadas</div>
-            </div>
-        </article>
-    </section>
-</main>
-<script src="/js/home.js"></script>
-
 <script src="/js/home.js">
     function clickMenu {
         if(barra-lateral.style.display == 'block') {
