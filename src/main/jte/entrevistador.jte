@@ -5,49 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sustância - Visualizar Relatórios</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/visualizar-relatorios.css">
+    <link rel="stylesheet" href="/css/visualizar-relatorios.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <nav class="barra-lateral">
         <button class="menu-hamburguer sidebar-close">
-            <img src="/front/assets/icons/menu-burger.svg" alt="Menu Hamburguer">
+            <img src="/assets/icons/menu-burger.svg" alt="Menu Hamburguer">
         </button>
         <div class="logo">
-            <img src="/front/assets/icons/sustancia-logo.svg" alt="Logo Sustância">
+            <img src="/assets/icons/sustancia-logo.svg" alt="Logo Sustância">
         </div>
         <ul>
-            <li><a href="#home">
-                <img src="/front/assets/icons/botao-home-page.svg" alt="Home">
+            <li><a href="#home" >
+                <i class='bx bxs-home-circle' alt="Home Page"></i>
                 Home
             </a></li>
-            <li><a href="#relatorios" class="ativo">
-                <img src="/front/assets/icons/botao-visualizar-relatorios.svg" alt="Visualizar Relatórios">
+            <li><a href="#relatorios" >
+                <i class='bx bxs-network-chart'alt="Visualizar Relatórios"></i>
                 Visualizar Relatórios
             </a></li>
-            <li><a href="#entrevistadores">
-                <img src="/front/assets/icons/botao-entrevistadores.svg" alt="Entrevistadores">
+            <li><a href="#entrevistadores" class="ativo">
+                <i class='bx bxs-user-badge' alt = "Entrevistadores"></i>
                 Entrevistadores
             </a></li>
-            <li><a href="#botao1">
-                <img src="/front/assets/icons/menu-burger.svg" alt="Botão">
-                Botão
+            <li><a href="#perfil">
+                <i class='bx bxs-user-detail' alt = "Editar Perfil"></i>
+                Perfil
             </a></li>
-            <li><a href="#botao2">
-                <img src="/front/assets/icons/menu-burger.svg" alt="Botão">
-                Botão
-            </a></li>
-            <li><a href="#botao3">
-                <img src="/front/assets/icons/menu-burger.svg" alt="Botão">
-                Botão
-            </a></li>
-            <li><a href="#botao4">
-                <img src="/front/assets/icons/menu-burger.svg" alt="Botão">
-                Botão
+            <li><a href="#visualizar-graficos">
+                <i class='bx bxs-pie-chart-alt-2' alt = "Editar Perfil"></i>
+                Graficos
             </a></li>
         </ul>
         <div class="sair">
             <a href="#sair">
-                <img src="/front/assets/icons/botao-sair.svg" alt="Sair">
+                <i class='bx bxs-exit' alt="Sair"></i>
                 Sair
             </a>
         </div>
@@ -55,10 +48,10 @@
     <main>
         <header class="cabecalho">
             <button class="menu-hamburguer">
-                <img src="/front/assets/icons/menu-burger.svg" alt="Menu Hamburguer">
+                <i class='bx bx-menu' alt="Abrir Barra Lateral"></i>
             </button>
             <div class="container-pesquisa">
-                <img src="/front/assets/icons/botao-de-pesquisar.svg" alt="Search Icon">
+                 <i class='bx bx-search-alt' alt="Pesquisar"></i>
                 <input type="text" placeholder="Pesquise">
             </div>
         </header>
@@ -67,7 +60,7 @@
                 <!-- Card exemplo -->
                 <article class="card">
                     <div class="card-header">
-                        <img src="/front/assets/icons/portrait.svg" alt="Entrevistador" class="foto-entrevistador">
+                        <img src="/assets/icons/portrait.svg" alt="Entrevistador" class="foto-entrevistador">
                         <div class="info-entrevista">
                             <h4>Nome do Entrevistador</h4>
                             <p>Data: 01/01/2023</p>
@@ -83,6 +76,6 @@
             </div>
         </section>
     </main>
-    <script src="/front/js/visualizar-relatorios.js"></script>
+    <!-- <script src="/front/js/visualizar-relatorios.js"></script> -->
 </body>
 </html>
