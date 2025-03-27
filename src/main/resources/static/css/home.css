@@ -169,10 +169,6 @@ div.container-pesquisa input {
     width: 20vh;
 }
 
-button.menu-hamburguer {
-    display: none;
-}
-
 section.conteudo {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -222,15 +218,13 @@ div.info {
     color: var(--cor-texto);
 }
 
+menu#burguer {
+    display: none;
+}
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
     nav.barra-lateral {
         transform: translateX(-100%);
-        display: none;
-    }
-
-    button.menu-hamburguer {
-        display: block;
     }
 
     nav.barra-lateral.aberto {
@@ -257,14 +251,28 @@ div.info {
 }
 
 @media (max-width: 768px) {
-    button.menu-hamburguer.sidebar-close {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 2vh;
-    }
-
     nav.barra-lateral .logo {
         margin-top: 0;
     }
+
+    menu#burguer {
+        background-color: var(--cor-botao-ativo);
+        align-items: flex-start;
+        display: inline-block;
+        border-radius: 1vh;
+        padding: 1.5vh;
+        margin-right: 1vh;
+    }
+
+    menu#burguer:hover {
+        background-color: var(--cor-barra-lateral-escura);
+        cursor: pointer;
+    }
+
+    div.container-pesquisa input {
+        width: 10vh;
+    }
+
 }
+
+

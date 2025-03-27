@@ -7,12 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/home.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
 </head>
 <body>
 <nav class="barra-lateral">
-    <button class="menu-hamburguer sidebar-close">
-        <img src="/assets/icons/menu-burger.svg" alt="Menu Hamburguer">
-    </button>
     <div class="logo">
         <img src="/assets/icons/sustancia-logo.svg" alt="Menu">
     </div>
@@ -45,11 +43,13 @@
         </a>
     </div>
 </nav>
+
 <main>
+
     <header class="cabecalho">
-        <button class="menu-hamburguer">
-            <img src="/assets/icons/menu-burger.svg" alt="Menu Hamburguer">
-        </button>
+        <menu id="burguer" class="material-symbols-outlined" onclick="clickMenu">
+            menu
+        </menu>
         <div class="bem-vindo">Olá NOME DO ENTREVISTADOR, Bem-Vindo à Sustância!</div>
         <div class="container-pesquisa">
             <img src="/assets/icons/botao-de-pesquisar.svg" alt="Search Icon">
@@ -81,6 +81,16 @@
         </article>
     </section>
 </main>
-<script src="/front/js/home.js"></script>
+<script src="/js/home.js"></script>
+
+<script src="/js/home.js">
+    function clickMenu {
+        if(barra-lateral.style.display == 'block') {
+        barra-lateral.style.display = 'none'
+        } else {
+            barra-lateral.style.display = 'block'
+        }
+    }
+</script>
 </body>
 </html>
