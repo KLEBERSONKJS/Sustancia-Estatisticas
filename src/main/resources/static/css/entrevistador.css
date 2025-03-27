@@ -167,7 +167,7 @@ section.conteudo {
 
 .cards {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Ajustar conforme necessário */
+    grid-template-columns: repeat(3, 1fr); /* 3 cards por linha */
     grid-gap: 2vh;
 }
 
@@ -178,8 +178,8 @@ section.conteudo {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 2vh;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row; /* Alinhar a foto e as informações lado a lado */
+    align-items: center;
 }
 
 .card-header {
@@ -208,13 +208,6 @@ section.conteudo {
     margin: 0.5vh 0 0;
     font-size: 1.8vh;
     color: var(--cor-texto);
-}
-
-.card-footer {
-    margin-top: 2vh;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1vh;
 }
 
 .btn-filtro {
