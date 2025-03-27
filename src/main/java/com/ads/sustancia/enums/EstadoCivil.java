@@ -1,12 +1,12 @@
 package com.ads.sustancia.enums;
 
 public enum EstadoCivil {
-    CASADO("A"),
-    VIUVO("B"),
-    DIVORCIADO("A"),
-    SEPARADO("A"),
-    SOLTEIRO("A"),
-    PREFIRONAODIZER("A");
+    CASADO("Casado"),
+    VIUVO("Viúvo"),
+    DIVORCIADO("Divorciado"),
+    SEPARADO("Separado"),
+    SOLTEIRO("Solteiro"),
+    PREFIRONAODIZER("Prefiro nao dizer");
 
     
 

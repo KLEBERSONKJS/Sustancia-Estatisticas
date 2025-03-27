@@ -91,7 +91,12 @@
 
       <div class="form-group">
         <label for="auxilios">Auxílios:</label>
-        <input type="text" id="auxilios" name="auxilios" placeholder="Ex.: Bolsa Família, Outros...">
+        <label><input type="checkbox" name="auxilios" value="Nenhum"> Nenhum</label>
+        <label><input type="checkbox" name="auxilios" value="Bolsa familia"> Bolsa Familia</label>
+          <label><input type="checkbox" name="auxilios" value="Beneficio de Prestação Continuada"> Beneficio de Prestação Continuada</label>
+          <label><input type="checkbox" name="auxilios" value="Seguro Desemprego"> Seguro Desemprego</label>
+          <label><input type="checkbox" name="auxilios" value="Auxilio Gas"> Auxílio Gás</label>
+          <label><input type="checkbox" name="auxilios" value="Outros"> Outros</label>
       </div>
 
       <div class="form-group">
@@ -135,25 +140,25 @@
       <div class="form-group">
         <label>Quais refeições você faz ao longo do dia?</label>
         <div class="checkbox-group">
-          <label><input type="checkbox" name="refeicoes[]" value="Café da manhã"> Café da manhã</label>
-          <label><input type="checkbox" name="refeicoes[]" value="Lanche da manhã"> Lanche da manhã</label>
-          <label><input type="checkbox" name="refeicoes[]" value="Almoço"> Almoço</label>
-          <label><input type="checkbox" name="refeicoes[]" value="Lanche da tarde"> Lanche da tarde</label>
-          <label><input type="checkbox" name="refeicoes[]" value="Jantar"> Jantar</label>
-          <label><input type="checkbox" name="refeicoes[]" value="Ceia"> Ceia/Lanche da noite</label>
+          <label><input type="checkbox" name="refeicoes" value="Café da manhã"> Café da manhã</label>
+          <label><input type="checkbox" name="refeicoes" value="Lanche da manhã"> Lanche da manhã</label>
+          <label><input type="checkbox" name="refeicoes" value="Almoço"> Almoço</label>
+          <label><input type="checkbox" name="refeicoes" value="Lanche da tarde"> Lanche da tarde</label>
+          <label><input type="checkbox" name="refeicoes" value="Jantar"> Jantar</label>
+          <label><input type="checkbox" name="refeicoes" value="Ceia"> Ceia/Lanche da noite</label>
         </div>
       </div>
 
       <div class="form-group">
         <label>Ontem, você consumiu:</label>
         <div class="checkbox-group">
-          <label><input type="checkbox" name="consumo[]" value="Feijão"> Feijão</label>
-          <label><input type="checkbox" name="consumo[]" value="Frutas frescas"> Frutas frescas</label>
-          <label><input type="checkbox" name="consumo[]" value="Verduras e legumes"> Verduras e legumes</label>
-          <label><input type="checkbox" name="consumo[]" value="Hambúrguer e/ou embutidos"> Hambúrguer e/ou embutidos</label>
-          <label><input type="checkbox" name="consumo[]" value="Bebidas adoçadas"> Bebidas adoçadas</label>
-          <label><input type="checkbox" name="consumo[]" value="Macarrão instantâneo ou salgadinhos"> Macarrão instantâneo ou salgadinhos</label>
-          <label><input type="checkbox" name="consumo[]" value="Biscoitos recheados e doces"> Biscoitos recheados e doces</label>
+          <label><input type="checkbox" name="consumo" value="Feijão"> Feijão</label>
+          <label><input type="checkbox" name="consumo" value="Frutas frescas"> Frutas frescas</label>
+          <label><input type="checkbox" name="consumo" value="Verduras e legumes"> Verduras e legumes</label>
+          <label><input type="checkbox" name="consumo" value="Hambúrguer e/ou embutidos"> Hambúrguer e/ou embutidos</label>
+          <label><input type="checkbox" name="consumo" value="Bebidas adoçadas"> Bebidas adoçadas</label>
+          <label><input type="checkbox" name="consumo" value="Macarrão instantâneo ou salgadinhos"> Macarrão instantâneo ou salgadinhos</label>
+          <label><input type="checkbox" name="consumo" value="Biscoitos recheados e doces"> Biscoitos recheados e doces</label>
         </div>
       </div>
 

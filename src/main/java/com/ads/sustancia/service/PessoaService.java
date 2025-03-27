@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
+import com.ads.sustancia.enums.AuxilioEnum;
 import com.ads.sustancia.enums.ConsumoOntem;
 import com.ads.sustancia.enums.Dependentes;
 import com.ads.sustancia.enums.Emprego;
@@ -62,7 +63,7 @@ public class PessoaService {
                     Escolariade.repostEscolariade(dadosPessoaForms.escolaridade()),
                     EstadoCivil.respostaEstadoCivil(dadosPessoaForms.estado_civil()),
                     Emprego.respostaEmprego(dadosPessoaForms.emprego()),
-                    dadosPessoaForms.auxilios(),
+                    addAuxilioEnum(dadosPessoaForms.auxilios()),
                     Dependentes.respostaDependentes(dadosPessoaForms.familia()),
                     consumoAlimentar,
                     insegurancaAlimentar);
@@ -75,10 +76,10 @@ public class PessoaService {
         return pessoaRepository.save(entity);
     }
 
-    private List<RefeicaoDia> addRefeicoes(List<String> refeicoesDto) {
+    private List<RefeicaoDia> addRefeicoes(String refeicoesDto) {
         List<RefeicaoDia> refeicoes = new ArrayList<>();
 
-        List<String> listaRefeicaoDia = Arrays.asList(refeicoesDto.get(0).split(","));
+        List<String> listaRefeicaoDia = Arrays.asList(refeicoesDto.split(","));
         for (String string : listaRefeicaoDia) {
             refeicoes.add(RefeicaoDia.respostaRefeicaoDia(string));
         }
@@ -86,15 +87,26 @@ public class PessoaService {
     }
 
 
-    private List<ConsumoOntem> addConsumoOntem(List<String> consumoDto) {
+    private List<ConsumoOntem> addConsumoOntem(String consumoDto) {
         List<ConsumoOntem> consumo = new ArrayList<>();
-        List<String> listaConsumo = Arrays.asList(consumoDto.get(0).split(","));
+        List<String> listaConsumo = Arrays.asList(consumoDto.split(","));
 
         for (String string : listaConsumo) {
             consumo.add(ConsumoOntem.respostaConsumoOntem(string));
 
         }
         return consumo;
+    }
+
+    private List<AuxilioEnum> addAuxilioEnum(String auxiliosDTO) {
+        List<AuxilioEnum> auxiliosList = new ArrayList<>();
+        List<String> listaAuxilios = Arrays.asList(auxiliosDTO.split(","));
+
+        for (String string : listaAuxilios) {
+            auxiliosList.add(AuxilioEnum.respostaAuxilioEnum(string));
+
+        }
+        return auxiliosList;
     }
 
     public List<Pessoa> listarTodos() {

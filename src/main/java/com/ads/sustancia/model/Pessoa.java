@@ -1,5 +1,8 @@
 package com.ads.sustancia.model;
 
+import java.util.List;
+
+import com.ads.sustancia.enums.AuxilioEnum;
 import com.ads.sustancia.enums.Dependentes;
 import com.ads.sustancia.enums.Emprego;
 import com.ads.sustancia.enums.Escolariade;
@@ -8,6 +11,7 @@ import com.ads.sustancia.enums.Genero;
 import com.ads.sustancia.enums.Raca;
 import com.ads.sustancia.enums.Religiao;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -17,7 +21,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -58,8 +61,9 @@ public class Pessoa {
     @Enumerated(EnumType.STRING)
     private Emprego emprego;
 
-    @Column
-    private String auxilios;
+    @ElementCollection
+    @Enumerated(EnumType.STRING)
+    private List<AuxilioEnum> auxilios;
 
     @Enumerated(EnumType.STRING)
     private Dependentes dependentes;
@@ -76,7 +80,7 @@ public class Pessoa {
   
 
     public Pessoa(Entrevistador entrevistador,String nome, int idade, Genero genero, Raca raca, Religiao religiao, Escolariade escolaridade,
-            EstadoCivil estadoCivil, Emprego emprego, String auxilios, Dependentes dependentes,
+            EstadoCivil estadoCivil, Emprego emprego, List<AuxilioEnum> auxiliosList, Dependentes dependentes,
             ConsumoAlimentar consumoAlimentar, InsegurancaAlimentar inseguracaAlimentar) {
 
         this.entrevistador = entrevistador;
@@ -88,7 +92,7 @@ public class Pessoa {
         this.escolaridade = escolaridade;
         this.estadoCivil = estadoCivil;
         this.emprego = emprego;
-        this.auxilios = auxilios;
+        this.auxilios = auxiliosList;
         this.dependentes = dependentes;
         this.consumoAlimentar = consumoAlimentar;
         this.inseguracaAlimentar = inseguracaAlimentar;

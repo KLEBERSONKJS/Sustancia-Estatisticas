@@ -56,6 +56,7 @@ public class PessoaController {
     public String cadastrarPessoa(FormularioDTO dadosPessoaForms, Model model) {
         try {
             pessoaService.cadastrarPessoa(dadosPessoaForms);
+            System.out.println(dadosPessoaForms);
             return "redirect:/formulario";
         } catch (Exception e) {
             model.addAttribute("error", "Erro ao cadastrar pessoa: " + e.getMessage());
