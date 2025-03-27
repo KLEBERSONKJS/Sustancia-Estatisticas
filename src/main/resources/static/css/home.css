@@ -6,7 +6,10 @@
     --cor-texto: #424242;
     --cor-branca: #ffffff;
     --cor-icone: #363232; /* Cor padrão dos ícones */
-    --cor-icone-ativo: #998787; /* Cor dos ícones ativos */
+    --cor-icone-ativo: #ffffff; /* Cor dos ícones ativos */
+    --cor-card: #ffffff; /* Cor dos cards */
+    --cor-card-borda: #e0e0e0; /* Cor da borda dos cards */
+    --border-radius-padrao: 2.5vh; /* Border radius padrão */
 }
 
 body {
@@ -87,13 +90,14 @@ li a {
     color: var(--cor-icone);
     text-decoration: none;
     transition: background-color 0.3s, color 0.3s;
-    border-radius: 1vh;
+    border-radius: var(--border-radius-padrao);
 }
 
-li a img {
+li a i {
     margin-right: 1vh;
     width: 2vh;
     height: 2vh;
+    transition: fill 0.3s;
 }
 
 li a:hover, li a.ativo {
