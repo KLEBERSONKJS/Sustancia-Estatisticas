@@ -16,7 +16,7 @@
             <img src="/front/assets/icons/sustancia-logo.svg" alt="Menu">
         </div>
         <ul>
-            <li><a href="#home" class="ativo">
+            <li><a href="/home" class="ativo">
                 <img src="/front/assets/icons/botao-home-page.svg" alt="Home">
                 Home
             </a></li>
@@ -24,7 +24,7 @@
                 <img src="/front/assets/icons/botao-visualizar-relatorios.svg" alt="Visualizar Relatórios">
                 Visualizar Relatórios
             </a></li>
-            <li><a href="#entrevistadores">
+            <li><a href="/entrevistador">
                 <img src="/front/assets/icons/botao-entrevistadores.svg" alt="Entrevistadores">
                 Entrevistadores
             </a></li>

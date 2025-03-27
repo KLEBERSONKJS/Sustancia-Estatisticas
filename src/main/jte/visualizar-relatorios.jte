@@ -17,15 +17,15 @@
             <img src="/assets/icons/sustancia-logo.svg" alt="Logo Sustância">
         </div>
         <ul>
-            <li><a href="#home">
+            <li><a href="/home">
                 <i class='bx bxs-home-circle' alt="Home Page"></i>
                 Home
             </a></li>
-            <li><a href="#relatorios" class="ativo">
+            <li><a href="/relatorio" class="ativo">
                 <i class='bx bxs-network-chart'alt="Visualizar Relatórios"></i>
                 Visualizar Relatórios
             </a></li>
-            <li><a href="#entrevistador">
+            <li><a href="/entrevistador">
                 <i class='bx bxs-user-badge' alt = "Entrevistadores"></i>
                 Entrevistadores
             </a></li>

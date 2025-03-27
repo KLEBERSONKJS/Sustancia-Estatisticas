@@ -32,7 +32,7 @@ public class EntrevistadorController {
             return "redirect:/entrevistador";
         } catch (Exception e) {
             model.addAttribute("Erro ao cadastrar pessoa: " + e.getMessage());
-            return "cadastro-entrevistador";
+            return "entrevistador";
         }
     }
 
@@ -52,7 +52,7 @@ public class EntrevistadorController {
 
     @GetMapping()
     public String cadastroEntrevistador(){
-        return "cadastro-entrevistador";
+        return "entrevistador";
     }
 
 }
