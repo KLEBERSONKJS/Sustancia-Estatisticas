@@ -8,7 +8,7 @@ public enum ConsumoOntem {
     HAMBURGUER_E_OU_EMBUTIDOS("Hambúrguer e/ou embutidos"),
     BEBIDAS_ADOCADAS("Bebidas adoçadas"),
     MACARRAO_INSTANTANEO_OU_SALGADINHOS("Macarrão instantâneo ou salgadinhos"),
-    BISCOITPS_RECHEADOS_E_DOCES("Biscoitos recheados e doces"),
+    BISCOITOS_RECHEADOS_E_DOCES("Biscoitos recheados e doces"),
     NENHUM("nenhum");
 
 
@@ -32,7 +32,7 @@ public enum ConsumoOntem {
         }else if (valor.equals("Macarrão instantâneo ou salgadinhos")) {
             return MACARRAO_INSTANTANEO_OU_SALGADINHOS;
         }else if(valor.equals("Biscoitos recheados e doces")){
-            return BISCOITPS_RECHEADOS_E_DOCES;
+            return BISCOITOS_RECHEADOS_E_DOCES;
         }else{
             return NENHUM;
         }

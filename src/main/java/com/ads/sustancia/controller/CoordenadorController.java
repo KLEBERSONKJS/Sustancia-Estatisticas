@@ -38,7 +38,7 @@ public class CoordenadorController {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public String handleMethodArgumentNotValidException(MethodArgumentNotValidException ex, Model model) {
         log.error("Error ocorrido: {}", ex.getMessage());
-    ErrorResponse error = new ErrorResponse("", ex.getFieldError().getDefaultMessage());
+    ErrorResponse error = new ErrorResponse("Erro:", ex.getFieldError().getDefaultMessage());
         model.addAttribute("error", error);
         return "cadastro-coordenador";
         

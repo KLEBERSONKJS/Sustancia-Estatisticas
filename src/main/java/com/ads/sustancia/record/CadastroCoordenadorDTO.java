@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Past;
 
 public record  CadastroCoordenadorDTO(
     @NotBlank(message = "O nome não pode estar em branco")
@@ -16,5 +17,6 @@ public record  CadastroCoordenadorDTO(
     @NotBlank(message = "A senha não pode estar em branco")
     String senha,
 
+    @Past(message= "A Data de Nascimento não pode ser a atual")
     LocalDate dataNascimento) {
 }

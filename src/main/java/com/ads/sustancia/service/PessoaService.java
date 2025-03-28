@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.ads.sustancia.enums.AuxilioEnum;
@@ -25,7 +24,6 @@ import com.ads.sustancia.record.FiltroDTO;
 import com.ads.sustancia.record.FormularioDTO;
 import com.ads.sustancia.repository.PessoaRepository;
 
-import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -36,7 +34,7 @@ public class PessoaService {
     private PessoaRepository pessoaRepository;
 
     // Método para filtrar pessoas
-    public List<Pessoa> filtrarPessoas(@Valid FiltroDTO filtro) {
+    public List<Pessoa> filtrarPessoas(FiltroDTO filtro) {
         return pessoaRepository.findAll(PessoaRepository.filtrarPorDadosFiltro(filtro));
     }
 
