@@ -2,7 +2,6 @@ package com.ads.sustancia.service;
 
 import com.ads.sustancia.enums.UserRole;
 import com.ads.sustancia.enums.UsuarioStatus;
-import com.ads.sustancia.exception.NegocioException;
 import com.ads.sustancia.model.Coordenador;
 import com.ads.sustancia.record.CadastroCoordenadorDTO;
 import com.ads.sustancia.repository.CoordenadorRepository;
@@ -32,7 +31,7 @@ public class CoordenadorService {
 
     public String cadastrarCoordenador(CadastroCoordenadorDTO dados) {
         if (dados == null) {
-            throw new NegocioException("Parametro não pode ser Nulo");
+            throw new RuntimeException("Parametro não pode ser Nulo");
         }
         int codigo = new Random().nextInt(900000) + 100000;
         codigosVerificacao.put(dados.email(), codigo);

@@ -20,7 +20,7 @@ import com.ads.sustancia.enums.Religiao;
 import com.ads.sustancia.model.ConsumoAlimentar;
 import com.ads.sustancia.model.InsegurancaAlimentar;
 import com.ads.sustancia.model.Pessoa;
-import com.ads.sustancia.record.FiltroDTO;
+import com.ads.sustancia.record.FiltrosDTO;
 import com.ads.sustancia.record.FormularioDTO;
 import com.ads.sustancia.repository.PessoaRepository;
 
@@ -33,10 +33,6 @@ public class PessoaService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    // Método para filtrar pessoas
-    public List<Pessoa> filtrarPessoas(FiltroDTO filtro) {
-        return pessoaRepository.findAll(PessoaRepository.filtrarPorDadosFiltro(filtro));
-    }
 
     public Pessoa cadastrarPessoa(FormularioDTO dadosPessoaForms) throws Exception {
 
@@ -84,7 +80,6 @@ public class PessoaService {
         return refeicoes;
     }
 
-
     private List<ConsumoOntem> addConsumoOntem(String consumoDto) {
         List<ConsumoOntem> consumo = new ArrayList<>();
         List<String> listaConsumo = Arrays.asList(consumoDto.split(","));
@@ -109,7 +104,7 @@ public class PessoaService {
 
     public List<Pessoa> listarTodos() {
         return pessoaRepository.findAll();
-    }   
+    }
 
     private ConsumoAlimentar criarConsumoAlimentar(FormularioDTO dadosPessoaForms) {
         return new ConsumoAlimentar(
@@ -128,6 +123,15 @@ public class PessoaService {
                 dadosPessoaForms.ebia_6(),
                 dadosPessoaForms.ebia_7(),
                 dadosPessoaForms.ebia_8());
+    }
+
+    public String dadosfiltrados(FiltrosDTO filtrosDTO){
+        System.out.println(filtrosDTO);
+        List<Pessoa> filtrarPessoas = pessoaRepository.filtrarPessoas(Raca.respostaRaca(filtrosDTO.getRaca()), Genero.repostaGenero(filtrosDTO.getGenero()), filtrosDTO.getIdadeMin(), filtrosDTO.getIdadeMax());
+        for ( Pessoa p : filtrarPessoas) {
+            System.out.println(p);
+        }
+        return "fim sql";
     }
 
 }
