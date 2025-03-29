@@ -1,42 +1,75 @@
-<!-- filtro.jte -->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filtrar Pessoas</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/filtro.css">
+    <title>Filtro</title>
 </head>
+
 <body>
-    <h2>Filtrar Pessoas</h2>
-    <form action="/formulario/filtro/resultado" method="get">
-        <label for="idade">Idade:</label>
-        <input type="number" name="idade" id="idade" placeholder="Idade" /><br>
 
-        <label for="genero">Gênero:</label>
-        <input type="text" name="genero" id="genero" placeholder="Gênero" /><br>
+    <main>
+        <header class="cabecalho">
+            <div class="container-filtro">
+                <div class="dropdown">
+                    <div class="dropdown-bar">
+                        <button class="toggle-dropdown" id="toggleDropdown"><i class='bx bx-chevron-down'></i></button>
+                        <ul class="selected-items" id="selectedItems"></ul>
+                    </div>
+                    <ul class="dropdown-menu" id="dropdownMenu">
+                        <li class="dropdown-item" data-value="Item 1">Lorem ipsum dolor sit.</li>
+                        <li class="dropdown-item" data-value="Item 2">Lorem ipsum dolor sit.</li>
+                        <li class="dropdown-item" data-value="Item 3">Lorem ipsum dolor sit.</li>
+                        <li class="dropdown-item" data-value="Item 4">Lorem ipsum dolor sit.</li>
+                    </ul>
+                </div>
+                <button class="filter-btn" id="filterBtn">Filtrar</button>
+            </div>
+        </header>
+    </main>
 
-        <label for="raca">Raça:</label>
-        <input type="text" name="raca" id="raca" placeholder="Raça" /><br>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleDropdown = document.getElementById("toggleDropdown");
+            const dropdownMenu = document.getElementById("dropdownMenu");
+            const selectedItemsContainer = document.getElementById("selectedItems");
+            const filterBtn = document.getElementById("filterBtn");
+            let isDropdownOpen = false;
 
-        <label for="escolariadade">Escolaridade:</label>
-        <input type="text" name="escolariadade" id="escolariadade" placeholder="Escolaridade" /><br>
+            toggleDropdown.addEventListener("click", function () {
+                dropdownMenu.classList.toggle("active");
+                isDropdownOpen = !isDropdownOpen;
+            });
 
-        <label for="estadoCivil">Estado Civil:</label>
-        <input type="text" name="estadoCivil" id="estadoCivil" placeholder="Estado Civil" /><br>
+            dropdownMenu.addEventListener("click", function (event) {
+                if (event.target.classList.contains("dropdown-item")) {
+                    const itemValue = event.target.dataset.value;
+                    event.target.style.display = "none";
 
-        <label for="emprego">Emprego:</label>
-        <input type="text" name="emprego" id="emprego" placeholder="Emprego" /><br>
+                    const selectedItem = document.createElement("li");
+                    selectedItem.classList.add("selected-item");
+                    selectedItem.innerHTML = `<span>${itemValue}</span> <button class="remove-item">X</button>`;
 
-        <label for="auxilio">Auxílio:</label>
-        <input type="text" name="auxilio" id="auxilio" placeholder="Auxílio" /><br>
+                    selectedItem.querySelector(".remove-item").addEventListener("click", function () {
+                        selectedItem.remove();
+                        event.target.style.display = "block";
+                    });
 
-        <label for="dependentes">Dependentes:</label>
-        <input type="text" name="dependentes" id="dependentes" placeholder="Dependentes" /><br>
+                    selectedItemsContainer.appendChild(selectedItem);
+                }
+            });
 
-        <label for="religiao">Religião:</label>
-        <input type="text" name="religiao" id="religiao" placeholder="Religião" /><br>
-
-        <button type="submit">Filtrar</button>
-    </form>
+            filterBtn.addEventListener("click", function () {
+                selectedItemsContainer.innerHTML = "";
+                dropdownMenu.querySelectorAll(".dropdown-item").forEach(item => {
+                    item.style.display = "block";
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>
