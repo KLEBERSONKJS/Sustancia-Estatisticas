@@ -1,5 +1,10 @@
 package com.ads.sustancia.record;
 
+import java.util.List;
+import java.util.Map;
+
+import com.ads.sustancia.model.Resposta;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +13,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DadosGraficoDTO {
-    private String Campo;
-    private Number valor;
+    private String pergunta;
+    private List<Resposta> respostas;
 }

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RespostaSql {
-    private String nome;
-    private Long Total;
+public class Resposta {
+    private String campo;
+    private Long valor;
 }

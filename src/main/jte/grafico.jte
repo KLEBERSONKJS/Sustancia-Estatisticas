@@ -1,11 +1,12 @@
 @import com.ads.sustancia.enums.*
 @import com.ads.sustancia.record.FiltroDTO
+@import com.ads.sustancia.model.Resposta
 @import com.ads.sustancia.record.DadosGraficoDTO
 @import java.util.Objects
 @import java.util.List;
 
 @param FiltroDTO filtro
-@param List<DadosGraficoDTO> dados = null
+@param List<DadosGraficoDTO> dadosP2 = null
     <!DOCTYPE html>
     <html lang="pt-BR">
 
@@ -21,7 +22,7 @@
                 padding: 20px;
                 line-height: 1.6;
             }
-        
+
             .filter-container {
                 background-color: #f5f5f5;
                 padding: 15px;
@@ -29,23 +30,23 @@
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 margin-bottom: 20px;
             }
-        
+
             .filter-section {
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
                 gap: 15px;
             }
-        
+
             .filter-group {
                 margin-bottom: 0;
             }
-        
+
             h1 {
                 color: #2c3e50;
                 text-align: center;
                 margin-bottom: 20px;
             }
-        
+
             label {
                 display: block;
                 margin-bottom: 5px;
@@ -53,7 +54,7 @@
                 color: #2c3e50;
                 font-size: 14px;
             }
-        
+
             select {
                 padding: 8px;
                 width: 100%;
@@ -62,7 +63,7 @@
                 font-size: 14px;
                 height: 38px;
             }
-        
+
             button {
                 background-color: #4CAF50;
                 color: white;
@@ -76,22 +77,33 @@
                 grid-column: 1 / -1;
                 justify-self: end;
             }
-        
+
             button:hover {
                 background-color: #45a049;
             }
-        
+
             #results {
+                display: flex;
                 margin-top: 20px;
                 padding: 20px;
                 background-color: #fff;
                 border-radius: 8px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
-        
+
             .chart-container {
-                width:30%;
-                margin: 0 auto;
+                width: 80%;
+                margin: 20px auto;
+                padding: 15px;
+                border: 1px solid #eee;
+                border-radius: 8px;
+            }
+
+            .chart-title {
+                text-align: center;
+                margin-bottom: 10px;
+                font-weight: bold;
+                color: #2c3e50;
             }
         </style>
     </head>
@@ -115,8 +127,6 @@
                     </select>
                 </div>
 
-
-
                 <div class="filter-group">
                     <label for="religiao">Religiao:</label>
                     <select id="religiao" name="religiao">
@@ -128,7 +138,6 @@
                         @endfor
                     </select>
                 </div>
-
 
                 <div class="filter-group">
                     <label for="genero">Genero:</label>
@@ -207,51 +216,67 @@
         </form>
 
         <div id="results">
-            @if (dados != null && !dados.isEmpty())
+            @if (dadosP2 != null && !dadosP2.isEmpty())
+            @for (DadosGraficoDTO d : dadosP2)
             <div class="chart-container">
-                <canvas id="myChart"></canvas>
+                <div class="chart-title">${d.getPergunta()}</div>
+                <canvas id="chart${dadosP2.indexOf(d)}"></canvas>
             </div>
+            @endfor
 
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script>
-          
-                // Solução 2: Dados dinâmicos (recomendado para produção)
-                // Substitua por isso quando o controller estiver preparando os dados como JSON:
-                // const chartData = ${jsonData};
-                
-                const ctx = document.getElementById('myChart').getContext('2d');
-                new Chart(ctx, {
+                @for (DadosGraficoDTO d : dadosP2)
+                const ctx${ dadosP2.indexOf(d)} = document.getElementById('chart${dadosP2.indexOf(d)}').getContext('2d');
+                new Chart(ctx${ dadosP2.indexOf(d) }, {
                     type: 'pie',
                     data: {
-                        labels: [@for(DadosGraficoDTO d: dados)
-                                    "${d.getCampo()}",
-                                @endfor],
-                        datasets: [{
-                            data: [@for(DadosGraficoDTO d: dados)
-                                    ${d.getValor()},
-                                @endfor],
-                            backgroundColor: [
-                                '#36A2EB', '#FF6384', '#FFCE56', '#4BC0C0', '#9966FF',
-                                '#FF9F40', '#8AC24A', '#607D8B', '#E91E63', '#9C27B0'
+                        labels: [
+                            @for(Resposta resposta: d.getRespostas())
+                "${resposta.getCampo()}"@if (!resposta.equals(d.getRespostas().get(d.getRespostas().size() - 1))), @endif
+                @endfor
                             ],
-                            hoverOffset: 20
-                        }]
-                    },
-                    options: {
-                        responsive: true,
+                datasets: [{
+                    data: [
+                        @for(Resposta resposta: d.getRespostas())
+                    ${ resposta.getValor() }@if (!resposta.equals(d.getRespostas().get(d.getRespostas().size() - 1))), @endif
+                    @endfor
+                                ],
+                backgroundColor: [
+                    '#36A2EB', '#FF6384', '#FFCE56', '#4BC0C0', '#9966FF',
+                    '#FF9F40', '#8AC24A', '#607D8B', '#E91E63', '#9C27B0'
+                ],
+                    hoverOffset: 20
+                            }]
+                        },
+                options: {
+                    responsive: true,
                         plugins: {
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                        const percentage = Math.round(context.raw * 100 / total);
-                                        return context.label + ': ' + context.raw + ' (' + percentage + '%)';
-                                    }
+                        title: {
+                            display: true,
+                                text: '${d.getPergunta()}',
+                                    font: {
+                                size: 18,
+                                    weight: 'bold'
+                            },
+                            padding: {
+                                top: 10,
+                                    bottom: 20
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round(context.raw * 100 / total);
+                                    return context.label + ': ' + context.raw + ' (' + percentage + '%)';
                                 }
                             }
                         }
                     }
-                });
+                }
+                    });
+                @endfor
             </script>
             @else
             <p>Nenhum dado disponível para exibir. Aplique os filtros e gere o relatório.</p>
