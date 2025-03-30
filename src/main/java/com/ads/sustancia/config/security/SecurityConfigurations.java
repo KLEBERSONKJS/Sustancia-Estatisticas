@@ -20,7 +20,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfigurations {
+public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private SecurityFilter filter;
@@ -68,5 +68,13 @@ public class SecurityConfigurations {
         source.registerCorsConfiguration("/**", corsConfig); // Aplica a configuração a todas as URLs
         return source;
     }
-    
+
+    @Bean
+    public HttpSecurity httpSecurity(HttpSecurity http) throws Exception {
+        http.csrf(csrf -> csrf.disable())
+                .authorizeRequests(requests -> requests
+                        .requestMatchers("/profile").authenticated() // Protege a rota /profile
+                        .anyRequest().permitAll()); // Outras rotas são públicas
+        return http;
+    }
 }
