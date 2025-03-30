@@ -1,10 +1,7 @@
 package com.ads.sustancia.controller;
 
-<<<<<<< HEAD
 import java.util.List;
 
-=======
->>>>>>> 53c7bd6f9e9d694b3c19b3ead02a369d81b720c2
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -22,19 +19,10 @@ import com.ads.sustancia.enums.EstadoCivilEnum;
 import com.ads.sustancia.enums.GeneroEnum;
 import com.ads.sustancia.enums.RacaEnum;
 import com.ads.sustancia.enums.ReligiaoEnum;
-<<<<<<< HEAD
 import com.ads.sustancia.record.DadosGraficoDTO;
 import com.ads.sustancia.record.ErrorResponse;
 import com.ads.sustancia.record.FiltroDTO;
 import com.ads.sustancia.service.RelatorioService;
-
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-=======
-import com.ads.sustancia.record.ErrorResponse;
-import com.ads.sustancia.record.FiltroDTO;
-import com.ads.sustancia.service.PessoaService;
->>>>>>> 53c7bd6f9e9d694b3c19b3ead02a369d81b720c2
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -45,28 +33,19 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class RelatorioController {
     
-<<<<<<< HEAD
     private final RelatorioService relatorioService;
     private java.util.Map<String, Long> dadosFiltrados;
-=======
-    private final PessoaService pessoaService;
->>>>>>> 53c7bd6f9e9d694b3c19b3ead02a369d81b720c2
 
     @GetMapping()
     public String visualizarRelatorio(FiltroDTO filtroDTO, Model model){
-        List<DadosGraficoDTO> dadosFiltrados2 = relatorioService.dadosFiltrados(filtroDTO);
+        List<DadosGraficoDTO> dadosFiltrados2 = relatorioService.dadosFiltradosTeste(filtroDTO);
         model.addAttribute("dados", dadosFiltrados2);
         return "grafico";
     } 
 
 
     @PostMapping
-<<<<<<< HEAD
     public String aplicarFiltros(){
-=======
-    public String aplicarFiltros(FiltroDTO filtroDTO){
-        pessoaService.dadosFiltrados(filtroDTO);
->>>>>>> 53c7bd6f9e9d694b3c19b3ead02a369d81b720c2
         return "ok";
     }
 

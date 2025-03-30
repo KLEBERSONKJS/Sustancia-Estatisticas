@@ -123,21 +123,4 @@ public class PessoaService {
                 dadosPessoaForms.ebia_8());
     }
 
-<<<<<<< HEAD
-=======
-    // public String dadosfiltrados(FiltrosDTO filtrosDTO){
-    //     System.out.println(filtrosDTO);
-    //     List<Pessoa> filtrarPessoas = pessoaRepository.filtrarPessoas(RacaEnum.respostaRaca(filtrosDTO.getRaca()), GeneroEnum.repostaGenero(filtrosDTO.getGenero()), filtrosDTO.getIdadeMin(), filtrosDTO.getIdadeMax());
-    //     for ( Pessoa p : filtrarPessoas) {
-    //         System.out.println(p);
-    //     }
-    //     return "fim sql";
-    // }
-
-    public String dadosFiltrados (FiltroDTO filtro){
-        List<Pessoa> filtarPessoas = pessoaRepository.filtrarPessoasParaSubquery(filtro);
-        System.out.println(filtarPessoas);
-        return filtarPessoas + "";
-    }
->>>>>>> 53c7bd6f9e9d694b3c19b3ead02a369d81b720c2
 }
