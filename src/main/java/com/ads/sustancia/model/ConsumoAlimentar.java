@@ -2,9 +2,9 @@ package com.ads.sustancia.model;
 
 import java.util.List;
 
-import com.ads.sustancia.enums.ConsumoOntem;
-import com.ads.sustancia.enums.RefeicaoDia;
-import com.ads.sustancia.enums.SimNaoNaoSabe;
+import com.ads.sustancia.enums.ConsumoOntemEnum;
+import com.ads.sustancia.enums.RefeicaoDiaEnum;
+import com.ads.sustancia.enums.SimNaoNaoSabeEnum;
 
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embeddable;
@@ -19,21 +19,21 @@ import lombok.NoArgsConstructor;
 public class ConsumoAlimentar {
 
     @Enumerated(EnumType.STRING)
-    private SimNaoNaoSabe refeicaoComCelular;
+    private SimNaoNaoSabeEnum refeicaoComCelular;
     
     @ElementCollection
     @Enumerated(EnumType.STRING )
-    private List<RefeicaoDia> refeicoesDiaList;
+    private List<RefeicaoDiaEnum> refeicoesDiaList;
 
     @ElementCollection
     @Enumerated(EnumType.STRING)
-    private List<ConsumoOntem> tiposRefeicoesList;
+    private List<ConsumoOntemEnum> tiposRefeicoesList;
 
 
-    public ConsumoAlimentar(String refeicaoString, List<ConsumoOntem> tiposRefeicoes,
-            List<RefeicaoDia> voceConsumiu) {
+    public ConsumoAlimentar(String refeicaoString, List<ConsumoOntemEnum> tiposRefeicoes,
+            List<RefeicaoDiaEnum> voceConsumiu) {
 
-        this.refeicaoComCelular = SimNaoNaoSabe.repostaSimNaoNaoSabe(refeicaoString);
+        this.refeicaoComCelular = SimNaoNaoSabeEnum.repostaSimNaoNaoSabe(refeicaoString);
         this.tiposRefeicoesList = tiposRefeicoes;
         this.refeicoesDiaList = voceConsumiu;
       

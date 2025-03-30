@@ -1,6 +1,6 @@
 package com.ads.sustancia.enums;
 
-public enum Genero {
+public enum GeneroEnum {
     
     MASCULINO("Masculino"),
     FEMININO("Feminino"),
@@ -10,11 +10,11 @@ public enum Genero {
 
     private final String descricao;
     
-    Genero(String descricao){
+    GeneroEnum(String descricao){
         this.descricao = descricao;
     }
 
-    public static Genero repostaGenero(String valor){
+    public static GeneroEnum repostaGenero(String valor){
         if (valor.equals("Masculino")) {
             return MASCULINO;
         }else if (valor.equals("Feminino")) {

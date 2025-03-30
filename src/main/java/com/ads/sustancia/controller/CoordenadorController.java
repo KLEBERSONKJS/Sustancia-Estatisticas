@@ -35,21 +35,13 @@ public class CoordenadorController {
             return "verificacaoCadastro";
     }
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public String handleMethodArgumentNotValidException(MethodArgumentNotValidException ex, Model model) {
-        log.error("Error ocorrido: {}", ex.getMessage());
-    ErrorResponse error = new ErrorResponse("Erro:", ex.getFieldError().getDefaultMessage());
-        model.addAttribute("error", error);
-        return "cadastro-coordenador";
-        
-    }
-
-
+    
+    
     @GetMapping()
     public String cadastroCoordenador() {
         return "cadastro-coordenador";
     }
-
+    
     @PostMapping("/verificar-codigo")
     public String verificarCodigo(VerificacaoCadastroDTO verificar, Model model) {
         try {
@@ -61,6 +53,15 @@ public class CoordenadorController {
             return "verificarCadastro";
         }
     }
-
+    
+    
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public String handleMethodArgumentNotValidException(MethodArgumentNotValidException ex, Model model) {
+        log.error("Error ocorrido: {}", ex.getMessage());
+    ErrorResponse error = new ErrorResponse("Erro:", ex.getFieldError().getDefaultMessage());
+        model.addAttribute("error", error);
+        return "cadastro-coordenador";
+        
+    }
     
 }

@@ -1,6 +1,6 @@
 package com.ads.sustancia.enums;
 
-public enum SimNaoNaoSabe {
+public enum SimNaoNaoSabeEnum {
 
     SIM("Sim"),
     NAO("Não"),
@@ -9,11 +9,11 @@ public enum SimNaoNaoSabe {
     private final String valor;
    
    
-    SimNaoNaoSabe(String valor) {
+    SimNaoNaoSabeEnum(String valor) {
         this.valor = valor;
     }
 
-    public static SimNaoNaoSabe repostaSimNaoNaoSabe(String valor){
+    public static SimNaoNaoSabeEnum repostaSimNaoNaoSabe(String valor){
         if(valor.equals("Sim")){
             return SIM;
         }else if (valor.equals("Não")) {

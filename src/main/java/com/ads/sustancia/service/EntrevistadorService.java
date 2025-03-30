@@ -8,7 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.ads.sustancia.enums.UserRole;
-import com.ads.sustancia.enums.UsuarioStatus;
+import com.ads.sustancia.enums.UsuarioStatusEnum;
 import com.ads.sustancia.model.Entrevistador;
 import com.ads.sustancia.record.CadastroEntrevistadorDTO;
 import com.ads.sustancia.repository.EntrevistadorRepository;
@@ -56,7 +56,7 @@ public class EntrevistadorService {
                     .findByEmail(autenticacaoImpl.validaTokenJwt(token));
             if (entrevistadorVerificar.isPresent()) {
                 Entrevistador entrevistadorVerificado = entrevistadorVerificar.get();
-                entrevistadorVerificado.setStatus(UsuarioStatus.ATIVO);
+                entrevistadorVerificado.setStatus(UsuarioStatusEnum.ATIVO);
                 entrevistadorRepository.save(entrevistadorVerificado);
             }
             return ("Confirmação bem Sucedida");

@@ -1,7 +1,7 @@
 package com.ads.sustancia.service;
 
 import com.ads.sustancia.enums.UserRole;
-import com.ads.sustancia.enums.UsuarioStatus;
+import com.ads.sustancia.enums.UsuarioStatusEnum;
 import com.ads.sustancia.model.Coordenador;
 import com.ads.sustancia.record.CadastroCoordenadorDTO;
 import com.ads.sustancia.repository.CoordenadorRepository;
@@ -59,7 +59,7 @@ public class CoordenadorService {
                 UserRole userRole = UserRole.ADMIN;
                 Coordenador novoCoordenador = new Coordenador(dados.nome(), dados.email(), passwordHash,
                         dados.dataNascimento(), userRole);
-                novoCoordenador.setStatus(UsuarioStatus.ATIVO);
+                novoCoordenador.setStatus(UsuarioStatusEnum.ATIVO);
                 coordenadorRepository.save(novoCoordenador);
                 return "Cadastro confirmado! Coordenador " + novoCoordenador.getNome() + " foi registrado com sucesso.";
             } else {

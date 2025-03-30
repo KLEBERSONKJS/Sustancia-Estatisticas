@@ -1,6 +1,6 @@
 package com.ads.sustancia.enums;
 
-public enum UsuarioStatus {
+public enum UsuarioStatusEnum {
 
     ATIVO("ativo"),
     PENDENTE("pendente"),
@@ -9,7 +9,7 @@ public enum UsuarioStatus {
 
     private final String status;
 
-    UsuarioStatus(String status){
+    UsuarioStatusEnum(String status){
         this.status = status;
     }
 }

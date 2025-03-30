@@ -1,6 +1,6 @@
 package com.ads.sustancia.enums;
 
-public enum Raca {
+public enum RacaEnum {
     BRANCO("Branco"),
     PRETO("Preto"),
     PARDO("Pardo"),
@@ -9,11 +9,11 @@ public enum Raca {
 
     private final String descricao;
 
-    Raca(String descricao){
+    RacaEnum(String descricao){
         this.descricao = descricao;
     }
 
-    public static Raca respostaRaca(String valor){
+    public static RacaEnum respostaRaca(String valor){
         if (valor.equals("Branco")) {
             return BRANCO;
         }else if (valor.equals("Preto")) {

@@ -1,6 +1,6 @@
 package com.ads.sustancia.enums;
 
-public enum EstadoCivil {
+public enum EstadoCivilEnum {
     CASADO("Casado"),
     VIUVO("Viúvo"),
     DIVORCIADO("Divorciado"),
@@ -10,12 +10,12 @@ public enum EstadoCivil {
 
     
 
-    EstadoCivil(String descricao){
+    EstadoCivilEnum(String descricao){
         
     }
 
     
-    public static EstadoCivil respostaEstadoCivil(String valor){
+    public static EstadoCivilEnum respostaEstadoCivil(String valor){
         if (valor.equals("Casado")) {
             return CASADO;
         }else if (valor.equals("Viúvo")) {

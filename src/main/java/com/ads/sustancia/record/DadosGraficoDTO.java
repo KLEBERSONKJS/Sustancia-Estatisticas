@@ -7,10 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FiltrosDTO {
-    
-    private String raca;
-    private String genero;
-    private int idadeMax = 50;
-    private int idadeMin = 5;
+public class DadosGraficoDTO {
+    private String Campo;
+    private Number valor;
 }

@@ -1,6 +1,6 @@
 package com.ads.sustancia.enums;
 
-public enum RefeicaoDia {
+public enum RefeicaoDiaEnum {
     CAFE_DA_MANHA("Café da manhã"),
     LANCHE_DA_MANHA("Lanche da manhã"),
     ALMOCO("Almoço"),
@@ -12,11 +12,11 @@ public enum RefeicaoDia {
 
     private final String resposta;
 
-    RefeicaoDia(String resposta){
+    RefeicaoDiaEnum(String resposta){
         this.resposta = resposta;
     }
 
-    public static RefeicaoDia respostaRefeicaoDia(String valor){
+    public static RefeicaoDiaEnum respostaRefeicaoDia(String valor){
         if (valor.equals("Café da manhã")) {
             return CAFE_DA_MANHA;
         }else if (valor.equals("Lanche da manhã")) {
