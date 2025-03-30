@@ -100,4 +100,9 @@ public class CoordenadorService {
         return Optional.ofNullable(dadosPendentes.get(email));
     }
 
+    public Coordenador getCoordenadorProfile(String email) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCoordenadorProfile'");
+    }
+
 }
