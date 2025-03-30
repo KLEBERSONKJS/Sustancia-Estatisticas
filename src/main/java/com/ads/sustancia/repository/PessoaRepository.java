@@ -50,6 +50,7 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long>, JpaSpecif
        // );
 
        @Query("SELECT p FROM Pessoa p " +
+<<<<<<< HEAD
                      "WHERE " +
                      "(:#{#filtro.raca} IS NULL OR p.raca = :#{#filtro.raca}) AND " +
                      "(:#{#filtro.genero} IS NULL OR p.genero = :#{#filtro.genero}) AND " +
@@ -88,5 +89,23 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long>, JpaSpecif
                      "   SELECT 1 FROM p.auxilios a WHERE a = :#{#filtro.auxilio}" +
                      "))")
        List<Object[]> contarRespostasRefeicaoComCelular(@Param("filtro") FiltroDTO filtro);
+=======
+       "WHERE " +
+       "(:#{#filtro.raca} IS NULL OR p.raca = :#{#filtro.raca}) AND " +
+       "(:#{#filtro.genero} IS NULL OR p.genero = :#{#filtro.genero}) AND " +
+       "(:#{#filtro.idadeMin} IS NULL OR p.idade >= :#{#filtro.idadeMin}) AND " +
+       "(:#{#filtro.idadeMax} IS NULL OR p.idade <= :#{#filtro.idadeMax}) AND " +
+       "(:#{#filtro.religiao} IS NULL OR p.religiao = :#{#filtro.religiao}) AND " +
+       "(:#{#filtro.escolaridade} IS NULL OR p.escolaridade = :#{#filtro.escolaridade}) AND " +
+       "(:#{#filtro.estadoCivil} IS NULL OR p.estadoCivil = :#{#filtro.estadoCivil}) AND " +
+       "(:#{#filtro.emprego} IS NULL OR p.emprego = :#{#filtro.emprego}) AND " +
+       "(:#{#filtro.dependentes} IS NULL OR p.dependentes = :#{#filtro.dependentes}) AND " +
+       "(:#{#filtro.auxilio} IS NULL OR EXISTS (" +
+       "   SELECT 1 FROM p.auxilios a WHERE a = :#{#filtro.auxilio}" +
+       "))")
+List<Pessoa> filtrarPessoasParaSubquery(@Param("filtro") FiltroDTO filtro);
+ 
+       
+>>>>>>> 53c7bd6f9e9d694b3c19b3ead02a369d81b720c2
 
 }

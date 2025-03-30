@@ -1,8 +1,16 @@
 @import com.ads.sustancia.enums.*
 @import com.ads.sustancia.record.FiltroDTO
+<<<<<<< HEAD
 @import com.ads.sustancia.record.DadosGraficoDTO
 @import java.util.Objects
 @import java.util.List;
+=======
+@import java.util.Objects
+
+@param FiltroDTO filtro
+<!DOCTYPE html>
+<html lang="pt-BR">
+>>>>>>> 53c7bd6f9e9d694b3c19b3ead02a369d81b720c2
 
 @param FiltroDTO filtro
 @param List<DadosGraficoDTO> dados = null
@@ -178,6 +186,7 @@
                     </select>
                 </div>
 
+<<<<<<< HEAD
                 <div class="filter-group">
                     <label for="dependentes">Dependentes:</label>
                     <select id="dependentes" name="dependentes">
@@ -256,6 +265,112 @@
             @else
             <p>Nenhum dado disponível para exibir. Aplique os filtros e gere o relatório.</p>
             @endif
+=======
+    <form action="/relatorio" method="get">
+        <div class="filter-section">
+            <h2>Filtrar por:</h2>
+
+            <div class="filter-group">
+                <label for="raca">Raça/Cor:</label>
+                <select id="raca" name="raca">
+                    <option value="">Todos as Raças</option>
+                    @for (RacaEnum raca : RacaEnum.values())
+                    <option value="${raca.name()}">
+                        ${raca.name()}
+                    </option>
+                    @endfor
+                </select>
+            </div>
+
+
+
+            <div class="filter-group">
+                <label for="religiao">Religiao:</label>
+                <select id="religiao" name="religiao">
+                    <option value="">Todas os Religiões</option>
+                    @for (ReligiaoEnum religiao : ReligiaoEnum.values())
+                    <option value="${religiao.name()}">
+                        ${religiao.name()}
+                    </option>
+                    @endfor
+                </select>
+            </div>
+
+
+            <div class="filter-group">
+                <label for="genero">Genero:</label>
+                <select id="genero" name="genero">
+                    <option value="">Todos os gêneros</option>
+                    @for (GeneroEnum genero : GeneroEnum.values())
+                    <option value="${genero.name()}">
+                        ${genero.name()}
+                    </option>
+                    @endfor
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="escolaridade">Escolaridade:</label>
+                <select id="escolaridade" name="escolaridade">
+                    <option value="">Todas as Escolaridade</option>
+                    @for (EscolaridadeEnum escolaridade : EscolaridadeEnum.values())
+                    <option value="${escolaridade.name()}">
+                        ${escolaridade.name()}
+                    </option>
+                    @endfor
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="estadoCivil">Estado Civil:</label>
+                <select id="estadoCivil" name="estadoCivil">
+                    <option value="">Todos  estadoCivil</option>
+                    @for (EstadoCivilEnum estadoCivil : EstadoCivilEnum.values())
+                    <option value="${estadoCivil.name()}">
+                        ${estadoCivil.name()}
+                    </option>
+                    @endfor
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="emprego">Emprego:</label>
+                <select id="emprego" name="emprego">
+                    <option value="">Todos os empregos</option>
+                    @for (EmpregoEnum emprego : EmpregoEnum.values())
+                    <option value="${emprego.name()}">
+                        ${emprego.name()}
+                    </option>
+                    @endfor
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="dependentes">Dependentes:</label>
+                <select id="dependentes" name="dependentes">
+                    <option value="">Todas os dependentes</option>
+                    @for (DependentesEnum dependentes : DependentesEnum.values())
+                    <option value="${dependentes.name()}">
+                        ${dependentes.name()}
+                    </option>
+                    @endfor
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="auxilio">Auxilio:</label>
+                <select id="auxilio" name="auxilio">
+                    <option value="">Todas os auxilios</option>
+                    @for (AuxilioEnum auxilio : AuxilioEnum.values())
+                    <option value="${auxilio.name()}">
+                        ${auxilio.name()}
+                    </option>
+                    @endfor
+                </select>
+            </div>
+
+            <button type="submit">Gerar Relatório</button>
+>>>>>>> 53c7bd6f9e9d694b3c19b3ead02a369d81b720c2
         </div>
     </body>
 
