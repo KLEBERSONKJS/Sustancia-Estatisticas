@@ -1,6 +1,6 @@
 package com.ads.sustancia.enums;
 
-public enum Dependentes {
+public enum DependentesEnum {
 
     NENHUM("Nenhum"),
     UM("1"),
@@ -12,11 +12,11 @@ public enum Dependentes {
 
     private final String descricao;
 
-    Dependentes(String descricao){
+    DependentesEnum(String descricao){
         this.descricao = descricao;
     }
 
-    public static Dependentes respostaDependentes(String valor){
+    public static DependentesEnum respostaDependentes(String valor){
         if (valor.equals("Nenhum")) {
             return NENHUM;
         }else if (valor.equals("1")) {

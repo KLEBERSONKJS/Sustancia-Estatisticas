@@ -1,6 +1,6 @@
 package com.ads.sustancia.enums;
 
-public enum Emprego {
+public enum EmpregoEnum {
     
     MEIOPERIODO("Meio período"),
     DESEMPREGADO("Desempregado"),
@@ -12,11 +12,11 @@ public enum Emprego {
 
     private final String descricao;
 
-    Emprego(String descricao){
+    EmpregoEnum(String descricao){
         this.descricao = descricao;
     }
 
-    public static Emprego respostaEmprego(String valor){
+    public static EmpregoEnum respostaEmprego(String valor){
         if (valor.equals("Meio período")) {
             return MEIOPERIODO;
         }else if (valor.equals("Desempregado")) {

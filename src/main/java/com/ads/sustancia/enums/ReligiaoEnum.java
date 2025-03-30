@@ -1,6 +1,6 @@
 package com.ads.sustancia.enums;
 
-public enum Religiao {
+public enum ReligiaoEnum {
 
     CATOLICO("Católico"),
     EVANGELICO("Evangélico"),
@@ -13,11 +13,11 @@ public enum Religiao {
 
     private final String descricao;
 
-    Religiao(String descicao){
+    ReligiaoEnum(String descicao){
         this.descricao = descicao;
     }
 
-    public static Religiao repostaReligiao(String valor){
+    public static ReligiaoEnum repostaReligiao(String valor){
 
         if (valor.equals("Católico")) {
             return CATOLICO;

@@ -9,7 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.ads.sustancia.enums.UserRole;
-import com.ads.sustancia.enums.UsuarioStatus;
+import com.ads.sustancia.enums.UsuarioStatusEnum;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -42,7 +42,7 @@ public class Coordenador implements UserDetails{
     @Column(nullable = false)
     private LocalDate dataNascimento;
     @Enumerated(EnumType.STRING)
-    private UsuarioStatus status;
+    private UsuarioStatusEnum status;
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
@@ -56,7 +56,7 @@ public class Coordenador implements UserDetails{
         this.senha = senha;
         this.dataNascimento = dataNascimento;
         this.role = userRole;
-        this.status = UsuarioStatus.PENDENTE;
+        this.status = UsuarioStatusEnum.PENDENTE;
 
     }
 

@@ -8,20 +8,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ads.sustancia.enums.AuxilioEnum;
-import com.ads.sustancia.enums.ConsumoOntem;
-import com.ads.sustancia.enums.Dependentes;
-import com.ads.sustancia.enums.Emprego;
-import com.ads.sustancia.enums.Escolariade;
-import com.ads.sustancia.enums.EstadoCivil;
-import com.ads.sustancia.enums.Genero;
-import com.ads.sustancia.enums.Raca;
-import com.ads.sustancia.enums.RefeicaoDia;
-import com.ads.sustancia.enums.Religiao;
+import com.ads.sustancia.enums.ConsumoOntemEnum;
+import com.ads.sustancia.enums.DependentesEnum;
+import com.ads.sustancia.enums.EmpregoEnum;
+import com.ads.sustancia.enums.EscolaridadeEnum;
+import com.ads.sustancia.enums.EstadoCivilEnum;
+import com.ads.sustancia.enums.GeneroEnum;
+import com.ads.sustancia.enums.RacaEnum;
+import com.ads.sustancia.enums.RefeicaoDiaEnum;
+import com.ads.sustancia.enums.ReligiaoEnum;
 import com.ads.sustancia.model.ConsumoAlimentar;
 import com.ads.sustancia.model.InsegurancaAlimentar;
 import com.ads.sustancia.model.Pessoa;
-import com.ads.sustancia.record.FiltrosDTO;
 import com.ads.sustancia.record.FormularioDTO;
+import com.ads.sustancia.record.FiltroDTO;
 import com.ads.sustancia.repository.PessoaRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -51,14 +51,14 @@ public class PessoaService {
                     dadosPessoaForms.entrevistador(),
                     dadosPessoaForms.nome(),
                     dadosPessoaForms.idade(),
-                    Genero.repostaGenero(dadosPessoaForms.genero()),
-                    Raca.respostaRaca(dadosPessoaForms.raca()),
-                    Religiao.repostaReligiao(dadosPessoaForms.religiao()),
-                    Escolariade.repostEscolariade(dadosPessoaForms.escolaridade()),
-                    EstadoCivil.respostaEstadoCivil(dadosPessoaForms.estado_civil()),
-                    Emprego.respostaEmprego(dadosPessoaForms.emprego()),
+                    GeneroEnum.repostaGenero(dadosPessoaForms.genero()),
+                    RacaEnum.respostaRaca(dadosPessoaForms.raca()),
+                    ReligiaoEnum.repostaReligiao(dadosPessoaForms.religiao()),
+                    EscolaridadeEnum.repostEscolariade(dadosPessoaForms.escolaridade()),
+                    EstadoCivilEnum.respostaEstadoCivil(dadosPessoaForms.estado_civil()),
+                    EmpregoEnum.respostaEmprego(dadosPessoaForms.emprego()),
                     addAuxilioEnum(dadosPessoaForms.auxilios()),
-                    Dependentes.respostaDependentes(dadosPessoaForms.familia()),
+                    DependentesEnum.respostaDependentes(dadosPessoaForms.familia()),
                     consumoAlimentar,
                     insegurancaAlimentar);
         } catch (IllegalArgumentException e) {
@@ -70,22 +70,22 @@ public class PessoaService {
         return pessoaRepository.save(entity);
     }
 
-    private List<RefeicaoDia> addRefeicoes(String refeicoesDto) {
-        List<RefeicaoDia> refeicoes = new ArrayList<>();
+    private List<RefeicaoDiaEnum> addRefeicoes(String refeicoesDto) {
+        List<RefeicaoDiaEnum> refeicoes = new ArrayList<>();
 
         List<String> listaRefeicaoDia = Arrays.asList(refeicoesDto.split(","));
         for (String string : listaRefeicaoDia) {
-            refeicoes.add(RefeicaoDia.respostaRefeicaoDia(string));
+            refeicoes.add(RefeicaoDiaEnum.respostaRefeicaoDia(string));
         }
         return refeicoes;
     }
 
-    private List<ConsumoOntem> addConsumoOntem(String consumoDto) {
-        List<ConsumoOntem> consumo = new ArrayList<>();
+    private List<ConsumoOntemEnum> addConsumoOntem(String consumoDto) {
+        List<ConsumoOntemEnum> consumo = new ArrayList<>();
         List<String> listaConsumo = Arrays.asList(consumoDto.split(","));
 
         for (String string : listaConsumo) {
-            consumo.add(ConsumoOntem.respostaConsumoOntem(string));
+            consumo.add(ConsumoOntemEnum.respostaConsumoOntem(string));
 
         }
         return consumo;
@@ -125,13 +125,18 @@ public class PessoaService {
                 dadosPessoaForms.ebia_8());
     }
 
-    public String dadosfiltrados(FiltrosDTO filtrosDTO){
-        System.out.println(filtrosDTO);
-        List<Pessoa> filtrarPessoas = pessoaRepository.filtrarPessoas(Raca.respostaRaca(filtrosDTO.getRaca()), Genero.repostaGenero(filtrosDTO.getGenero()), filtrosDTO.getIdadeMin(), filtrosDTO.getIdadeMax());
-        for ( Pessoa p : filtrarPessoas) {
-            System.out.println(p);
-        }
-        return "fim sql";
-    }
+    // public String dadosfiltrados(FiltrosDTO filtrosDTO){
+    //     System.out.println(filtrosDTO);
+    //     List<Pessoa> filtrarPessoas = pessoaRepository.filtrarPessoas(RacaEnum.respostaRaca(filtrosDTO.getRaca()), GeneroEnum.repostaGenero(filtrosDTO.getGenero()), filtrosDTO.getIdadeMin(), filtrosDTO.getIdadeMax());
+    //     for ( Pessoa p : filtrarPessoas) {
+    //         System.out.println(p);
+    //     }
+    //     return "fim sql";
+    // }
 
+    public String dadosFiltrados (FiltroDTO filtro){
+        List<Pessoa> filtarPessoas = pessoaRepository.filtrarPessoasParaSubquery(filtro);
+        System.out.println(filtarPessoas);
+        return filtarPessoas + "";
+    }
 }

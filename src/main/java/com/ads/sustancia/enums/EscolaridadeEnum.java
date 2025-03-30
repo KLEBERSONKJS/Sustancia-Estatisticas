@@ -1,6 +1,6 @@
 package com.ads.sustancia.enums;
 
-public enum Escolariade {
+public enum EscolaridadeEnum {
 
     ENSINOFUNDAMENTALINCOMPLETO("EFI","Ensino Fundamental Incompleto"),
     ENSINOFUNDAMENTALCOMPLETO("EFC","Ensino Fundamental Completo"),
@@ -13,12 +13,12 @@ public enum Escolariade {
     private final String codigo;
     private final String descricao;
 
-    Escolariade(String codigo, String descricao) {
+    EscolaridadeEnum(String codigo, String descricao) {
         this.codigo = codigo;
         this.descricao = descricao;
     }
 
-    public static Escolariade repostEscolariade(String valor){
+    public static EscolaridadeEnum repostEscolariade(String valor){
         if (valor.equals("Ensino Fundamental Incompleto")) {
             return ENSINOFUNDAMENTALINCOMPLETO;
         }else if (valor.equals("Ensino Fundamental Completo")) {

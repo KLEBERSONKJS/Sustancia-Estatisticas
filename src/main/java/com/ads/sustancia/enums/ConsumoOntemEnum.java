@@ -1,7 +1,7 @@
 package com.ads.sustancia.enums;
 
 
-public enum ConsumoOntem {
+public enum ConsumoOntemEnum {
     FEIJAO("Feijão"),
     FRUTAS_FRESCAS("Frutas frescas"),
     VERDURAS_E_LEGUMES("Verduras e legumes"),
@@ -14,11 +14,11 @@ public enum ConsumoOntem {
 
     private final String resposta;
 
-    ConsumoOntem(String resposta){
+    ConsumoOntemEnum(String resposta){
         this.resposta = resposta;
     }
 
-    public static ConsumoOntem respostaConsumoOntem(String valor){
+    public static ConsumoOntemEnum respostaConsumoOntem(String valor){
         if (valor.equals("Feijão")) {
             return FEIJAO;
         }else if (valor.equals("Frutas frescas")) {
