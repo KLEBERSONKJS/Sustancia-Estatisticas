@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.ads.sustancia.enums.SimNaoNaoSabeEnum;
 import com.ads.sustancia.model.ConsumoAlimentar;
+import com.ads.sustancia.model.InsegurancaAlimentar;
 import com.ads.sustancia.model.Pessoa;
 import com.ads.sustancia.record.DadosGraficoDTO;
 import com.ads.sustancia.record.FiltroDTO;
@@ -27,38 +28,52 @@ public class RelatorioService {
 
     private final PessoaRepository pessoaRepository;
 
-    public List<DadosGraficoDTO> dadosFiltrados(FiltroDTO filtro) {
-        List<Object[]> resultados = pessoaRepository.contarRespostasRefeicaoComCelular(filtro);
-        if (resultados.isEmpty() || resultados.get(0) == null) {
-            throw new RuntimeErrorException(null, "Sem Dados para exibir");
-        }
-
-        Object[] resultado = resultados.get(0);
-
-        List<DadosGraficoDTO> dados = new ArrayList<>();
-        dados.add(new DadosGraficoDTO("SIM", ((Number) resultado[0]).longValue()));
-        dados.add(new DadosGraficoDTO("NAO", ((Number) resultado[1]).longValue()));
-        dados.add(new DadosGraficoDTO("NAOSABE", ((Number) resultado[2]).longValue()));
-        return dados;
+    public List<DadosGraficoDTO> dadosFiltradosConsumoAlimentar(FiltroDTO filtro) {
+        Function<ConsumoAlimentar,SimNaoNaoSabeEnum> extrator =
+        ConsumoAlimentar::getRefeicaoComCelular;
+        return getConsumoAlimentaGraficoDTOs(filtro, extrator);
     }
 
-    public List<DadosGraficoDTO> dadosFiltradosTeste(FiltroDTO filtro) {
+    public List<DadosGraficoDTO> dadosFiltradosInseguracaAlimentar(FiltroDTO filtroDTO){
+        Function<InsegurancaAlimentar,SimNaoNaoSabeEnum> extractor = InsegurancaAlimentar::getPergunta1;
+        return getDadosAgrupados(filtroDTO,extractor);
+    }
+
+
+    private List<DadosGraficoDTO> getConsumoAlimentaGraficoDTOs(FiltroDTO filtro,
+            Function<ConsumoAlimentar, SimNaoNaoSabeEnum> extrator) {
         List<Pessoa> resultados = pessoaRepository.filtrarPessoas(filtro);
 
-        Map<SimNaoNaoSabeEnum, Long> contagemPorRefeicao = resultados.stream()
+        return pessoaRepository.filtrarPessoas(filtro).stream()
                 .map(Pessoa::getConsumoAlimentar)
                 .filter(Objects::nonNull)
-                .map(ConsumoAlimentar::getRefeicaoComCelular)
+                .map(extrator)
                 .filter(Objects::nonNull)
+                .map(Enum::name)
                 .collect(Collectors.groupingBy(
                         Function.identity(),
-                        Collectors.counting()));
-        List<DadosGraficoDTO> contagem = new ArrayList<>();
-        contagemPorRefeicao.forEach((arg0, arg1) -> {
-            contagem.add(new DadosGraficoDTO(arg0.name(), arg1));
-        });
-        return contagem;
+                        Collectors.counting()))
+                .entrySet().stream()
+                .map(entry -> new DadosGraficoDTO(entry.getKey(), entry.getValue()))
+                .collect(Collectors.toList());
+    }
 
+    private List<DadosGraficoDTO> getDadosAgrupados(FiltroDTO filtro,
+            Function<InsegurancaAlimentar, SimNaoNaoSabeEnum> extrator) {
+        List<Pessoa> resultados = pessoaRepository.filtrarPessoas(filtro);
+
+        return pessoaRepository.filtrarPessoas(filtro).stream()
+                .map(Pessoa::getInseguracaAlimentar)
+                .filter(Objects::nonNull)
+                .map(extrator)
+                .filter(Objects::nonNull)
+                .map(Enum::name)
+                .collect(Collectors.groupingBy(
+                        Function.identity(),
+                        Collectors.counting()))
+                .entrySet().stream()
+                .map(entry -> new DadosGraficoDTO(entry.getKey(), entry.getValue()))
+                .collect(Collectors.toList());
     }
 
 }

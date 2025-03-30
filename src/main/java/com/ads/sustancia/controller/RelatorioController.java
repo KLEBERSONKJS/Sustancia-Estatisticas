@@ -38,7 +38,7 @@ public class RelatorioController {
 
     @GetMapping()
     public String visualizarRelatorio(FiltroDTO filtroDTO, Model model){
-        List<DadosGraficoDTO> dadosFiltrados2 = relatorioService.dadosFiltradosTeste(filtroDTO);
+        List<DadosGraficoDTO> dadosFiltrados2 = relatorioService.dadosFiltradosInseguracaAlimentar(filtroDTO);
         model.addAttribute("dados", dadosFiltrados2);
         return "grafico";
     } 

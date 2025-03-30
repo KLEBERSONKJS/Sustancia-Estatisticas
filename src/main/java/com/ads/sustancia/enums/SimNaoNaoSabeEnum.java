@@ -21,5 +21,9 @@ public enum SimNaoNaoSabeEnum {
         }else 
             return NAOSABE;
     }
+    
+    public String getValor() {
+        return valor;
+    }
 
 }
