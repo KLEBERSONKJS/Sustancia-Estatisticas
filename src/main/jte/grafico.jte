@@ -219,15 +219,18 @@
         <div id="results">
             @if (dadosP2 != null && !dadosP2.isEmpty())
             @for (DadosGraficoDTO d : dadosP2)
-            <div class="chart-container">
-                <div class="chart-title">${d.getPergunta()}</div>
-                <canvas id="chart${dadosP2.indexOf(d)}"></canvas>
-            </div>
-            @endfor
-
+            @if(d!=null)
+            <div class=".chart-container">
+            <div class="chart-title">${d.getPergunta()}</div>
+            <canvas id="chart${dadosP2.indexOf(d)}"></canvas>
+            </div> 
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            @endif
+            @endfor
+            
+            @for (DadosGraficoDTO d : dadosP2)
+            @if(d!=null)
             <script>
-                @for (DadosGraficoDTO d : dadosP2)
                 const ctx${ dadosP2.indexOf(d)} = document.getElementById('chart${dadosP2.indexOf(d)}').getContext('2d');
                 new Chart(ctx${ dadosP2.indexOf(d) }, {
                     type: 'pie',
@@ -236,20 +239,20 @@
                             @for(Resposta resposta: d.getRespostas())
                 "${resposta.getCampo()}"@if (!resposta.equals(d.getRespostas().get(d.getRespostas().size() - 1))), @endif
                 @endfor
-                            ],
+                   ],
                 datasets: [{
                     data: [
                         @for(Resposta resposta: d.getRespostas())
                     ${ resposta.getValor() }@if (!resposta.equals(d.getRespostas().get(d.getRespostas().size() - 1))), @endif
                     @endfor
-                                ],
+                       ],
                 backgroundColor: [
                     '#36A2EB', '#FF6384', '#FFCE56', '#4BC0C0', '#9966FF',
                     '#FF9F40', '#8AC24A', '#607D8B', '#E91E63', '#9C27B0'
                 ],
                     hoverOffset: 20
-                            }]
-                        },
+                   }]
+               },
                 options: {
                     responsive: true,
                         plugins: {
@@ -276,13 +279,15 @@
                         }
                     }
                 }
-                    });
-                @endfor
+           });
             </script>
             @else
-            <p>Nenhum dado disponível para exibir. Aplique os filtros e gere o relatório.</p>
+            <p>Nenhum dado disponível para exibir.</p>
+            @endif
+            @endfor
+            @else
+            <p>Error</p>
             @endif
         </div>
     </body>
-
     </html>

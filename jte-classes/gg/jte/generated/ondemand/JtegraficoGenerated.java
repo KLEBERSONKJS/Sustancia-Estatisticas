@@ -8,11 +8,11 @@ import java.util.List;;
 @SuppressWarnings("unchecked")
 public final class JtegraficoGenerated {
 	public static final String JTE_NAME = "grafico.jte";
-	public static final int[] JTE_LINE_INFO = {0,0,1,2,3,4,5,7,7,7,7,122,122,122,123,123,123,123,123,123,123,123,123,124,124,124,126,126,134,134,135,135,135,135,135,135,135,135,135,136,136,136,138,138,146,146,147,147,147,147,147,147,147,147,147,148,148,148,150,150,158,158,159,159,159,159,159,159,159,159,159,160,160,160,162,162,170,170,171,171,171,171,171,171,171,171,171,172,172,172,174,174,182,182,183,183,183,183,183,183,183,183,183,184,184,184,186,186,194,194,195,195,195,195,195,195,195,195,195,196,196,196,198,198,206,206,207,207,207,207,207,207,207,207,207,208,208,208,210,210,219,219,220,220,222,222,222,223,223,223,223,225,225,229,229,230,230,230,230,230,230,231,231,231,235,235,236,236,236,236,236,236,236,237,237,241,241,242,242,242,242,242,242,243,243,257,257,257,279,279,281,281,283,283,287,287,287,7,8,8,8,8};
+	public static final int[] JTE_LINE_INFO = {0,0,1,2,3,4,5,7,7,7,7,122,122,122,123,123,123,123,123,123,123,123,123,124,124,124,126,126,134,134,135,135,135,135,135,135,135,135,135,136,136,136,138,138,146,146,147,147,147,147,147,147,147,147,147,148,148,148,150,150,158,158,159,159,159,159,159,159,159,159,159,160,160,160,162,162,170,170,171,171,171,171,171,171,171,171,171,172,172,172,174,174,182,182,183,183,183,183,183,183,183,183,183,184,184,184,186,186,194,194,195,195,195,195,195,195,195,195,195,196,196,196,198,198,206,206,207,207,207,207,207,207,207,207,207,208,208,208,210,210,219,219,220,220,221,221,223,223,223,224,224,224,224,227,227,228,228,230,230,231,231,233,233,233,233,233,233,234,234,234,238,238,239,239,239,239,239,239,239,240,240,244,244,245,245,245,245,245,245,246,246,260,260,260,283,283,285,285,286,286,287,287,289,289,292,292,292,7,8,8,8,8};
 	public static void render(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, FiltroDTO filtro, List<DadosGraficoDTO> dadosP2) {
-		jteOutput.writeContent("    <!DOCTYPE html>\n    <html lang=\"pt-BR\">\n\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <title>Filtros Avançados</title>\n        <style>\n            body {\n                font-family: Arial, sans-serif;\n                max-width: 1200px;\n                margin: 0 auto;\n                padding: 20px;\n                line-height: 1.6;\n            }\n\n            .filter-container {\n                background-color: #f5f5f5;\n                padding: 15px;\n                border-radius: 8px;\n                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n                margin-bottom: 20px;\n            }\n\n            .filter-section {\n                display: grid;\n                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));\n                gap: 15px;\n            }\n\n            .filter-group {\n                margin-bottom: 0;\n            }\n\n            h1 {\n                color: #2c3e50;\n                text-align: center;\n                margin-bottom: 20px;\n            }\n\n            label {\n                display: block;\n                margin-bottom: 5px;\n                font-weight: bold;\n                color: #2c3e50;\n                font-size: 14px;\n            }\n\n            select {\n                padding: 8px;\n                width: 100%;\n                border: 1px solid #ddd;\n                border-radius: 4px;\n                font-size: 14px;\n                height: 38px;\n            }\n\n            button {\n                background-color: #4CAF50;\n                color: white;\n                padding: 10px 15px;\n                border: none;\n                border-radius: 4px;\n                cursor: pointer;\n                font-size: 14px;\n                width: auto;\n                margin-top: 10px;\n                grid-column: 1 / -1;\n                justify-self: end;\n            }\n\n            button:hover {\n                background-color: #45a049;\n            }\n\n            #results {\n                display: flex;\n                margin-top: 20px;\n                padding: 20px;\n                background-color: #fff;\n                border-radius: 8px;\n                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n            }\n\n            .chart-container {\n                width: 80%;\n                margin: 20px auto;\n                padding: 15px;\n                border: 1px solid #eee;\n                border-radius: 8px;\n            }\n\n            .chart-title {\n                text-align: center;\n                margin-bottom: 10px;\n                font-weight: bold;\n                color: #2c3e50;\n                font-family: 'Courier New', Courier, monospace;\n            }\n        </style>\n    </head>\n\n    <body>\n        <h1>Filtros Avançados</h1>\n\n        <form action=\"/relatorio\" method=\"get\">\n            <div class=\"filter-section\">\n                <h2>Filtrar por:</h2>\n\n                <div class=\"filter-group\">\n                    <label for=\"raca\">Raça/Cor:</label>\n                    <select id=\"raca\" name=\"raca\">\n                        <option value=\"\">Todos as Raças</option>\n                        ");
+		jteOutput.writeContent("    <!DOCTYPE html>\r\n    <html lang=\"pt-BR\">\r\n\r\n    <head>\r\n        <meta charset=\"UTF-8\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n        <title>Filtros Avançados</title>\r\n        <style>\r\n            body {\r\n                font-family: Arial, sans-serif;\r\n                max-width: 1200px;\r\n                margin: 0 auto;\r\n                padding: 20px;\r\n                line-height: 1.6;\r\n            }\r\n\r\n            .filter-container {\r\n                background-color: #f5f5f5;\r\n                padding: 15px;\r\n                border-radius: 8px;\r\n                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\r\n                margin-bottom: 20px;\r\n            }\r\n\r\n            .filter-section {\r\n                display: grid;\r\n                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));\r\n                gap: 15px;\r\n            }\r\n\r\n            .filter-group {\r\n                margin-bottom: 0;\r\n            }\r\n\r\n            h1 {\r\n                color: #2c3e50;\r\n                text-align: center;\r\n                margin-bottom: 20px;\r\n            }\r\n\r\n            label {\r\n                display: block;\r\n                margin-bottom: 5px;\r\n                font-weight: bold;\r\n                color: #2c3e50;\r\n                font-size: 14px;\r\n            }\r\n\r\n            select {\r\n                padding: 8px;\r\n                width: 100%;\r\n                border: 1px solid #ddd;\r\n                border-radius: 4px;\r\n                font-size: 14px;\r\n                height: 38px;\r\n            }\r\n\r\n            button {\r\n                background-color: #4CAF50;\r\n                color: white;\r\n                padding: 10px 15px;\r\n                border: none;\r\n                border-radius: 4px;\r\n                cursor: pointer;\r\n                font-size: 14px;\r\n                width: auto;\r\n                margin-top: 10px;\r\n                grid-column: 1 / -1;\r\n                justify-self: end;\r\n            }\r\n\r\n            button:hover {\r\n                background-color: #45a049;\r\n            }\r\n\r\n            #results {\r\n                display: flex;\r\n                margin-top: 20px;\r\n                padding: 20px;\r\n                background-color: #fff;\r\n                border-radius: 8px;\r\n                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\r\n            }\r\n\r\n            .chart-container {\r\n                width: 80%;\r\n                margin: 20px auto;\r\n                padding: 15px;\r\n                border: 1px solid #eee;\r\n                border-radius: 8px;\r\n            }\r\n\r\n            .chart-title {\r\n                text-align: center;\r\n                margin-bottom: 10px;\r\n                font-weight: bold;\r\n                color: #2c3e50;\r\n                font-family: 'Courier New', Courier, monospace;\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n        <h1>Filtros Avançados</h1>\r\n\r\n        <form action=\"/relatorio\" method=\"get\">\r\n            <div class=\"filter-section\">\r\n                <h2>Filtrar por:</h2>\r\n\r\n                <div class=\"filter-group\">\r\n                    <label for=\"raca\">Raça/Cor:</label>\r\n                    <select id=\"raca\" name=\"raca\">\r\n                        <option value=\"\">Todos as Raças</option>\r\n                        ");
 		for (RacaEnum raca : RacaEnum.values()) {
-			jteOutput.writeContent("\n                        <option");
+			jteOutput.writeContent("\r\n                        <option");
 			var __jte_html_attribute_0 = raca.name();
 			if (gg.jte.runtime.TemplateUtils.isAttributeRendered(__jte_html_attribute_0)) {
 				jteOutput.writeContent(" value=\"");
@@ -21,14 +21,14 @@ public final class JtegraficoGenerated {
 				jteOutput.setContext("option", null);
 				jteOutput.writeContent("\"");
 			}
-			jteOutput.writeContent(">\n                            ");
+			jteOutput.writeContent(">\r\n                            ");
 			jteOutput.setContext("option", null);
 			jteOutput.writeUserContent(raca.name());
-			jteOutput.writeContent("\n                        </option>\n                        ");
+			jteOutput.writeContent("\r\n                        </option>\r\n                        ");
 		}
-		jteOutput.writeContent("\n                    </select>\n                </div>\n\n                <div class=\"filter-group\">\n                    <label for=\"religiao\">Religiao:</label>\n                    <select id=\"religiao\" name=\"religiao\">\n                        <option value=\"\">Todas os Religiões</option>\n                        ");
+		jteOutput.writeContent("\r\n                    </select>\r\n                </div>\r\n\r\n                <div class=\"filter-group\">\r\n                    <label for=\"religiao\">Religiao:</label>\r\n                    <select id=\"religiao\" name=\"religiao\">\r\n                        <option value=\"\">Todas os Religiões</option>\r\n                        ");
 		for (ReligiaoEnum religiao : ReligiaoEnum.values()) {
-			jteOutput.writeContent("\n                        <option");
+			jteOutput.writeContent("\r\n                        <option");
 			var __jte_html_attribute_1 = religiao.name();
 			if (gg.jte.runtime.TemplateUtils.isAttributeRendered(__jte_html_attribute_1)) {
 				jteOutput.writeContent(" value=\"");
@@ -37,14 +37,14 @@ public final class JtegraficoGenerated {
 				jteOutput.setContext("option", null);
 				jteOutput.writeContent("\"");
 			}
-			jteOutput.writeContent(">\n                            ");
+			jteOutput.writeContent(">\r\n                            ");
 			jteOutput.setContext("option", null);
 			jteOutput.writeUserContent(religiao.name());
-			jteOutput.writeContent("\n                        </option>\n                        ");
+			jteOutput.writeContent("\r\n                        </option>\r\n                        ");
 		}
-		jteOutput.writeContent("\n                    </select>\n                </div>\n\n                <div class=\"filter-group\">\n                    <label for=\"genero\">Genero:</label>\n                    <select id=\"genero\" name=\"genero\">\n                        <option value=\"\">Todos os gêneros</option>\n                        ");
+		jteOutput.writeContent("\r\n                    </select>\r\n                </div>\r\n\r\n                <div class=\"filter-group\">\r\n                    <label for=\"genero\">Genero:</label>\r\n                    <select id=\"genero\" name=\"genero\">\r\n                        <option value=\"\">Todos os gêneros</option>\r\n                        ");
 		for (GeneroEnum genero : GeneroEnum.values()) {
-			jteOutput.writeContent("\n                        <option");
+			jteOutput.writeContent("\r\n                        <option");
 			var __jte_html_attribute_2 = genero.name();
 			if (gg.jte.runtime.TemplateUtils.isAttributeRendered(__jte_html_attribute_2)) {
 				jteOutput.writeContent(" value=\"");
@@ -53,14 +53,14 @@ public final class JtegraficoGenerated {
 				jteOutput.setContext("option", null);
 				jteOutput.writeContent("\"");
 			}
-			jteOutput.writeContent(">\n                            ");
+			jteOutput.writeContent(">\r\n                            ");
 			jteOutput.setContext("option", null);
 			jteOutput.writeUserContent(genero.name());
-			jteOutput.writeContent("\n                        </option>\n                        ");
+			jteOutput.writeContent("\r\n                        </option>\r\n                        ");
 		}
-		jteOutput.writeContent("\n                    </select>\n                </div>\n\n                <div class=\"filter-group\">\n                    <label for=\"escolaridade\">Escolaridade:</label>\n                    <select id=\"escolaridade\" name=\"escolaridade\">\n                        <option value=\"\">Todas as Escolaridade</option>\n                        ");
+		jteOutput.writeContent("\r\n                    </select>\r\n                </div>\r\n\r\n                <div class=\"filter-group\">\r\n                    <label for=\"escolaridade\">Escolaridade:</label>\r\n                    <select id=\"escolaridade\" name=\"escolaridade\">\r\n                        <option value=\"\">Todas as Escolaridade</option>\r\n                        ");
 		for (EscolaridadeEnum escolaridade : EscolaridadeEnum.values()) {
-			jteOutput.writeContent("\n                        <option");
+			jteOutput.writeContent("\r\n                        <option");
 			var __jte_html_attribute_3 = escolaridade.name();
 			if (gg.jte.runtime.TemplateUtils.isAttributeRendered(__jte_html_attribute_3)) {
 				jteOutput.writeContent(" value=\"");
@@ -69,14 +69,14 @@ public final class JtegraficoGenerated {
 				jteOutput.setContext("option", null);
 				jteOutput.writeContent("\"");
 			}
-			jteOutput.writeContent(">\n                            ");
+			jteOutput.writeContent(">\r\n                            ");
 			jteOutput.setContext("option", null);
 			jteOutput.writeUserContent(escolaridade.name());
-			jteOutput.writeContent("\n                        </option>\n                        ");
+			jteOutput.writeContent("\r\n                        </option>\r\n                        ");
 		}
-		jteOutput.writeContent("\n                    </select>\n                </div>\n\n                <div class=\"filter-group\">\n                    <label for=\"estadoCivil\">Estado Civil:</label>\n                    <select id=\"estadoCivil\" name=\"estadoCivil\">\n                        <option value=\"\">Todos estadoCivil</option>\n                        ");
+		jteOutput.writeContent("\r\n                    </select>\r\n                </div>\r\n\r\n                <div class=\"filter-group\">\r\n                    <label for=\"estadoCivil\">Estado Civil:</label>\r\n                    <select id=\"estadoCivil\" name=\"estadoCivil\">\r\n                        <option value=\"\">Todos estadoCivil</option>\r\n                        ");
 		for (EstadoCivilEnum estadoCivil : EstadoCivilEnum.values()) {
-			jteOutput.writeContent("\n                        <option");
+			jteOutput.writeContent("\r\n                        <option");
 			var __jte_html_attribute_4 = estadoCivil.name();
 			if (gg.jte.runtime.TemplateUtils.isAttributeRendered(__jte_html_attribute_4)) {
 				jteOutput.writeContent(" value=\"");
@@ -85,14 +85,14 @@ public final class JtegraficoGenerated {
 				jteOutput.setContext("option", null);
 				jteOutput.writeContent("\"");
 			}
-			jteOutput.writeContent(">\n                            ");
+			jteOutput.writeContent(">\r\n                            ");
 			jteOutput.setContext("option", null);
 			jteOutput.writeUserContent(estadoCivil.name());
-			jteOutput.writeContent("\n                        </option>\n                        ");
+			jteOutput.writeContent("\r\n                        </option>\r\n                        ");
 		}
-		jteOutput.writeContent("\n                    </select>\n                </div>\n\n                <div class=\"filter-group\">\n                    <label for=\"emprego\">Emprego:</label>\n                    <select id=\"emprego\" name=\"emprego\">\n                        <option value=\"\">Todos os empregos</option>\n                        ");
+		jteOutput.writeContent("\r\n                    </select>\r\n                </div>\r\n\r\n                <div class=\"filter-group\">\r\n                    <label for=\"emprego\">Emprego:</label>\r\n                    <select id=\"emprego\" name=\"emprego\">\r\n                        <option value=\"\">Todos os empregos</option>\r\n                        ");
 		for (EmpregoEnum emprego : EmpregoEnum.values()) {
-			jteOutput.writeContent("\n                        <option");
+			jteOutput.writeContent("\r\n                        <option");
 			var __jte_html_attribute_5 = emprego.name();
 			if (gg.jte.runtime.TemplateUtils.isAttributeRendered(__jte_html_attribute_5)) {
 				jteOutput.writeContent(" value=\"");
@@ -101,14 +101,14 @@ public final class JtegraficoGenerated {
 				jteOutput.setContext("option", null);
 				jteOutput.writeContent("\"");
 			}
-			jteOutput.writeContent(">\n                            ");
+			jteOutput.writeContent(">\r\n                            ");
 			jteOutput.setContext("option", null);
 			jteOutput.writeUserContent(emprego.name());
-			jteOutput.writeContent("\n                        </option>\n                        ");
+			jteOutput.writeContent("\r\n                        </option>\r\n                        ");
 		}
-		jteOutput.writeContent("\n                    </select>\n                </div>\n\n                <div class=\"filter-group\">\n                    <label for=\"dependentes\">Dependentes:</label>\n                    <select id=\"dependentes\" name=\"dependentes\">\n                        <option value=\"\">Todas os dependentes</option>\n                        ");
+		jteOutput.writeContent("\r\n                    </select>\r\n                </div>\r\n\r\n                <div class=\"filter-group\">\r\n                    <label for=\"dependentes\">Dependentes:</label>\r\n                    <select id=\"dependentes\" name=\"dependentes\">\r\n                        <option value=\"\">Todas os dependentes</option>\r\n                        ");
 		for (DependentesEnum dependentes : DependentesEnum.values()) {
-			jteOutput.writeContent("\n                        <option");
+			jteOutput.writeContent("\r\n                        <option");
 			var __jte_html_attribute_6 = dependentes.name();
 			if (gg.jte.runtime.TemplateUtils.isAttributeRendered(__jte_html_attribute_6)) {
 				jteOutput.writeContent(" value=\"");
@@ -117,14 +117,14 @@ public final class JtegraficoGenerated {
 				jteOutput.setContext("option", null);
 				jteOutput.writeContent("\"");
 			}
-			jteOutput.writeContent(">\n                            ");
+			jteOutput.writeContent(">\r\n                            ");
 			jteOutput.setContext("option", null);
 			jteOutput.writeUserContent(dependentes.name());
-			jteOutput.writeContent("\n                        </option>\n                        ");
+			jteOutput.writeContent("\r\n                        </option>\r\n                        ");
 		}
-		jteOutput.writeContent("\n                    </select>\n                </div>\n\n                <div class=\"filter-group\">\n                    <label for=\"auxilio\">Auxilio:</label>\n                    <select id=\"auxilio\" name=\"auxilio\">\n                        <option value=\"\">Todas os auxilios</option>\n                        ");
+		jteOutput.writeContent("\r\n                    </select>\r\n                </div>\r\n\r\n                <div class=\"filter-group\">\r\n                    <label for=\"auxilio\">Auxilio:</label>\r\n                    <select id=\"auxilio\" name=\"auxilio\">\r\n                        <option value=\"\">Todas os auxilios</option>\r\n                        ");
 		for (AuxilioEnum auxilio : AuxilioEnum.values()) {
-			jteOutput.writeContent("\n                        <option");
+			jteOutput.writeContent("\r\n                        <option");
 			var __jte_html_attribute_7 = auxilio.name();
 			if (gg.jte.runtime.TemplateUtils.isAttributeRendered(__jte_html_attribute_7)) {
 				jteOutput.writeContent(" value=\"");
@@ -133,66 +133,76 @@ public final class JtegraficoGenerated {
 				jteOutput.setContext("option", null);
 				jteOutput.writeContent("\"");
 			}
-			jteOutput.writeContent(">\n                            ");
+			jteOutput.writeContent(">\r\n                            ");
 			jteOutput.setContext("option", null);
 			jteOutput.writeUserContent(auxilio.name());
-			jteOutput.writeContent("\n                        </option>\n                        ");
+			jteOutput.writeContent("\r\n                        </option>\r\n                        ");
 		}
-		jteOutput.writeContent("\n                    </select>\n                </div>\n\n                <button type=\"submit\">Gerar Relatório</button>\n            </div>\n        </form>\n\n        <div id=\"results\">\n            ");
+		jteOutput.writeContent("\r\n                    </select>\r\n                </div>\r\n\r\n                <button type=\"submit\">Gerar Relatório</button>\r\n            </div>\r\n        </form>\r\n\r\n        <div id=\"results\">\r\n            ");
 		if (dadosP2 != null && !dadosP2.isEmpty()) {
-			jteOutput.writeContent("\n            ");
+			jteOutput.writeContent("\r\n            ");
 			for (DadosGraficoDTO d : dadosP2) {
-				jteOutput.writeContent("\n            <div class=\"chart-container\">\n                <div class=\"chart-title\">");
-				jteOutput.setContext("div", null);
-				jteOutput.writeUserContent(d.getPergunta());
-				jteOutput.writeContent("</div>\n                <canvas id=\"chart");
-				jteOutput.setContext("canvas", "id");
-				jteOutput.writeUserContent(dadosP2.indexOf(d));
-				jteOutput.setContext("canvas", null);
-				jteOutput.writeContent("\"></canvas>\n            </div>\n            ");
+				jteOutput.writeContent("\r\n            ");
+				if (d!=null) {
+					jteOutput.writeContent("\r\n            <div class=\".chart-container\">\r\n            <div class=\"chart-title\">");
+					jteOutput.setContext("div", null);
+					jteOutput.writeUserContent(d.getPergunta());
+					jteOutput.writeContent("</div>\r\n            <canvas id=\"chart");
+					jteOutput.setContext("canvas", "id");
+					jteOutput.writeUserContent(dadosP2.indexOf(d));
+					jteOutput.setContext("canvas", null);
+					jteOutput.writeContent("\"></canvas>\r\n            </div> \r\n            <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>\r\n            ");
+				}
+				jteOutput.writeContent("\r\n            ");
 			}
-			jteOutput.writeContent("\n\n            <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>\n            <script>\n                ");
+			jteOutput.writeContent("\r\n            \r\n            ");
 			for (DadosGraficoDTO d : dadosP2) {
-				jteOutput.writeContent("\n                const ctx");
-				jteOutput.setContext("script", null);
-				jteOutput.writeUserContent( dadosP2.indexOf(d));
-				jteOutput.writeContent(" = document.getElementById('chart");
-				jteOutput.setContext("script", null);
-				jteOutput.writeUserContent(dadosP2.indexOf(d));
-				jteOutput.writeContent("').getContext('2d');\n                new Chart(ctx");
-				jteOutput.setContext("script", null);
-				jteOutput.writeUserContent( dadosP2.indexOf(d) );
-				jteOutput.writeContent(", {\n                    type: 'pie',\n                    data: {\n                        labels: [\n                            ");
-				for (Resposta resposta: d.getRespostas()) {
-					jteOutput.writeContent("\n                \"");
+				jteOutput.writeContent("\r\n            ");
+				if (d!=null) {
+					jteOutput.writeContent("\r\n            <script>\r\n                const ctx");
 					jteOutput.setContext("script", null);
-					jteOutput.writeUserContent(resposta.getCampo());
-					jteOutput.writeContent("\"");
-					if (!resposta.equals(d.getRespostas().get(d.getRespostas().size() - 1))) {
-						jteOutput.writeContent(", ");
-					}
-					jteOutput.writeContent("\n                ");
-				}
-				jteOutput.writeContent("\n                            ],\n                datasets: [{\n                    data: [\n                        ");
-				for (Resposta resposta: d.getRespostas()) {
-					jteOutput.writeContent("\n                    ");
+					jteOutput.writeUserContent( dadosP2.indexOf(d));
+					jteOutput.writeContent(" = document.getElementById('chart");
 					jteOutput.setContext("script", null);
-					jteOutput.writeUserContent( resposta.getValor() );
-					if (!resposta.equals(d.getRespostas().get(d.getRespostas().size() - 1))) {
-						jteOutput.writeContent(", ");
+					jteOutput.writeUserContent(dadosP2.indexOf(d));
+					jteOutput.writeContent("').getContext('2d');\r\n                new Chart(ctx");
+					jteOutput.setContext("script", null);
+					jteOutput.writeUserContent( dadosP2.indexOf(d) );
+					jteOutput.writeContent(", {\r\n                    type: 'pie',\r\n                    data: {\r\n                        labels: [\r\n                            ");
+					for (Resposta resposta: d.getRespostas()) {
+						jteOutput.writeContent("\r\n                \"");
+						jteOutput.setContext("script", null);
+						jteOutput.writeUserContent(resposta.getCampo());
+						jteOutput.writeContent("\"");
+						if (!resposta.equals(d.getRespostas().get(d.getRespostas().size() - 1))) {
+							jteOutput.writeContent(", ");
+						}
+						jteOutput.writeContent("\r\n                ");
 					}
-					jteOutput.writeContent("\n                    ");
+					jteOutput.writeContent("\r\n                   ],\r\n                datasets: [{\r\n                    data: [\r\n                        ");
+					for (Resposta resposta: d.getRespostas()) {
+						jteOutput.writeContent("\r\n                    ");
+						jteOutput.setContext("script", null);
+						jteOutput.writeUserContent( resposta.getValor() );
+						if (!resposta.equals(d.getRespostas().get(d.getRespostas().size() - 1))) {
+							jteOutput.writeContent(", ");
+						}
+						jteOutput.writeContent("\r\n                    ");
+					}
+					jteOutput.writeContent("\r\n                       ],\r\n                backgroundColor: [\r\n                    '#36A2EB', '#FF6384', '#FFCE56', '#4BC0C0', '#9966FF',\r\n                    '#FF9F40', '#8AC24A', '#607D8B', '#E91E63', '#9C27B0'\r\n                ],\r\n                    hoverOffset: 20\r\n                   }]\r\n               },\r\n                options: {\r\n                    responsive: true,\r\n                        plugins: {\r\n                        title: {\r\n                            display: true,\r\n                                text: '");
+					jteOutput.setContext("script", null);
+					jteOutput.writeUserContent(d.getDescricao());
+					jteOutput.writeContent("',\r\n                                    font: {\r\n                                size: 18,\r\n                                    weight: 'bold'\r\n                            },\r\n                            padding: {\r\n                                top: 10,\r\n                                    bottom: 20\r\n                            }\r\n                        },\r\n                        tooltip: {\r\n                            callbacks: {\r\n                                label: function(context) {\r\n                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);\r\n                                    const percentage = Math.round(context.raw * 100 / total);\r\n                                    return context.label + ': ' + context.raw + ' (' + percentage + '%)';\r\n                                }\r\n                            }\r\n                        }\r\n                    }\r\n                }\r\n           });\r\n            </script>\r\n            ");
+				} else {
+					jteOutput.writeContent("\r\n            <p>Nenhum dado disponível para exibir.</p>\r\n            ");
 				}
-				jteOutput.writeContent("\n                                ],\n                backgroundColor: [\n                    '#36A2EB', '#FF6384', '#FFCE56', '#4BC0C0', '#9966FF',\n                    '#FF9F40', '#8AC24A', '#607D8B', '#E91E63', '#9C27B0'\n                ],\n                    hoverOffset: 20\n                            }]\n                        },\n                options: {\n                    responsive: true,\n                        plugins: {\n                        title: {\n                            display: true,\n                                text: '");
-				jteOutput.setContext("script", null);
-				jteOutput.writeUserContent(d.getDescricao());
-				jteOutput.writeContent("',\n                                    font: {\n                                size: 18,\n                                    weight: 'bold'\n                            },\n                            padding: {\n                                top: 10,\n                                    bottom: 20\n                            }\n                        },\n                        tooltip: {\n                            callbacks: {\n                                label: function(context) {\n                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);\n                                    const percentage = Math.round(context.raw * 100 / total);\n                                    return context.label + ': ' + context.raw + ' (' + percentage + '%)';\n                                }\n                            }\n                        }\n                    }\n                }\n                    });\n                ");
+				jteOutput.writeContent("\r\n            ");
 			}
-			jteOutput.writeContent("\n            </script>\n            ");
+			jteOutput.writeContent("\r\n            ");
 		} else {
-			jteOutput.writeContent("\n            <p>Nenhum dado disponível para exibir. Aplique os filtros e gere o relatório.</p>\n            ");
+			jteOutput.writeContent("\r\n            <p>Error</p>\r\n            ");
 		}
-		jteOutput.writeContent("\n        </div>\n    </body>\n\n    </html>");
+		jteOutput.writeContent("\r\n        </div>\r\n    </body>\r\n    </html>");
 	}
 	public static void renderMap(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, java.util.Map<String, Object> params) {
 		FiltroDTO filtro = (FiltroDTO)params.get("filtro");
