@@ -18,18 +18,20 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 
 @Component
+@RequiredArgsConstructor
 public class SecurityFilter extends OncePerRequestFilter {
 
-    @Autowired
-    private AutenticacaoService autenticacaoService;
+  
+    private final AutenticacaoService autenticacaoService;
 
-    @Autowired
-    private EntrevistadorRepository entrevistadorRepository;
+  
+    private final EntrevistadorRepository entrevistadorRepository;
 
-    @Autowired
-    private CoordenadorRepository coordenadorRepository;
+  
+    private final CoordenadorRepository coordenadorRepository;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

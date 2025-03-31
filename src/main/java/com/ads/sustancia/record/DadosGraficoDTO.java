@@ -14,5 +14,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DadosGraficoDTO {
     private String pergunta;
+    private String descricao;
     private List<Resposta> respostas;
 }

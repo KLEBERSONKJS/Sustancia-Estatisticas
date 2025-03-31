@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import com.ads.sustancia.enums.SimNaoNaoSabeEnum;
@@ -23,63 +24,44 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class RelatorioService {
 
-    private final PessoaRepository pessoaRepository;
+        private final PessoaRepository pessoaRepository;
 
-    // public List<DadosGraficoDTO> dadosFiltradosConsumoAlimentar(FiltroDTO filtro)
-    // {
-    // Function<ConsumoAlimentar, SimNaoNaoSabeEnum> extrator =
-    // ConsumoAlimentar::getRefeicaoComCelular;
-    // return getConsumoAlimentaGraficos(filtro, extrator);
-    // }
-
-    public List<DadosGraficoDTO> dadosFiltradosInseguracaAlimentar(FiltroDTO filtroDTO) {
-
-        List<Function<InsegurancaAlimentar, SimNaoNaoSabeEnum>> extratores = Arrays.asList(
-                InsegurancaAlimentar::getPergunta1,
-                InsegurancaAlimentar::getPergunta2,
-                InsegurancaAlimentar::getPergunta3,
-                InsegurancaAlimentar::getPergunta4,
-                InsegurancaAlimentar::getPergunta5,
-                InsegurancaAlimentar::getPergunta6,
-                InsegurancaAlimentar::getPergunta7,
-                InsegurancaAlimentar::getPergunta8);
-        List<DadosGraficoDTO> resultados = new ArrayList<>();
-
-        for (int i = 0 ; i < extratores.size(); i++) {
-            DadosGraficoDTO dto = new DadosGraficoDTO("Pergunta "+ (i),
-                    getInsegurancaAlimentarDadosGrafico(filtroDTO, extratores.get(i)));
-            resultados.add(dto);
+        public DadosGraficoDTO dadosFiltradosInseguracaAlimentar(FiltroDTO filtroDTO, String pergunta, String descricao, Function<InsegurancaAlimentar, SimNaoNaoSabeEnum> extrator) {
+               
+                 return getInsegurancaAlimentarDadosGrafico(filtroDTO,pergunta, descricao, extrator); 
         }
-        return resultados;
-    }
 
-    private List<Resposta> getInsegurancaAlimentarDadosGrafico(FiltroDTO filtro,
-            Function<InsegurancaAlimentar, SimNaoNaoSabeEnum> extrator) {
+        private DadosGraficoDTO getInsegurancaAlimentarDadosGrafico(FiltroDTO filtro,String pergunta,String descricao,
+                        Function<InsegurancaAlimentar,SimNaoNaoSabeEnum> extrator) {
 
-        Map<SimNaoNaoSabeEnum, Long> contagens = pessoaRepository.filtrarPessoas(filtro).stream()
-                .map(Pessoa::getInseguracaAlimentar)
-                .filter(Objects::nonNull)
-                .map(extrator)
-                .filter(Objects::nonNull)
-                .collect(Collectors.groupingBy(
-                        Function.identity(),
-                        Collectors.counting()));
 
-        List<Resposta> valores = pessoaRepository.filtrarPessoas(filtro).stream()
-                .map(Pessoa::getInseguracaAlimentar)
-                .filter(Objects::nonNull)
-                .map(extrator)
-                .filter(Objects::nonNull)
-                .map(Enum::name)
-                .collect(Collectors.groupingBy(
-                        Function.identity(),
-                        Collectors.counting()))
-                .entrySet().stream()
-                .map(entry -> new Resposta(entry.getKey(), entry.getValue()))
-                .collect(Collectors.toList());
+                Map<SimNaoNaoSabeEnum, Long> contagens = pessoaRepository.filtrarPessoas(filtro).stream()
+                                .map(Pessoa::getInseguracaAlimentar)
+                                .filter(Objects::nonNull)
+                                .map(extrator)
+                                .filter(Objects::nonNull)
+                                .collect(Collectors.groupingBy(
+                                                Function.identity(),
+                                                Collectors.counting()));
 
-        return valores;
+                List<Resposta> valores = pessoaRepository.filtrarPessoas(filtro).stream()
+                                .map(Pessoa::getInseguracaAlimentar)
+                                .filter(Objects::nonNull)
+                                .map(extrator)
+                                .filter(Objects::nonNull)
+                                .map(Enum::name)
+                                .collect(Collectors.groupingBy(
+                                                Function.identity(),
+                                                Collectors.counting()))
+                                .entrySet().stream()
+                                .map(entry -> new Resposta(entry.getValue().equals(0)?null: entry.getKey(), entry.getValue()))
+                                .collect(Collectors.toList());
 
-    }
+                if (valores!=null) {
+                        DadosGraficoDTO dto = new DadosGraficoDTO(pergunta,descricao, valores);
+                        return dto;
+                }
+                return null;
+        }
 
 }

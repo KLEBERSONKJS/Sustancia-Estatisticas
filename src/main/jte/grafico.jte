@@ -104,6 +104,7 @@
                 margin-bottom: 10px;
                 font-weight: bold;
                 color: #2c3e50;
+                font-family: 'Courier New', Courier, monospace;
             }
         </style>
     </head>
@@ -254,7 +255,7 @@
                         plugins: {
                         title: {
                             display: true,
-                                text: '${d.getPergunta()}',
+                                text: '${d.getDescricao()}',
                                     font: {
                                 size: 18,
                                     weight: 'bold'
