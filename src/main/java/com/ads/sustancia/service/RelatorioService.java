@@ -28,7 +28,11 @@ public class RelatorioService {
 
         public DadosGraficoDTO dadosFiltradosInseguracaAlimentar(FiltroDTO filtroDTO, String pergunta, String descricao, Function<InsegurancaAlimentar, SimNaoNaoSabeEnum> extrator) {
                
-                 return getInsegurancaAlimentarDadosGrafico(filtroDTO,pergunta, descricao, extrator); 
+                 DadosGraficoDTO dto= getInsegurancaAlimentarDadosGrafico(filtroDTO,pergunta, descricao, extrator); 
+                 if (!dto.getRespostas().isEmpty()) {
+                        return dto;
+                 }
+                 return null;
         }
 
         private DadosGraficoDTO getInsegurancaAlimentarDadosGrafico(FiltroDTO filtro,String pergunta,String descricao,
@@ -54,14 +58,13 @@ public class RelatorioService {
                                                 Function.identity(),
                                                 Collectors.counting()))
                                 .entrySet().stream()
-                                .map(entry -> new Resposta(entry.getValue().equals(0)?null: entry.getKey(), entry.getValue()))
+                                .map(entry -> new Resposta((entry.getValue().equals(0))?null:entry.getKey(), entry.getValue()))
                                 .collect(Collectors.toList());
 
-                if (valores!=null) {
+             
                         DadosGraficoDTO dto = new DadosGraficoDTO(pergunta,descricao, valores);
                         return dto;
-                }
-                return null;
+
         }
 
 }
