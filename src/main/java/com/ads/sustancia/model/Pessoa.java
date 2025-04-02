@@ -2,14 +2,7 @@ package com.ads.sustancia.model;
 
 import java.util.List;
 
-import com.ads.sustancia.enums.AuxilioEnum;
-import com.ads.sustancia.enums.DependentesEnum;
-import com.ads.sustancia.enums.EmpregoEnum;
-import com.ads.sustancia.enums.EscolaridadeEnum;
-import com.ads.sustancia.enums.EstadoCivilEnum;
-import com.ads.sustancia.enums.GeneroEnum;
-import com.ads.sustancia.enums.RacaEnum;
-import com.ads.sustancia.enums.ReligiaoEnum;
+import com.ads.sustancia.enums.*;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embedded;
@@ -79,9 +72,9 @@ public class Pessoa {
     private Entrevistador entrevistador;
   
 
-    public Pessoa(Entrevistador entrevistador,String nome, int idade, GeneroEnum genero, RacaEnum raca, ReligiaoEnum religiao, EscolaridadeEnum escolaridade,
-            EstadoCivilEnum estadoCivil, EmpregoEnum emprego, List<AuxilioEnum> auxiliosList, DependentesEnum dependentes,
-            ConsumoAlimentar consumoAlimentar, InsegurancaAlimentar inseguracaAlimentar) {
+    public Pessoa(Entrevistador entrevistador, String nome, int idade, GeneroEnum genero, RacaEnum raca, ReligiaoEnum religiao, EscolaridadeEnum escolaridade,
+                  EstadoCivilEnum estadoCivil, EmpregoEnum emprego, List<AuxilioEnum> auxiliosList, DependentesEnum dependentes,
+                  ConsumoAlimentar consumoAlimentar, InsegurancaAlimentar inseguracaAlimentar) {
 
         this.entrevistador = entrevistador;
         this.nome = nome;

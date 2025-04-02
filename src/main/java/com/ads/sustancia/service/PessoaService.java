@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ads.sustancia.dto.request.FormularioDTO;
 import com.ads.sustancia.enums.AuxilioEnum;
 import com.ads.sustancia.enums.ConsumoOntemEnum;
 import com.ads.sustancia.enums.DependentesEnum;
@@ -19,8 +20,6 @@ import com.ads.sustancia.enums.ReligiaoEnum;
 import com.ads.sustancia.model.ConsumoAlimentar;
 import com.ads.sustancia.model.InsegurancaAlimentar;
 import com.ads.sustancia.model.Pessoa;
-import com.ads.sustancia.record.FormularioDTO;
-import com.ads.sustancia.record.FiltroDTO;
 import com.ads.sustancia.repository.PessoaRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -41,7 +40,6 @@ public class PessoaService {
         Pessoa entity = null;
         try {
 
-            System.out.println(dadosPessoaForms.consumo().toString());
             InsegurancaAlimentar insegurancaAlimentar = criarInsegurancaAlimentar(dadosPessoaForms);
             ConsumoAlimentar consumoAlimentar = criarConsumoAlimentar(dadosPessoaForms);
 

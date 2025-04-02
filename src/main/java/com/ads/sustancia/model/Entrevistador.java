@@ -53,7 +53,7 @@ public class Entrevistador implements UserDetails {
     private static final AtomicLong contador = new AtomicLong(1);
 
     public Entrevistador(String nome, String email, String senha,
-            LocalDate dataNascimento, UserRole userRole) {
+                               LocalDate dataNascimento, UserRole userRole) {
         this.id = gerarId();
         this.nome = nome;
         this.email = email;

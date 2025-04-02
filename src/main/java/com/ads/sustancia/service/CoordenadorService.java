@@ -1,9 +1,9 @@
 package com.ads.sustancia.service;
 
+import com.ads.sustancia.dto.request.CadastroCoordenadorDTO;
 import com.ads.sustancia.enums.UserRole;
 import com.ads.sustancia.enums.UsuarioStatusEnum;
 import com.ads.sustancia.model.Coordenador;
-import com.ads.sustancia.record.CadastroCoordenadorDTO;
 import com.ads.sustancia.repository.CoordenadorRepository;
 import com.ads.sustancia.service.email.EmailService;
 

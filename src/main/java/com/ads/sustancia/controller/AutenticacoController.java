@@ -1,16 +1,15 @@
 package com.ads.sustancia.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ads.sustancia.record.LoginDTO;
-import com.ads.sustancia.service.AutenticacaoService;
+import com.ads.sustancia.dto.request.LoginDTO;
+import com.ads.sustancia.dto.response.ErrorResponse;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,19 +17,11 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/auth")
 @Slf4j
 public class AutenticacoController {
-    
-    @Autowired
-    private AuthenticationManager authenticationManager;
 
-    @Autowired
-    private AutenticacaoService autenticacaoService;
 
     @PostMapping()
     public String auth(LoginDTO dadosLogin, Model model){
-    
-            var tokenUsuario = new UsernamePasswordAuthenticationToken(dadosLogin.email(),dadosLogin.senha());
-            authenticationManager.authenticate(tokenUsuario);
-            autenticacaoService.obterToken(dadosLogin);
+
             return "home";
      
     }
@@ -39,4 +30,23 @@ public class AutenticacoController {
     public String login(){
         return "login-administrador";
     }
+    
+
+    @ExceptionHandler(AuthenticationException.class)
+    public String handleAuthenticationException(AuthenticationException ex, Model model) {
+        log.error("Error ocorrido: {}", ex.getMessage());
+        ErrorResponse error = new ErrorResponse("", ex.getLocalizedMessage());
+        model.addAttribute("error", error);
+        return "login-administrador";
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public String handleRuntimeException(RuntimeException ex, Model model) {
+        log.error("Error ocorrido: {}", ex.getMessage());
+        ErrorResponse error = new ErrorResponse("", ex.getMessage());
+        model.addAttribute("error", error);
+        return "login-administrador";
+        
+    }
 }
+

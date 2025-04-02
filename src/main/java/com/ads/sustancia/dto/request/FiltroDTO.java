@@ -1,4 +1,4 @@
-package com.ads.sustancia.record;
+package com.ads.sustancia.dto.request;
 
 import com.ads.sustancia.enums.*;
 import jakarta.validation.constraints.*;

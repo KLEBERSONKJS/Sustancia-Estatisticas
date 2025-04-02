@@ -1,4 +1,4 @@
-package com.ads.sustancia.record;
+package com.ads.sustancia.dto.response;
 
 import java.util.List;
 import java.util.Map;

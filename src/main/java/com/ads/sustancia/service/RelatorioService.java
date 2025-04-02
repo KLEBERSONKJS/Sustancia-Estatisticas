@@ -1,21 +1,18 @@
 package com.ads.sustancia.service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.ads.sustancia.dto.request.FiltroDTO;
+import com.ads.sustancia.dto.response.DadosGraficoDTO;
 import com.ads.sustancia.enums.SimNaoNaoSabeEnum;
 import com.ads.sustancia.model.InsegurancaAlimentar;
 import com.ads.sustancia.model.Pessoa;
 import com.ads.sustancia.model.Resposta;
-import com.ads.sustancia.record.DadosGraficoDTO;
-import com.ads.sustancia.record.FiltroDTO;
 import com.ads.sustancia.repository.PessoaRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -38,15 +35,6 @@ public class RelatorioService {
         private DadosGraficoDTO getInsegurancaAlimentarDadosGrafico(FiltroDTO filtro,String pergunta,String descricao,
                         Function<InsegurancaAlimentar,SimNaoNaoSabeEnum> extrator) {
 
-
-                Map<SimNaoNaoSabeEnum, Long> contagens = pessoaRepository.filtrarPessoas(filtro).stream()
-                                .map(Pessoa::getInseguracaAlimentar)
-                                .filter(Objects::nonNull)
-                                .map(extrator)
-                                .filter(Objects::nonNull)
-                                .collect(Collectors.groupingBy(
-                                                Function.identity(),
-                                                Collectors.counting()));
 
                 List<Resposta> valores = pessoaRepository.filtrarPessoas(filtro).stream()
                                 .map(Pessoa::getInseguracaAlimentar)

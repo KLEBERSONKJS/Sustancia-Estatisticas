@@ -1,6 +1,4 @@
-package com.ads.sustancia.record;
-
-import java.util.List;
+package com.ads.sustancia.dto.request;
 
 import com.ads.sustancia.model.Entrevistador;
 

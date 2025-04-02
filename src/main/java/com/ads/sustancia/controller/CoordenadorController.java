@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ads.sustancia.dto.request.CadastroCoordenadorDTO;
+import com.ads.sustancia.dto.response.ErrorResponse;
 import com.ads.sustancia.model.Coordenador;
-import com.ads.sustancia.record.CadastroCoordenadorDTO;
-import com.ads.sustancia.record.ErrorResponse;
-import com.ads.sustancia.record.VerificacaoCadastroDTO;
 import com.ads.sustancia.service.CoordenadorService;
 
 import jakarta.validation.Valid;
@@ -51,17 +50,7 @@ public class CoordenadorController {
         return "cadastro-coordenador";
     }
     
-    @PostMapping("/verificar-codigo")
-    public String verificarCodigo(VerificacaoCadastroDTO verificar, Model model) {
-        try {
-            coordenadorService.verificarCodigo(verificar.email(), verificar.codigo());
-            log.error("logou");
-            return "login";
-        } catch (Exception e) {
-            log.error("nao logou");
-            return "verificarCadastro";
-        }
-    }
+
     
     
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -73,4 +62,12 @@ public class CoordenadorController {
         
     }
     
+    @ExceptionHandler(RuntimeException.class)
+    public String handleRuntimeException(RuntimeException ex, Model model) {
+        log.error("Error ocorrido: {}", ex.getMessage());
+        ErrorResponse error = new ErrorResponse("", ex.getMessage());
+        model.addAttribute("error", error);
+        return "cadastro-coordenador";
+        
+    }
 }

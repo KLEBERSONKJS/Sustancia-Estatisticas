@@ -6,8 +6,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import com.ads.sustancia.record.CadastroCoordenadorDTO;
-import com.ads.sustancia.record.CadastroEntrevistadorDTO;
+import com.ads.sustancia.dto.request.CadastroCoordenadorDTO;
+import com.ads.sustancia.dto.request.EntrevistadorDTO;
 
 @Service
 public class EmailService {
@@ -28,7 +28,7 @@ public class EmailService {
         }
     }
 
-    public void emailCadastroEntrevistador(CadastroEntrevistadorDTO dadosCadastroEntrevistador, String token) {
+    public void emailCadastroEntrevistador(EntrevistadorDTO dadosCadastroEntrevistador, String token) {
 
         this.sendEmail(dadosCadastroEntrevistador.email(),
                 "🎉 Bem-vindo ao Time de Entrevistadores do Projeto Sustância!",
