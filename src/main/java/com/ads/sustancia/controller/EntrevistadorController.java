@@ -24,8 +24,8 @@ public class EntrevistadorController {
     @Transactional
     public String cadastrarEntrevistador(EntrevistadorDTO dadosCadastroEntrevistador, Model model) {
         try {
-            entrevistadorService.cadastrarEntrevistador(dadosCadastroEntrevistador);
-            model.addAttribute("O cadastro de " + dadosCadastroEntrevistador.nome() + " teve exito!");
+            //entrevistadorService.cadastrarEntrevistador(dadosCadastroEntrevistador);
+           // model.addAttribute("O cadastro de " + dadosCadastroEntrevistador.nome() + " teve exito!");
             return "redirect:/entrevistador";
         } catch (Exception e) {
             model.addAttribute("Erro ao cadastrar pessoa: " + e.getMessage());

@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ads.sustancia.dto.request.CadastroCoordenadorDTO;
+import com.ads.sustancia.dto.request.CoordenadorDTO;
 import com.ads.sustancia.dto.response.ErrorResponse;
 import com.ads.sustancia.model.Coordenador;
-import com.ads.sustancia.service.CoordenadorService;
+import com.ads.sustancia.service.impl.CoordenadorServiceImpl;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CoordenadorController {
 
     @Autowired
-    private CoordenadorService coordenadorService;
+    private CoordenadorServiceImpl coordenadorService;
 
     @GetMapping("/profile")
     public Coordenador getCoordenadorProfile(@RequestParam String email) {
@@ -35,7 +35,7 @@ public class CoordenadorController {
     
 
     @PostMapping("/cadastrar")
-    public String cadastrarCoordenador(@Valid CadastroCoordenadorDTO dados, Model model) {
+    public String cadastrarCoordenador(@Valid CoordenadorDTO dados, Model model) {
 
             coordenadorService.cadastrarCoordenador(dados);
             model.addAttribute("email", dados.email());
