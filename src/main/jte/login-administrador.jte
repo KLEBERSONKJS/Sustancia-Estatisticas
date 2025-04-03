@@ -1,6 +1,6 @@
-@import com.ads.sustancia.record.LoginDTO
-@import com.ads.sustancia.record.CadastroCoordenadorDTO
-@import com.ads.sustancia.record.ErrorResponse
+@import com.ads.sustancia.dto.request.LoginDTO
+@import com.ads.sustancia.dto.request.CoordenadorDTO
+@import com.ads.sustancia.dto.response.ErrorResponse
 @param ErrorResponse error = new ErrorResponse()
     <!DOCTYPE html>
     <html lang="pt-br">
