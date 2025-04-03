@@ -16,14 +16,17 @@ public class SecurityConfigurations  {
 
    
 
-    @SuppressWarnings("removal")
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
+                .cors()
+                .and()
+                .csrf(csrf -> csrf.disable())
+                .headers(headers -> headers.frameOptions(frame -> frame.disable()))
                 .authorizeHttpRequests(
                         authoriza -> authoriza
-                                .requestMatchers(HttpMethod.POST, "/**").permitAll()
                                 .requestMatchers(HttpMethod.GET, "/**").permitAll()
+                                ///.requestMatchers(HttpMethod.POST, "/**").permitAll()
                                 .requestMatchers("/h2/**").permitAll()
                                 .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
                                 .anyRequest().authenticated())

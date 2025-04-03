@@ -1,5 +1,5 @@
-@import com.ads.sustancia.record.FormularioDTO
-@import com.ads.sustancia.record.ErrorResponse
+@import  com.ads.sustancia.dto.request.PessoaDTO
+@import  com.ads.sustancia.dto.response.ErrorResponse
 @param ErrorResponse error = new ErrorResponse()
 
 <!DOCTYPE html>

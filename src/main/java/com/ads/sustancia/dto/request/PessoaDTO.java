@@ -3,7 +3,7 @@ package com.ads.sustancia.dto.request;
 import com.ads.sustancia.model.Entrevistador;
 
 
-public record FormularioDTO(
+public record PessoaDTO(
 //ao receber a list de refeicoes e consumo, se caso marcado apenas um checkbox o front nao retorna um array, fazer este ajuste
 //adiconar a referencia de quem é o entrevistardor, o entrevistador logado deverar ser referenciado aqui
 //auxilios o front retorna apenas uma string, necessario array?
