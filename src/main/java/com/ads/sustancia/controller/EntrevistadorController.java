@@ -11,14 +11,14 @@ import com.ads.sustancia.dto.request.EntrevistadorDTO;
 import com.ads.sustancia.service.EntrevistadorService;
 
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequestMapping("/entrevistador")
+@RequiredArgsConstructor
 public class EntrevistadorController {
 
-
-    @Autowired
-    private EntrevistadorService entrevistadorService;
+    private final EntrevistadorService service;
 
     @PostMapping("/cadastrar")
     @Transactional

@@ -37,7 +37,7 @@ public class CoordenadorController {
     @PostMapping("/cadastrar")
     public String cadastrarCoordenador(@Valid CoordenadorDTO dados, Model model) {
 
-            coordenadorService.cadastrarCoordenador(dados);
+            coordenadorService.save(dados);
             model.addAttribute("email", dados.email());
             log.info("Cadastro com Suscesso");
             return "verificacaoCadastro";

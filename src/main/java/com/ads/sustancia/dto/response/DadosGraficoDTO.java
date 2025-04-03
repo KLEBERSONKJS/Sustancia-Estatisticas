@@ -1,7 +1,6 @@
 package com.ads.sustancia.dto.response;
 
 import java.util.List;
-import java.util.Map;
 
 import com.ads.sustancia.model.Resposta;
 

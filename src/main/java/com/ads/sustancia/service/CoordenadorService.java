@@ -1,5 +1,9 @@
 package com.ads.sustancia.service;
 
-public class CoordenadorService {
+import com.ads.sustancia.dto.request.CoordenadorDTO;
+
+public interface CoordenadorService {
     
+    void save(CoordenadorDTO dto);
+
 }
