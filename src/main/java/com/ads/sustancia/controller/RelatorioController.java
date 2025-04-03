@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ads.sustancia.dto.request.FiltroDTO;
+import com.ads.sustancia.dto.response.DadosGraficoDTO;
+import com.ads.sustancia.dto.response.ErrorResponse;
 import com.ads.sustancia.enums.AuxilioEnum;
 import com.ads.sustancia.enums.DependentesEnum;
 import com.ads.sustancia.enums.EmpregoEnum;
@@ -21,9 +24,6 @@ import com.ads.sustancia.enums.GeneroEnum;
 import com.ads.sustancia.enums.RacaEnum;
 import com.ads.sustancia.enums.ReligiaoEnum;
 import com.ads.sustancia.model.InsegurancaAlimentar;
-import com.ads.sustancia.record.DadosGraficoDTO;
-import com.ads.sustancia.record.ErrorResponse;
-import com.ads.sustancia.record.FiltroDTO;
 import com.ads.sustancia.service.RelatorioService;
 
 import lombok.RequiredArgsConstructor;

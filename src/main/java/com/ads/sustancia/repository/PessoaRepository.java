@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.ads.sustancia.dto.request.FiltroDTO;
 import com.ads.sustancia.enums.AuxilioEnum;
 import com.ads.sustancia.enums.DependentesEnum;
 import com.ads.sustancia.enums.EmpregoEnum;
@@ -15,7 +16,6 @@ import com.ads.sustancia.enums.GeneroEnum;
 import com.ads.sustancia.enums.RacaEnum;
 import com.ads.sustancia.enums.ReligiaoEnum;
 import com.ads.sustancia.model.Pessoa;
-import com.ads.sustancia.record.FiltroDTO;
 
 import java.util.List;
 import java.util.Map;

@@ -1,7 +1,7 @@
 @import com.ads.sustancia.enums.*
-@import com.ads.sustancia.record.FiltroDTO
+@import com.ads.sustancia.dto.request.FiltroDTO
 @import com.ads.sustancia.model.Resposta
-@import com.ads.sustancia.record.DadosGraficoDTO
+@import com.ads.sustancia.dto.response.DadosGraficoDTO
 @import java.util.Objects
 @import java.util.List;
 

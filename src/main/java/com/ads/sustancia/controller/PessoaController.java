@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ads.sustancia.record.ErrorResponse;
-import com.ads.sustancia.record.FormularioDTO;
+import com.ads.sustancia.dto.request.FormularioDTO;
+import com.ads.sustancia.dto.response.ErrorResponse;
 import com.ads.sustancia.service.PessoaService;
 
 import jakarta.transaction.Transactional;
@@ -29,7 +29,6 @@ public class PessoaController {
     public String cadastrarPessoa(FormularioDTO dadosPessoaForms, Model model) {
         try {
             pessoaService.cadastrarPessoa(dadosPessoaForms);
-            System.out.println(dadosPessoaForms);
             return "redirect:/formulario";
         } catch (Exception e) {
             model.addAttribute("error", "Erro ao cadastrar pessoa: " + e.getMessage());

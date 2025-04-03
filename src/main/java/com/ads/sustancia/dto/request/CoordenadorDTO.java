@@ -1,4 +1,4 @@
-package com.ads.sustancia.record;
+package com.ads.sustancia.dto.request;
 
 import java.time.LocalDate;
 
@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
 
-public record  CadastroCoordenadorDTO(
+public record  CoordenadorDTO(
     @NotBlank(message = "O nome não pode estar em branco")
     String nome,
 
