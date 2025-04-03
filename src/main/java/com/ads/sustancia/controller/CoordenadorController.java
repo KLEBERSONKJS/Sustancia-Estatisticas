@@ -16,6 +16,7 @@ import com.ads.sustancia.model.Coordenador;
 import com.ads.sustancia.service.impl.CoordenadorServiceImpl;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -23,10 +24,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/coordenador")
 @Slf4j
+@RequiredArgsConstructor
 public class CoordenadorController {
 
-    @Autowired
-    private CoordenadorServiceImpl coordenadorService;
+   
+    private final CoordenadorServiceImpl coordenadorService;
 
     @GetMapping("/profile")
     public Coordenador getCoordenadorProfile(@RequestParam String email) {

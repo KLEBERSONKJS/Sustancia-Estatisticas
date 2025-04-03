@@ -35,6 +35,7 @@ public class RelatorioService {
         private DadosGraficoDTO getInsegurancaAlimentarDadosGrafico(FiltroDTO filtro,String pergunta,String descricao,
                         Function<InsegurancaAlimentar,SimNaoNaoSabeEnum> extrator) {
 
+                                
 
                 List<Resposta> valores = pessoaRepository.filtrarPessoas(filtro).stream()
                                 .map(Pessoa::getInseguracaAlimentar)
