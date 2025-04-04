@@ -7,5 +7,6 @@ public interface EntrevistadorService {
 
 
   void save(EntrevistadorDTO dto);
-   
+  void delete(Long id); 
+  void update(Long id, EntrevistadorDTO dto);  
 }

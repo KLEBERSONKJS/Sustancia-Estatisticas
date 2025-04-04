@@ -6,9 +6,9 @@ import com.ads.sustancia.model.Entrevistador;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring" )
-public abstract class EntrevistadorMapper {
+public interface  EntrevistadorMapper {
 
-    public abstract Entrevistador dtoToEntity(EntrevistadorDTO source);
+    Entrevistador dtoToEntity(EntrevistadorDTO source);
 
-    public abstract EntrevistadorDTO entityToDTO(Entrevistador source);
+    EntrevistadorDTO entityToDTO(Entrevistador source);
 }

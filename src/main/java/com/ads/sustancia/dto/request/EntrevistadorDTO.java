@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 
 public record EntrevistadorDTO(
         
-        String nome, 
+        @NotBlank String nome, 
         @NotBlank
         @Email(message = "Email inválido")
         String email,
