@@ -6,7 +6,11 @@
 @import java.util.List;
 
 @param FiltroDTO filtro
+<<<<<<< Updated upstream
 @param List<DadosGraficoDTO> inseguracaAlimentarList = null
+=======
+@param List<DadosGraficoDTO> inseguracaAlimentar = null
+>>>>>>> Stashed changes
     <!DOCTYPE html>
     <html lang="pt-BR">
 
@@ -217,22 +221,39 @@
         </form>
 
         <div id="results">
+<<<<<<< Updated upstream
             @if (inseguracaAlimentarList != null && !inseguracaAlimentarList.isEmpty())
             @for (DadosGraficoDTO d : inseguracaAlimentarList)
             @if(d!=null)
             <div class=".chart-container">
             <div class="chart-title">${d.getPergunta()}</div>
             <canvas id="chart${inseguracaAlimentarList.indexOf(d)}"></canvas>
+=======
+            @if (inseguracaAlimentar != null && !inseguracaAlimentar.isEmpty())
+            @for (DadosGraficoDTO d : inseguracaAlimentar)
+            @if(d!=null)
+            <div class=".chart-container">
+            <div class="chart-title">${d.getPergunta()}</div>
+            <canvas id="chart${inseguracaAlimentar.indexOf(d)}"></canvas>
+>>>>>>> Stashed changes
             </div> 
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             @endif
             @endfor
             
+<<<<<<< Updated upstream
             @for (DadosGraficoDTO d : inseguracaAlimentarList)
             @if(d!=null)
             <script>
                 const ctx${ inseguracaAlimentarList.indexOf(d)} = document.getElementById('chart${inseguracaAlimentarList.indexOf(d)}').getContext('2d');
                 new Chart(ctx${ inseguracaAlimentarList.indexOf(d) }, {
+=======
+            @for (DadosGraficoDTO d : inseguracaAlimentar)
+            @if(d!=null)
+            <script>
+                const ctx${ inseguracaAlimentar.indexOf(d)} = document.getElementById('chart${inseguracaAlimentar.indexOf(d)}').getContext('2d');
+                new Chart(ctx${ inseguracaAlimentar.indexOf(d) }, {
+>>>>>>> Stashed changes
                     type: 'pie',
                     data: {
                         labels: [

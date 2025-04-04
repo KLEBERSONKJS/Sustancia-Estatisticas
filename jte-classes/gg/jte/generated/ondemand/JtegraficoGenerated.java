@@ -9,7 +9,11 @@ import java.util.List;;
 public final class JtegraficoGenerated {
 	public static final String JTE_NAME = "grafico.jte";
 	public static final int[] JTE_LINE_INFO = {0,0,1,2,3,4,5,7,7,7,7,122,122,122,123,123,123,123,123,123,123,123,123,124,124,124,126,126,134,134,135,135,135,135,135,135,135,135,135,136,136,136,138,138,146,146,147,147,147,147,147,147,147,147,147,148,148,148,150,150,158,158,159,159,159,159,159,159,159,159,159,160,160,160,162,162,170,170,171,171,171,171,171,171,171,171,171,172,172,172,174,174,182,182,183,183,183,183,183,183,183,183,183,184,184,184,186,186,194,194,195,195,195,195,195,195,195,195,195,196,196,196,198,198,206,206,207,207,207,207,207,207,207,207,207,208,208,208,210,210,219,219,220,220,221,221,223,223,223,224,224,224,224,227,227,228,228,230,230,231,231,233,233,233,233,233,233,234,234,234,238,238,239,239,239,239,239,239,239,240,240,244,244,245,245,245,245,245,245,246,246,260,260,260,283,283,285,285,286,286,287,287,289,289,292,292,292,7,8,8,8,8};
+<<<<<<< Updated upstream
 	public static void render(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, FiltroDTO filtro, List<DadosGraficoDTO> inseguracaAlimentarList) {
+=======
+	public static void render(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, FiltroDTO filtro, List<DadosGraficoDTO> inseguracaAlimentar) {
+>>>>>>> Stashed changes
 		jteOutput.writeContent("    <!DOCTYPE html>\r\n    <html lang=\"pt-BR\">\r\n\r\n    <head>\r\n        <meta charset=\"UTF-8\">\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n        <title>Filtros Avançados</title>\r\n        <style>\r\n            body {\r\n                font-family: Arial, sans-serif;\r\n                max-width: 1200px;\r\n                margin: 0 auto;\r\n                padding: 20px;\r\n                line-height: 1.6;\r\n            }\r\n\r\n            .filter-container {\r\n                background-color: #f5f5f5;\r\n                padding: 15px;\r\n                border-radius: 8px;\r\n                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\r\n                margin-bottom: 20px;\r\n            }\r\n\r\n            .filter-section {\r\n                display: grid;\r\n                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));\r\n                gap: 15px;\r\n            }\r\n\r\n            .filter-group {\r\n                margin-bottom: 0;\r\n            }\r\n\r\n            h1 {\r\n                color: #2c3e50;\r\n                text-align: center;\r\n                margin-bottom: 20px;\r\n            }\r\n\r\n            label {\r\n                display: block;\r\n                margin-bottom: 5px;\r\n                font-weight: bold;\r\n                color: #2c3e50;\r\n                font-size: 14px;\r\n            }\r\n\r\n            select {\r\n                padding: 8px;\r\n                width: 100%;\r\n                border: 1px solid #ddd;\r\n                border-radius: 4px;\r\n                font-size: 14px;\r\n                height: 38px;\r\n            }\r\n\r\n            button {\r\n                background-color: #4CAF50;\r\n                color: white;\r\n                padding: 10px 15px;\r\n                border: none;\r\n                border-radius: 4px;\r\n                cursor: pointer;\r\n                font-size: 14px;\r\n                width: auto;\r\n                margin-top: 10px;\r\n                grid-column: 1 / -1;\r\n                justify-self: end;\r\n            }\r\n\r\n            button:hover {\r\n                background-color: #45a049;\r\n            }\r\n\r\n            #results {\r\n                display: flex;\r\n                margin-top: 20px;\r\n                padding: 20px;\r\n                background-color: #fff;\r\n                border-radius: 8px;\r\n                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\r\n            }\r\n\r\n            .chart-container {\r\n                width: 80%;\r\n                margin: 20px auto;\r\n                padding: 15px;\r\n                border: 1px solid #eee;\r\n                border-radius: 8px;\r\n            }\r\n\r\n            .chart-title {\r\n                text-align: center;\r\n                margin-bottom: 10px;\r\n                font-weight: bold;\r\n                color: #2c3e50;\r\n                font-family: 'Courier New', Courier, monospace;\r\n            }\r\n        </style>\r\n    </head>\r\n\r\n    <body>\r\n        <h1>Filtros Avançados</h1>\r\n\r\n        <form action=\"/relatorio\" method=\"get\">\r\n            <div class=\"filter-section\">\r\n                <h2>Filtrar por:</h2>\r\n\r\n                <div class=\"filter-group\">\r\n                    <label for=\"raca\">Raça/Cor:</label>\r\n                    <select id=\"raca\" name=\"raca\">\r\n                        <option value=\"\">Todos as Raças</option>\r\n                        ");
 		for (RacaEnum raca : RacaEnum.values()) {
 			jteOutput.writeContent("\r\n                        <option");
@@ -139,9 +143,15 @@ public final class JtegraficoGenerated {
 			jteOutput.writeContent("\r\n                        </option>\r\n                        ");
 		}
 		jteOutput.writeContent("\r\n                    </select>\r\n                </div>\r\n\r\n                <button type=\"submit\">Gerar Relatório</button>\r\n            </div>\r\n        </form>\r\n\r\n        <div id=\"results\">\r\n            ");
+<<<<<<< Updated upstream
 		if (inseguracaAlimentarList != null && !inseguracaAlimentarList.isEmpty()) {
 			jteOutput.writeContent("\r\n            ");
 			for (DadosGraficoDTO d : inseguracaAlimentarList) {
+=======
+		if (inseguracaAlimentar != null && !inseguracaAlimentar.isEmpty()) {
+			jteOutput.writeContent("\r\n            ");
+			for (DadosGraficoDTO d : inseguracaAlimentar) {
+>>>>>>> Stashed changes
 				jteOutput.writeContent("\r\n            ");
 				if (d!=null) {
 					jteOutput.writeContent("\r\n            <div class=\".chart-container\">\r\n            <div class=\"chart-title\">");
@@ -149,18 +159,27 @@ public final class JtegraficoGenerated {
 					jteOutput.writeUserContent(d.getPergunta());
 					jteOutput.writeContent("</div>\r\n            <canvas id=\"chart");
 					jteOutput.setContext("canvas", "id");
+<<<<<<< Updated upstream
 					jteOutput.writeUserContent(inseguracaAlimentarList.indexOf(d));
+=======
+					jteOutput.writeUserContent(inseguracaAlimentar.indexOf(d));
+>>>>>>> Stashed changes
 					jteOutput.setContext("canvas", null);
 					jteOutput.writeContent("\"></canvas>\r\n            </div> \r\n            <script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>\r\n            ");
 				}
 				jteOutput.writeContent("\r\n            ");
 			}
 			jteOutput.writeContent("\r\n            \r\n            ");
+<<<<<<< Updated upstream
 			for (DadosGraficoDTO d : inseguracaAlimentarList) {
+=======
+			for (DadosGraficoDTO d : inseguracaAlimentar) {
+>>>>>>> Stashed changes
 				jteOutput.writeContent("\r\n            ");
 				if (d!=null) {
 					jteOutput.writeContent("\r\n            <script>\r\n                const ctx");
 					jteOutput.setContext("script", null);
+<<<<<<< Updated upstream
 					jteOutput.writeUserContent( inseguracaAlimentarList.indexOf(d));
 					jteOutput.writeContent(" = document.getElementById('chart");
 					jteOutput.setContext("script", null);
@@ -168,6 +187,15 @@ public final class JtegraficoGenerated {
 					jteOutput.writeContent("').getContext('2d');\r\n                new Chart(ctx");
 					jteOutput.setContext("script", null);
 					jteOutput.writeUserContent( inseguracaAlimentarList.indexOf(d) );
+=======
+					jteOutput.writeUserContent( inseguracaAlimentar.indexOf(d));
+					jteOutput.writeContent(" = document.getElementById('chart");
+					jteOutput.setContext("script", null);
+					jteOutput.writeUserContent(inseguracaAlimentar.indexOf(d));
+					jteOutput.writeContent("').getContext('2d');\r\n                new Chart(ctx");
+					jteOutput.setContext("script", null);
+					jteOutput.writeUserContent( inseguracaAlimentar.indexOf(d) );
+>>>>>>> Stashed changes
 					jteOutput.writeContent(", {\r\n                    type: 'pie',\r\n                    data: {\r\n                        labels: [\r\n                            ");
 					for (Resposta resposta: d.getRespostas()) {
 						jteOutput.writeContent("\r\n                \"");
@@ -206,7 +234,12 @@ public final class JtegraficoGenerated {
 	}
 	public static void renderMap(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, java.util.Map<String, Object> params) {
 		FiltroDTO filtro = (FiltroDTO)params.get("filtro");
+<<<<<<< Updated upstream
 		List<DadosGraficoDTO> inseguracaAlimentarList = (List<DadosGraficoDTO>)params.getOrDefault("inseguracaAlimentarList", null);
 		render(jteOutput, jteHtmlInterceptor, filtro, inseguracaAlimentarList);
+=======
+		List<DadosGraficoDTO> inseguracaAlimentar = (List<DadosGraficoDTO>)params.getOrDefault("inseguracaAlimentar", null);
+		render(jteOutput, jteHtmlInterceptor, filtro, inseguracaAlimentar);
+>>>>>>> Stashed changes
 	}
 }
