@@ -7,18 +7,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.ads.sustancia.dto.request.FiltroDTO;
-import com.ads.sustancia.enums.AuxilioEnum;
-import com.ads.sustancia.enums.DependentesEnum;
-import com.ads.sustancia.enums.EmpregoEnum;
-import com.ads.sustancia.enums.EscolaridadeEnum;
-import com.ads.sustancia.enums.EstadoCivilEnum;
-import com.ads.sustancia.enums.GeneroEnum;
-import com.ads.sustancia.enums.RacaEnum;
-import com.ads.sustancia.enums.ReligiaoEnum;
 import com.ads.sustancia.model.Pessoa;
 
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public interface PessoaRepository extends JpaRepository<Pessoa, Long>, JpaSpecificationExecutor<Pessoa> {
@@ -69,24 +60,24 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long>, JpaSpecif
 
 
        
-       @Query("SELECT " +
-                     "SUM(CASE WHEN p.consumoAlimentar.refeicaoComCelular = 'SIM' THEN 1 ELSE 0 END), " +
-                     "SUM(CASE WHEN p.consumoAlimentar.refeicaoComCelular = 'NAO' THEN 1 ELSE 0 END), " +
-                     "SUM(CASE WHEN p.consumoAlimentar.refeicaoComCelular = 'NAOSABE' THEN 1 ELSE 0 END) " +
-                     "FROM Pessoa p " +
-                     "WHERE " +
-                     "(:#{#filtro.raca} IS NULL OR p.raca = :#{#filtro.raca}) AND " +
-                     "(:#{#filtro.genero} IS NULL OR p.genero = :#{#filtro.genero}) AND " +
-                     "(:#{#filtro.idadeMin} IS NULL OR p.idade >= :#{#filtro.idadeMin}) AND " +
-                     "(:#{#filtro.idadeMax} IS NULL OR p.idade <= :#{#filtro.idadeMax}) AND " +
-                     "(:#{#filtro.religiao} IS NULL OR p.religiao = :#{#filtro.religiao}) AND " +
-                     "(:#{#filtro.escolaridade} IS NULL OR p.escolaridade = :#{#filtro.escolaridade}) AND " +
-                     "(:#{#filtro.estadoCivil} IS NULL OR p.estadoCivil = :#{#filtro.estadoCivil}) AND " +
-                     "(:#{#filtro.emprego} IS NULL OR p.emprego = :#{#filtro.emprego}) AND " +
-                     "(:#{#filtro.dependentes} IS NULL OR p.dependentes = :#{#filtro.dependentes}) AND " +
-                     "(:#{#filtro.auxilio} IS NULL OR EXISTS (" +
-                     "   SELECT 1 FROM p.auxilios a WHERE a = :#{#filtro.auxilio}" +
-                     "))")
-       List<Object[]> contarRespostasRefeicaoComCelular(@Param("filtro") FiltroDTO filtro);
+       // @Query("SELECT " +
+       //               "SUM(CASE WHEN p.consumoAlimentar.refeicaoComCelular = 'SIM' THEN 1 ELSE 0 END), " +
+       //               "SUM(CASE WHEN p.consumoAlimentar.refeicaoComCelular = 'NAO' THEN 1 ELSE 0 END), " +
+       //               "SUM(CASE WHEN p.consumoAlimentar.refeicaoComCelular = 'NAOSABE' THEN 1 ELSE 0 END) " +
+       //               "FROM Pessoa p " +
+       //               "WHERE " +
+       //               "(:#{#filtro.raca} IS NULL OR p.raca = :#{#filtro.raca}) AND " +
+       //               "(:#{#filtro.genero} IS NULL OR p.genero = :#{#filtro.genero}) AND " +
+       //               "(:#{#filtro.idadeMin} IS NULL OR p.idade >= :#{#filtro.idadeMin}) AND " +
+       //               "(:#{#filtro.idadeMax} IS NULL OR p.idade <= :#{#filtro.idadeMax}) AND " +
+       //               "(:#{#filtro.religiao} IS NULL OR p.religiao = :#{#filtro.religiao}) AND " +
+       //               "(:#{#filtro.escolaridade} IS NULL OR p.escolaridade = :#{#filtro.escolaridade}) AND " +
+       //               "(:#{#filtro.estadoCivil} IS NULL OR p.estadoCivil = :#{#filtro.estadoCivil}) AND " +
+       //               "(:#{#filtro.emprego} IS NULL OR p.emprego = :#{#filtro.emprego}) AND " +
+       //               "(:#{#filtro.dependentes} IS NULL OR p.dependentes = :#{#filtro.dependentes}) AND " +
+       //               "(:#{#filtro.auxilio} IS NULL OR EXISTS (" +
+       //               "   SELECT 1 FROM p.auxilios a WHERE a = :#{#filtro.auxilio}" +
+       //               "))")
+       // List<Object[]> contarRespostasRefeicaoComCelular(@Param("filtro") FiltroDTO filtro);
 
 }

@@ -6,7 +6,7 @@
 @import java.util.List;
 
 @param FiltroDTO filtro
-@param List<DadosGraficoDTO> dadosP2 = null
+@param List<DadosGraficoDTO> inseguracaAlimentarList = null
     <!DOCTYPE html>
     <html lang="pt-BR">
 
@@ -217,22 +217,22 @@
         </form>
 
         <div id="results">
-            @if (dadosP2 != null && !dadosP2.isEmpty())
-            @for (DadosGraficoDTO d : dadosP2)
+            @if (inseguracaAlimentarList != null && !inseguracaAlimentarList.isEmpty())
+            @for (DadosGraficoDTO d : inseguracaAlimentarList)
             @if(d!=null)
             <div class=".chart-container">
             <div class="chart-title">${d.getPergunta()}</div>
-            <canvas id="chart${dadosP2.indexOf(d)}"></canvas>
+            <canvas id="chart${inseguracaAlimentarList.indexOf(d)}"></canvas>
             </div> 
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             @endif
             @endfor
             
-            @for (DadosGraficoDTO d : dadosP2)
+            @for (DadosGraficoDTO d : inseguracaAlimentarList)
             @if(d!=null)
             <script>
-                const ctx${ dadosP2.indexOf(d)} = document.getElementById('chart${dadosP2.indexOf(d)}').getContext('2d');
-                new Chart(ctx${ dadosP2.indexOf(d) }, {
+                const ctx${ inseguracaAlimentarList.indexOf(d)} = document.getElementById('chart${inseguracaAlimentarList.indexOf(d)}').getContext('2d');
+                new Chart(ctx${ inseguracaAlimentarList.indexOf(d) }, {
                     type: 'pie',
                     data: {
                         labels: [
