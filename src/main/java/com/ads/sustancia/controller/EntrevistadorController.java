@@ -48,7 +48,7 @@ public class EntrevistadorController {
 
     @PutMapping("/atualizar/{id}")
     public String atualizarEntrevistador(@PathVariable Long id, @ModelAttribute EntrevistadorDTO dto) {
-        service.update(id, dto);
+        service.update(dto);
         return "redirect:/entrevistador";
     }
 

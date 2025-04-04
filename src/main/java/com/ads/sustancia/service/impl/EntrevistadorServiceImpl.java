@@ -36,8 +36,8 @@ public class EntrevistadorServiceImpl implements EntrevistadorService {
 
     @Override
     @Transactional
-    public void update(Long id, EntrevistadorDTO dto) {
-        Entrevistador entity = repository.findById(id)
+    public void update(EntrevistadorDTO dto) {
+        Entrevistador entity = repository.findById(dto.id())
             .orElseThrow(() -> new RuntimeException("Entrevistador não encontrado!"));
 
         entity.setNome(dto.nome());
