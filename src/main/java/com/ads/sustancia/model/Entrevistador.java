@@ -18,6 +18,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -64,7 +66,7 @@ public class Entrevistador implements UserDetails {
 
     }
 
-    private String gerarId() {
+    public String gerarId() {
         DecimalFormat format = new DecimalFormat("0000");
         return "SUSTANCIA-" + format.format(contador.getAndIncrement());
         

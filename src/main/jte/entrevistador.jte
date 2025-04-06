@@ -1,3 +1,5 @@
+@import com.ads.sustancia.dto.request.EntrevistadorDTO
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,6 +10,7 @@
     <link rel="stylesheet" href="/css/entrevistador.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
     <nav class="barra-lateral">
         <button class="menu-hamburguer sidebar-close">
@@ -45,6 +48,7 @@
             </a>
         </div>
     </nav>
+    
     <main>
         <header class="cabecalho">
             <button class="menu-hamburguer">
@@ -56,6 +60,8 @@
             </div>
         </header>
         <section class="conteudo">
+
+
             <div class="cards">
                 <!-- Card exemplo -->
                 <article class="card">
@@ -75,7 +81,50 @@
                 <!-- Repetir o card conforme necessário -->
             </div>
         </section>
+
+<section class="conteudo">
+  <!-- Formulário estilizado dentro de um card -->
+  <div class="form-card">
+    <h3>Cadastrar Entrevistador</h3>
+ <form method="post" action="/entrevistador/cadastrar">
+  <input type="hidden" id="entrevistador-id" name="id">
+
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" placeholder="Digite o nome" required>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Digite o email" required>
+  </div>
+
+  <div class="form-group">
+    <label for="senha">Senha</label>
+    <input type="password" id="senha" name="senha" placeholder="Digite a senha" required>
+  </div>
+
+
+  <div class="form-group">
+    <label for="dataNascimento">Data de Nascimento</label>
+    <input type="date" id="dataNascimento" name="dataNascimento" required>
+  </div>
+
+  <button type="submit" class="btn-salvar">Salvar</button>
+</form>
+
+  </div>
+
+  <div class="cards" id="cards-container">
+    <!-- Cards dos entrevistadores serão adicionados aqui via JavaScript -->
+  </div>
+</section>
+
+
+
     </main>
-    <!-- <script src="/front/js/visualizar-relatorios.js"></script> -->
+
+
+
 </body>
 </html>

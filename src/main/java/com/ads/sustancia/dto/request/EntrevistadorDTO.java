@@ -11,6 +11,7 @@ public record EntrevistadorDTO(
         @NotBlank
         @Email(message = "Email inválido")
         String email,
-        LocalDate dataNascimento) {
+        LocalDate dataNascimento,
+        @NotBlank String senha) {
 
 }

@@ -26,7 +26,7 @@ public class SecurityConfigurations  {
                 .authorizeHttpRequests(
                         authoriza -> authoriza
                                 .requestMatchers(HttpMethod.GET, "/**").permitAll()
-                                ///.requestMatchers(HttpMethod.POST, "/**").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/**").permitAll()
                                 .requestMatchers("/h2/**").permitAll()
                                 .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
                                 .anyRequest().authenticated())

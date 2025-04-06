@@ -1,5 +1,8 @@
 package com.ads.sustancia.service.impl;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import com.ads.sustancia.dto.request.EntrevistadorDTO;
@@ -21,9 +24,21 @@ public class EntrevistadorServiceImpl implements EntrevistadorService {
     @Override
     @Transactional
     public void save(EntrevistadorDTO dto) {
-        Entrevistador entity = mapper.dtoToEntity(dto);
-        repository.save(entity);
+        try {
+            Entrevistador entity = mapper.dtoToEntity(dto);
+    
+            if (entity.getId() == null || entity.getId().isEmpty()) {
+                entity.setId(entity.gerarId());
+            }
+    
+            repository.save(entity);
+        } catch (Exception e) {
+            e.printStackTrace(); // <-- Vai mostrar a causa verdadeira
+            throw e; // Rejoga a exceção para o Spring marcar rollback de forma explícita
+        }
     }
+    
+    
 
     @Override
     @Transactional
@@ -46,4 +61,14 @@ public class EntrevistadorServiceImpl implements EntrevistadorService {
 
         repository.save(entity);
     }
+
+    @Override
+    @Transactional
+    public List<EntrevistadorDTO> findAll() {
+        return repository.findAll()
+                .stream()
+                .map(mapper::entityToDTO)
+                .collect(Collectors.toList());
+    }
+    
 }
