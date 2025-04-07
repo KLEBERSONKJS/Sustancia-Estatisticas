@@ -24,18 +24,11 @@ public class EntrevistadorServiceImpl implements EntrevistadorService {
     @Override
     @Transactional
     public void save(EntrevistadorDTO dto) {
-        try {
-            Entrevistador entity = mapper.dtoToEntity(dto);
-    
-            if (entity.getId() == null || entity.getId().isEmpty()) {
-                entity.setId(entity.gerarId());
-            }
-    
-            repository.save(entity);
-        } catch (Exception e) {
-            e.printStackTrace(); // <-- Vai mostrar a causa verdadeira
-            throw e; // Rejoga a exceção para o Spring marcar rollback de forma explícita
+
+        if (repository.findByEmail(dto.email()).isPresent()) {
+            throw new RuntimeException("Email ja Cadastrado");
         }
+            repository.save(mapper.dtoToEntity(dto));
     }
     
     
