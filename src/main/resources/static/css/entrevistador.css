@@ -324,3 +324,45 @@ section.conteudo {
     background-color: #45a049;
   }
   
+  .card-acoes {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0 1rem;
+}
+
+.card-acoes form {
+    flex: 1;
+}
+
+.card-acoes button {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Botão Editar */
+.btn-editar {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #43a047;
+}
+
+/* Botão Excluir */
+.btn-excluir {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-excluir:hover {
+    background-color: #e53935;
+}

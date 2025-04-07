@@ -61,7 +61,6 @@
         </header>
         <section class="conteudo">
 
-
             <div class="cards">
                 <!-- Card exemplo -->
                 <article class="card">
@@ -77,6 +76,17 @@
                         <button class="btn-filtro">#pardos</button>
                         <button class="btn-filtro">#outro-filtro</button>
                     </div>
+
+                    <div class="card-acoes">
+                        <form method="get" action="/entrevistador/editar/1">
+                            <button type="submit" class="btn-editar">Editar</button>
+                        </form>
+                        <form method="post" action="/entrevistador/excluir/1">
+                            <button type="submit" class="btn-excluir">Excluir</button>
+                        </form>
+                    </div>
+
+
                 </article>
                 <!-- Repetir o card conforme necessário -->
             </div>
