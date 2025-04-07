@@ -30,13 +30,11 @@ public class EntrevistadorController {
 
     @PostMapping("/cadastrar")
     @Transactional
-    public String cadastrarEntrevistador(@ModelAttribute EntrevistadorDTO dadosCadastroEntrevistador, Model model) {
+    public String cadastrarEntrevistador(@ModelAttribute EntrevistadorDTO dto, Model model) {
         try {
-            //entrevistadorService.cadastrarEntrevistador(dadosCadastroEntrevistador);
-           // model.addAttribute("O cadastro de " + dadosCadastroEntrevistador.nome() + " teve exito!");
-            service.save(dadosCadastroEntrevistador);
-            model.addAttribute("mensagem", "O cadastro de " + dadosCadastroEntrevistador.nome() + " foi realizado com sucesso!");
-            return "redirect:/entrevistador";
+            service.save(dto);
+            model.addAttribute("mensagem", "O cadastro de %s foi realizado com sucesso!".formatted(dto.nome()));
+            return "entrevistador";
         } catch (Exception e) {
             model.addAttribute("erro", "Erro ao cadastrar entrevistador: " + e.getMessage());
             return "entrevistador";

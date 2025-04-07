@@ -1,5 +1,5 @@
 @import com.ads.sustancia.dto.request.EntrevistadorDTO
-
+@param String mensagem
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -85,6 +85,9 @@
 <section class="conteudo">
   <!-- Formulário estilizado dentro de um card -->
   <div class="form-card">
+      @if(mensagem!= null)
+          <p>${mensagem}</p>
+      @endif
     <h3>Cadastrar Entrevistador</h3>
  <form method="post" action="/entrevistador/cadastrar">
   <input type="hidden" id="entrevistador-id" name="id">
