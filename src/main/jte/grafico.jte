@@ -216,6 +216,13 @@
     </div>
 </form>
 
+<div>
+
+    //Gráficos da parte 2 do forms aqui!
+
+</div>
+
+
 <div id="results">
     @if (inseguracaAlimentarList != null && !inseguracaAlimentarList.isEmpty())
     @for (DadosGraficoDTO d : inseguracaAlimentarList)
@@ -231,7 +238,8 @@
     @for (DadosGraficoDTO d : inseguracaAlimentarList)
     @if(d!=null)
     <script>
-        const ctx${ inseguracaAlimentarList.indexOf(d)} = document.getElementById('chart${inseguracaAlimentarList.indexOf(d)}').getContext('2d');
+        const ctx${ inseguracaAlimentarList.indexOf(d)}
+         = document.getElementById('chart${inseguracaAlimentarList.indexOf(d)}').getContext('2d');
                 new Chart(ctx${ inseguracaAlimentarList.indexOf(d) }, {
                     type: 'pie',
                     data: {
@@ -279,7 +287,7 @@
                         }
                     }
                 }
-           });
+           });c
     </script>
     @else
     <p>Nenhum dado disponível para exibir.</p>
