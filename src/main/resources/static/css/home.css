@@ -20,6 +20,18 @@ body {
     display: flex;
 }
 
+header {
+    height: 0vh;
+}
+
+header .menu-toggle {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    background-color: transparent;
+    border: none;
+}
+
 nav.barra-lateral {
     width: 250px;
     background-color: var(--cor-barra-lateral);
@@ -32,10 +44,6 @@ nav.barra-lateral {
     padding-top: 2vh;
     justify-content: space-between;
     transition: transform 0.3s ease-in-out;
-}
-
-nav.barra-lateral.aberto {
-    transform: translateX(0);
 }
 
 div.logo {
@@ -52,18 +60,8 @@ div.logo img {
     height: 21vh; /* Ajustar conforme necessário */
 }
 
-div.logo:hover {
-    animation: flutuar 3s ease-in-out infinite;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes flutuar {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+nav.barra-lateral.aberto {
+    transform: translateX(0);
 }
 
 ul {
@@ -110,6 +108,8 @@ li a.ativo img {
 }
 
 div.sair {
+    position: absolute;
+    bottom: 0;
     margin-bottom: 2.5vh;
     width: 90%;
 }
@@ -132,13 +132,6 @@ main {
     padding: 2vh;
     width: calc(100% - 250px);
     transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
-}
-
-header.cabecalho {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2vh;
 }
 
 div.bem-vindo {
@@ -218,20 +211,30 @@ div.info {
     color: var(--cor-texto);
 }
 
-menu#burguer {
-    display: none;
+#menu-toggle img {
+    width: 20px;
+    height: 20px;
 }
+
+button#menu-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px 15px;
+    z-index: 1000;
+    border: none;
+    cursor: pointer;
+    display: none;
+    background-color: var(--cor-barra-lateral);
+    border-radius: var(--border-radius-padrao);
+}
+
+button#menu-toggle:hover {
+    background-color: var(--cor-botao-ativo);
+}
+
 /* Media Queries para Responsividade */
 @media (max-width: 768px) {
-    nav.barra-lateral {
-        transform: translateX(-100%);
-    }
-
-    nav.barra-lateral.aberto {
-        display: flex;
-        transform: translateX(0);
-    }
-
     main {
         margin-left: 0;
         width: 100%;
@@ -251,28 +254,17 @@ menu#burguer {
 }
 
 @media (max-width: 768px) {
+
     nav.barra-lateral .logo {
         margin-top: 0;
     }
 
-    menu#burguer {
-        background-color: var(--cor-botao-ativo);
-        align-items: flex-start;
-        display: inline-block;
-        border-radius: 1vh;
-        padding: 1.5vh;
-        margin-right: 1vh;
+    .barra-lateral {
+        display:none;
     }
 
-    menu#burguer:hover {
-        background-color: var(--cor-barra-lateral-escura);
-        cursor: pointer;
-    }
-
-    div.container-pesquisa input {
-        width: 10vh;
+    button#menu-toggle {
+        display: block;
     }
 
 }
-
-
