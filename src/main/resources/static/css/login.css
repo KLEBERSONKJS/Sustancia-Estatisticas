@@ -226,6 +226,13 @@ form {
     box-shadow: none;
 }
 
+@media screen and (max-width: 790px){
+    .toggle-panel.toggle-direito h1 {
+        display: flex;
+        font-size: 28px;
+    }
+}
+
 /* Estilos responsivos */
 @media screen and (max-width: 650px) {
     .conteiner {
@@ -256,6 +263,10 @@ form {
         top: 70%;
     }
 
+    .toggle-box h1 {
+        font-size: 50px;
+    }
+
     .toggle-panel {
         width: 100%;
         height: 30%;
@@ -280,7 +291,28 @@ form {
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 650px) {
+    
+    .caixa-de-formulario.cadastro h1 {
+        margin-top: 10px;
+        font-size: 35px;
+    }
+    
+    .caixa-de-formulario.cadastro .btn {
+        margin-top: 5px;
+    }
+
+    .caixa-de-input {
+        margin-top: 5px;
+    }
+
+    .caixa-de-input input {
+        font-size: 12px;
+    }
+
+    .toggle-panel.toggle-direito h1 {
+        font-size: 22px;
+    }
     .caixa-de-formulario {
         padding: 20px;
     }
