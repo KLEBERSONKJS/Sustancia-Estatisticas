@@ -33,7 +33,7 @@
                 <i class='bx bxs-user-detail' alt="Editar Perfil"></i>
                 Perfil
             </a></li>
-            <li><a href="visualizar-graficos.html" target=_self>
+            <li><a href="visualizar-graficos.jte" target=_self>
                 <i class='bx bxs-pie-chart-alt-2' alt="Editar Perfil"></i>
                 Graficos
             </a></li>
