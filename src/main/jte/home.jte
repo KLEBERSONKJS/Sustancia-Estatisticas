@@ -36,10 +36,10 @@
                 <i class='bx bxs-user-badge' alt="Entrevistadores"></i>
                 Entrevistadores
             </a></li>
-        <li><a href="#perfil">
-                <i class='bx bxs-user-detail' alt="Editar Perfil"></i>
-                Perfil
-            </a></li>
+       <li><a href="/coordenador/perfil?email=mauricio@email.com">
+    <i class='bx bxs-user-detail'></i>
+    Perfil
+</a></li>
         <li><a href="/graficos">
                 <i class='bx bxs-pie-chart-alt-2' alt="Editar Perfil"></i>
                 Graficos

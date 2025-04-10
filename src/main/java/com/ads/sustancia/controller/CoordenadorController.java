@@ -34,7 +34,13 @@ public class CoordenadorController {
     public Coordenador getCoordenadorProfile(@RequestParam String email) {
         return coordenadorService.getCoordenadorProfile(email);
     }
-    
+
+    @GetMapping("/perfil")
+    public String perfil(Model model, @RequestParam String email) {
+        Coordenador coordenador = coordenadorService.getCoordenadorProfile(email); 
+        model.addAttribute("coordenador", coordenador); 
+        return "perfil"; 
+    }
 
     @PostMapping("/cadastrar")
     public String cadastrarCoordenador(@Valid CoordenadorDTO dados, Model model) {
