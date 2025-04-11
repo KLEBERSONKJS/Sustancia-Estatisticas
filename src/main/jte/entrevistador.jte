@@ -71,11 +71,6 @@
                             <p>Data: 01/01/2023</p>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <button class="btn-filtro">#18-23</button>
-                        <button class="btn-filtro">#pardos</button>
-                        <button class="btn-filtro">#outro-filtro</button>
-                    </div>
 
                     <div class="card-acoes">
                         <form method="get" action="/entrevistador/editar/1">

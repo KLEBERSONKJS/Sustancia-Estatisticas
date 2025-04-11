@@ -46,7 +46,7 @@
             </a></li>
     </ul>
 
-    <div class="sair">
+    <div id="btn_sair" class="sair">
         <a href="#sair">
             <img src="/assets/icons/botao-sair.svg" alt="Sair">
             Sair
@@ -54,6 +54,7 @@
     </div>
 </nav>
 
+<script src="/js/logoff.js"></script>
 <script src="/js/menu.js"></script>
 </body>
 

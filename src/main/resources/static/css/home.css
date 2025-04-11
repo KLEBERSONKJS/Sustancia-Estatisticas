@@ -220,13 +220,13 @@ button#menu-toggle {
     position: fixed;
     top: 10px;
     left: 10px;
-    padding: 10px 15px;
+    padding: 5px;
     z-index: 1000;
     border: none;
     cursor: pointer;
     display: none;
     background-color: var(--cor-barra-lateral);
-    border-radius: var(--border-radius-padrao);
+    border-radius: 5px;
 }
 
 button#menu-toggle:hover {
