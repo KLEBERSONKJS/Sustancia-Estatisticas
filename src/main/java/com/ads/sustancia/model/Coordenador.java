@@ -1,12 +1,6 @@
 package com.ads.sustancia.model;
 
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.List;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import com.ads.sustancia.enums.UserRole;
 import com.ads.sustancia.enums.UsuarioStatusEnum;
@@ -28,7 +22,7 @@ import lombok.ToString;
 @ToString
 @Setter
 @Getter
-public class Coordenador implements UserDetails{
+public class Coordenador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -60,43 +54,7 @@ public class Coordenador implements UserDetails{
 
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (this.role == UserRole.ADMIN)
-        return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
-        else
-            return List.of(new SimpleGrantedAuthority("ROLE_USER"));
-        }
-        
-        @Override
-        public String getPassword() {
-            return senha;
-    }
 
-    @Override
-    public String getUsername() {
-        return email;
-    }
-    
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-    
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-    
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-    
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
     
     }
 
