@@ -1,7 +1,9 @@
 package com.ads.sustancia.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,26 +27,34 @@ public class PessoaController {
 
     @PostMapping("/save")
     @Transactional
-    public String cadastrarPessoa(PessoaDTO dto, Model model) {
+    public String cadastrarPessoa(@Valid PessoaDTO dto, Model model) {
         try {
             service.cadastrarPessoa(dto);
-            return "redirect:/formulario";
+            model.addAttribute("mensagem", "O cadastro de %s teve exito!".formatted(dto.nome()));
         } catch (Exception e) {
             model.addAttribute("error", "Erro ao cadastrar pessoa: " + e.getMessage());
-            return "formulario";  
         }
+        return "formulario";
     }
 
-   
+
     @GetMapping()
     public String formEntrevista(){
         return "formulario";
     }
 
-    @ExceptionHandler(Exception.class)
-    public String handleValidationException(Exception ex, Model model) {
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public String handleValidationException(MethodArgumentNotValidException ex, Model model) {
         log.error("Error ocorrido: {}", ex.getMessage());
-        ErrorResponse error = new ErrorResponse("Error ao Cadastarar: ", ex.getLocalizedMessage());
+        ErrorResponse error = new ErrorResponse("Error ao Cadastarar: ", ex.getMessage());
+        model.addAttribute("error", error);
+        return "formulario";
+    }
+
+    @ExceptionHandler(Exception.class)
+    public String handleException(Exception ex, Model model) {
+        log.error("Error ocorrido: {}", ex.getMessage());
+        ErrorResponse error = new ErrorResponse("Error ao Cadastarar: ", ex.getMessage());
         model.addAttribute("error", error);
         return "formulario";
     }

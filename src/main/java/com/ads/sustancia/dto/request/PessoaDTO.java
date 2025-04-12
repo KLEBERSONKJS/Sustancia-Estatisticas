@@ -1,6 +1,8 @@
 package com.ads.sustancia.dto.request;
 
 import com.ads.sustancia.model.Entrevistador;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 
 public record PessoaDTO(
@@ -8,9 +10,48 @@ public record PessoaDTO(
 //adiconar a referencia de quem é o entrevistardor, o entrevistador logado deverar ser referenciado aqui
 //auxilios o front retorna apenas uma string, necessario array?
         Entrevistador entrevistador,
-        String nome, int idade, String genero, String raca, String escolaridade, String estado_civil, String emprego,
-        String auxilios, String familia, String religiao, String refeicoes_com_tecnologia, String refeicoes, String consumo,
-        String ebia_1,String ebia_2, String ebia_3, String ebia_4, String ebia_5, String ebia_6, String ebia_7, String ebia_8
+        @NotBlank
+        String nome,
+        @NotNull
+        int idade,
+        @NotBlank
+        String genero,
+        @NotBlank
+        String raca,
+        @NotBlank
+        String escolaridade,
+        @NotBlank
+        String estado_civil,
+        @NotBlank
+        String emprego,
+        @NotBlank(message = "NAO PODE SER NULO")
+        String auxilios,
+        @NotBlank
+        String familia,
+        @NotBlank
+        String religiao,
+        @NotBlank
+        String refeicoes_com_tecnologia,
+        @NotBlank
+        String refeicoes,
+        @NotBlank
+        String consumo,
+        @NotBlank
+        String ebia_1,
+        @NotBlank
+        String ebia_2,
+        @NotBlank
+        String ebia_3,
+        @NotBlank
+        String ebia_4,
+        @NotBlank
+        String ebia_5,
+        @NotBlank
+        String ebia_6,
+        @NotBlank
+        String ebia_7,
+        @NotBlank
+        String ebia_8
 ) {
 
 }

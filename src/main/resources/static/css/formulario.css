@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --cor-principal: #719a37;
+  --cor-secundaria: #c8ea97;
+  --cor-hover: #d27a00;
+  --cor-hover-claro: #ffd816;
+  --cor-texto: #ffffff;
+  --cor-texto-escuro: #4e1018;
+  --cor-fundo: #f8f9fa;
+  --cor-bloco: #f0fdfa;
+  --cor-borda: #cde5d2;
+}
+
+/* Reset e base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Public Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--cor-texto-escuro);
+  background-color: var(--cor-fundo);
+  padding: 1rem;
+}
+
+/* Estrutura principal */
+.formulario {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.formulario-titulo {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--cor-principal);
+}
+
+.formulario-corpo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Seções */
+.formulario-secao {
+  border: 2px solid var(--cor-borda);
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: var(--cor-bloco);
+}
+
+.formulario-legenda {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--cor-principal);
+}
+
+/* Campos base */
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.campo label,
+.campo .campo-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--cor-texto-escuro);
+}
+
+/* Input, select e textarea */
+.campo input[type="text"],
+.campo input[type="number"],
+.campo select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.campo input:focus,
+.campo select:focus {
+  border-color: var(--cor-principal);
+  outline: none;
+}
+
+/* Grupo de opções: radio e checkbox */
+.grupo-opcoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+
+.grupo-opcoes label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: #444;
+}
+
+/* Campo específico por tipo */
+.campo-radio .grupo-opcoes,
+.campo-checkbox .grupo-opcoes {
+  margin-top: 0.25rem;
+}
+
+.campo-select select {
+  width: 100%;
+}
+
+/* Instruções EBIA */
+.formulario-instrucoes {
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Rodapé do formulário */
+.formulario-rodape {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* Botões */
+.botao {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.botao-principal {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto);
+}
+
+.botao-principal:hover {
+  background-color: var(--cor-hover);
+  color: var(--cor-texto);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .formulario {
+    padding: 1rem;
+  }
+
+  .formulario-titulo {
+    font-size: 1.5rem;
+  }
+
+  .formulario-secao {
+    padding: 1rem;
+  }
+
+  .grupo-opcoes {
+    flex-direction: column;
+  }
+}

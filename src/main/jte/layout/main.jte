@@ -17,13 +17,11 @@
 <body>
 
     <div class="wrapper">
-        @template.layout.header()
-
+    @template.layout.aside()
         <main class="main container">
             ${content}
         </main>
-
-        @template.layout.aside()
+        
     </div>
 
 

@@ -26,12 +26,11 @@
                     <i class='bx bxs-pie-chart-alt-2' alt="Editar Perfil"></i>
                     Graficos
                 </a></li>
+            <li>
+                <a  class="sair" href="#sair">
+                    <img src="/assets/icons/botao-sair.svg" alt="Sair">
+                    Sair
+                </a>
+            </li>
         </ul>
-    
-        <div class="sair">
-            <a href="#sair">
-                <img src="/assets/icons/botao-sair.svg" alt="Sair">
-                Sair
-            </a>
-        </div>
     </nav>
