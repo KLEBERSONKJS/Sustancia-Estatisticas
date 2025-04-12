@@ -1,4 +1,21 @@
+@import com.ads.sustancia.enums.*
+@import com.ads.sustancia.dto.request.FiltroDTO
+@import com.ads.sustancia.model.Resposta
+@import com.ads.sustancia.dto.response.DadosGraficoDTO
+@import java.util.Objects
 
+@param FiltroDTO filtro
+
+@template.layout.main(content = @`
+    <div class="filtro-item">
+        <label for="raca">Raça/Cor:</label>
+        <select id="raca" name="raca">
+            <option value="">Todas</option>
+            @for (com.ads.sustancia.enums.RacaEnum raca : com.ads.sustancia.enums.RacaEnum.values())
+                <option value="${raca.name()}">${raca.name()}</option>
+            @endfor
+        </select>
+    </div>
     <!-- GRÁFICOS embaixo -->
     <div class="graficos-grid">
         <article class="grafico-article">

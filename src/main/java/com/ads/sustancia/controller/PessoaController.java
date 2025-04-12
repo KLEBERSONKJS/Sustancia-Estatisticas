@@ -46,7 +46,7 @@ public class PessoaController {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public String handleValidationException(MethodArgumentNotValidException ex, Model model) {
         log.error("Error ocorrido: {}", ex.getMessage());
-        ErrorResponse error = new ErrorResponse("Error ao Cadastarar: ", ex.getMessage());
+        ErrorResponse error = new ErrorResponse("Error:", ex.getBindingResult().getFieldError().getDefaultMessage());
         model.addAttribute("error", error);
         return "formulario";
     }
@@ -54,7 +54,7 @@ public class PessoaController {
     @ExceptionHandler(Exception.class)
     public String handleException(Exception ex, Model model) {
         log.error("Error ocorrido: {}", ex.getMessage());
-        ErrorResponse error = new ErrorResponse("Error ao Cadastarar: ", ex.getMessage());
+        ErrorResponse error = new ErrorResponse("Error ao Cadastarar Interno", "Contate o Desenvolvedor");
         model.addAttribute("error", error);
         return "formulario";
     }

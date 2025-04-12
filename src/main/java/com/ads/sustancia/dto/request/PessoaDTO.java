@@ -6,51 +6,48 @@ import jakarta.validation.constraints.NotNull;
 
 
 public record PessoaDTO(
-//ao receber a list de refeicoes e consumo, se caso marcado apenas um checkbox o front nao retorna um array, fazer este ajuste
-//adiconar a referencia de quem é o entrevistardor, o entrevistador logado deverar ser referenciado aqui
-//auxilios o front retorna apenas uma string, necessario array?
         Entrevistador entrevistador,
-        @NotBlank
+        @NotBlank(message = "Campo Nome não pode está em branco")
         String nome,
-        @NotNull
+        @NotNull(message = "Campo Idade não pode está em branco")
         int idade,
-        @NotBlank
+        @NotBlank(message = "Campo Gênero não pode está em branco")
         String genero,
-        @NotBlank
+        @NotBlank(message = "Campo Raça não pode está em branco")
         String raca,
-        @NotBlank
+        @NotBlank(message = "Campo Escolaridade não pode está em branco")
         String escolaridade,
-        @NotBlank
+        @NotBlank(message = "Campo Estado Civil não pode está em branco")
         String estado_civil,
-        @NotBlank
+        @NotBlank(message = "Campo Emprego não pode está em branco")
         String emprego,
-        @NotBlank(message = "NAO PODE SER NULO")
+        @NotBlank(message = "Campo Auxilios não pode está em branco")
         String auxilios,
-        @NotBlank
+        @NotBlank(message = "Campo Família não pode está em branco")
         String familia,
-        @NotBlank
+        @NotBlank(message = "Campo Relígião não pode está em branco")
         String religiao,
-        @NotBlank
+        @NotBlank(message = "Campo Refeições com tecnlogia não pode está em branco")
         String refeicoes_com_tecnologia,
-        @NotBlank
+        @NotBlank(message = "Campo Refeições ao logo do dia não pode está em branco")
         String refeicoes,
-        @NotBlank
+        @NotBlank(message = "Campo Ontem Você consumiu não pode está em branco")
         String consumo,
-        @NotBlank
+        @NotBlank(message = "Campo Pergunta 1 não pode está em branco")
         String ebia_1,
-        @NotBlank
+        @NotBlank(message = "Campo Pergunta 2 não pode está em branco")
         String ebia_2,
-        @NotBlank
+        @NotBlank(message = "Campo Pergunta 3 não pode está em branco")
         String ebia_3,
-        @NotBlank
+        @NotBlank(message = "Campo Pergunta 4 não pode está em branco")
         String ebia_4,
-        @NotBlank
+        @NotBlank(message = "Campo Pergunta 5 não pode está em branco")
         String ebia_5,
-        @NotBlank
+        @NotBlank(message = "Campo Pergunta 6 não pode está em branco")
         String ebia_6,
-        @NotBlank
+        @NotBlank(message = "Campo Pergunta 7 não pode está em branco")
         String ebia_7,
-        @NotBlank
+        @NotBlank(message = "Campo Pergunta 8 não pode está em branco")
         String ebia_8
 ) {
 
