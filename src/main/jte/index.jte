@@ -1,4 +1,4 @@
-@template.layout.main(content = @`
+
     <!-- GRÁFICOS embaixo -->
     <div class="graficos-grid">
         <article class="grafico-article">
