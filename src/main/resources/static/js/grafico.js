@@ -11,7 +11,7 @@ function createPieChart(canvasId, title, labels, data, index = 0) {
     const rotatedColors = [...baseColors.slice(index % baseColors.length), ...baseColors.slice(0, index % baseColors.length)];
     
     new Chart(ctx, {
-        type: 'pie',
+        type: 'bar',
         data: {
             labels: labels,
             datasets: [{

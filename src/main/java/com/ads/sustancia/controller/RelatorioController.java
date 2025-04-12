@@ -47,7 +47,7 @@ public class RelatorioController {
         model.addAttribute("consumoOntem",consumoOntem);
         model.addAttribute("inseguracaAlimentarList", insegurancaAlimentar(filtroDTO));
         model.addAttribute("filtro",filtroDTO);
-        return "grafico";
+        return "relatorio";
     }
 
     private List<DadosGraficoDTO> insegurancaAlimentar(FiltroDTO filtroDTO) {
