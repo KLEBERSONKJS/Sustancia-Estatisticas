@@ -4,12 +4,12 @@ public final class JtemainGenerated {
 	public static final String JTE_NAME = "layout/main.jte";
 	public static final int[] JTE_LINE_INFO = {0,0,0,0,0,20,20,20,22,22,22,28,28,28,0,0,0,0};
 	public static void render(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, gg.jte.Content content) {
-		jteOutput.writeContent("\n<!DOCTYPE html>\n<html lang=\"pt-BR\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Sustância - Home Page</title>\n    <link href=\"https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap\" rel=\"stylesheet\">\n    <link rel=\"stylesheet\" href=\"/css/style.css\">\n    <link rel=\"stylesheet\" href=\"/css/relatorio.css\">\n    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>\n    <link rel=\"stylesheet\"\n        href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu\" />\n</head>\n\n<body>\n\n    <div class=\"wrapper\">\n    ");
+		jteOutput.writeContent("\r\n<!DOCTYPE html>\r\n<html lang=\"pt-BR\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Sustância - Home Page</title>\r\n    <link href=\"https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap\" rel=\"stylesheet\">\r\n    <link rel=\"stylesheet\" href=\"/css/style.css\">\r\n    <link rel=\"stylesheet\" href=\"/css/relatorio.css\">\r\n    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>\r\n    <link rel=\"stylesheet\"\r\n        href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu\" />\r\n</head>\r\n\r\n<body>\r\n\r\n    <div class=\"wrapper\">\r\n    ");
 		gg.jte.generated.ondemand.layout.JteasideGenerated.render(jteOutput, jteHtmlInterceptor);
-		jteOutput.writeContent("\n        <main class=\"main container\">\n            ");
+		jteOutput.writeContent("\r\n        <main class=\"main container\">\r\n            ");
 		jteOutput.setContext("main", null);
 		jteOutput.writeUserContent(content);
-		jteOutput.writeContent("\n        </main>\n        \n    </div>\n</body>\n\n</html>");
+		jteOutput.writeContent("\r\n        </main>\r\n        \r\n    </div>\r\n</body>\r\n\r\n</html>");
 	}
 	public static void renderMap(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, java.util.Map<String, Object> params) {
 		gg.jte.Content content = (gg.jte.Content)params.get("content");
