@@ -1,0 +1,161 @@
+.container-relatorio {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* Espaço entre os filtros e os gráficos */
+    margin-top: 1rem;
+    /* Ajuste se quiser reduzir a distância do título */
+    width: 100%;
+}
+
+.pagina-relatorio {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.titulo-pagina {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.formulario-filtros {
+    margin-bottom: 2rem;
+}
+
+.filtros-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    /* Quebra linha se a tela for pequena */
+    align-items: flex-end;
+    /* Alinha o botão ao final */
+    gap: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+    /* Se quiser reduzir espaço extra embaixo do bloco */
+}
+
+
+.filtro-container {
+    border: none;
+    padding: 1.5rem;
+    border-radius: 0;
+    /* opcional: remove arredondamento */
+    background-color: transparent;
+}
+
+.filtros-legenda {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+.filtros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.filtro-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    /* Ajuste para evitar estreitar demais */
+}
+
+.filtro-item label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.filtro-item select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #fff;
+    appearance: none;
+}
+
+/* Botão à direita */
+.filtros-horizontal .botao-principal {
+    margin-left: auto;
+    /* Empurra o botão para a direita */
+}
+
+.botoes-form {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+.botao {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.botao-principal {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: 600;
+}
+
+.botao-principal:hover {
+    background-color: #43a047;
+}
+
+
+/* === GRÁFICOS === */
+.graficos-secao {
+    margin-top: 2rem;
+}
+
+/* Grid de gráficos (2 colunas) */
+.graficos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+
+.grafico-article {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2;
+    /* se quiser remover espaçamento extra */
+}
+
+.grafico-canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* === MENSAGEM VAZIA === */
+.mensagem-vazia {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+    padding: 2rem 1rem;
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 600px) {
+    .botoes-form {
+        text-align: center;
+    }
+
+    .botao {
+        width: 100%;
+    }
+}
