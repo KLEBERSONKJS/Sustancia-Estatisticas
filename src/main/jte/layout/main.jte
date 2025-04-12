@@ -19,9 +19,9 @@
 
     <div class="wrapper">
     @template.layout.aside()
-        <main class="main container">
+        <div> class="main container">
             ${content}
-        </main>
+        </div>
         
     </div>
 </body>
