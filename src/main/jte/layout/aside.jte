@@ -15,7 +15,7 @@
                     Perfil
                 </a></li>
             <li><a href="/relatorio">
-                    <i class='bx bxs-network-chart' alt="Visualizar Relatórios"></i>
+                    <i class='bx bxs-pie-chart-alt-2' alt="Visualizar Relatórios"></i>
                     Visualizar Relatórios
                 </a></li>
             <li><a href="/coordenador/entrevistadores">
@@ -27,7 +27,7 @@
                     Coordenadores
                 </a></li>
             <li><a href="/formulario">
-                    <i class='bx bxs-user-detail'></i>
+                    <i class='bx bx-file'></i>
                     Meu Formulario
                 </a></li>
             <li><a href="/logout">
