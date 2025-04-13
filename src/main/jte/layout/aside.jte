@@ -18,6 +18,10 @@
                     <i class='bx bxs-user-badge' alt="Entrevistadores"></i>
                     Entrevistadores
                 </a></li>
+            <li><a href="/coordenador/admin">
+                    <i class='bx bxs-user-badge' alt="Coordenados"></i>
+                    Coordenadores
+                </a></li>
             <li><a href="/coordenador/perfil">
                     <i class='bx bxs-user-detail'></i>
                     Perfil

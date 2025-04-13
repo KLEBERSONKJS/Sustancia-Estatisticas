@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashSet;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -32,6 +33,14 @@ public class CoordenadorServiceImpl implements CoordenadorService {
         entity.setPapel("COORDENADOR");
 
         repository.save(entity);
+    }
+
+    @Override
+    public List<CoordenadorDTO> findAll() {
+        return repository.findAll()
+                .stream()
+                .map(mapper::toDTO)
+                .toList();
     }
 
     @Override

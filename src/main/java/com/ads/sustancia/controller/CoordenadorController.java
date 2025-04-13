@@ -51,9 +51,10 @@ public class CoordenadorController {
 
     
     
-    @GetMapping()
-    public String cadastroCoordenador() {
-        return "cadastroCoordenador";
+    @GetMapping("/admin")
+    public String cadastroCoordenador(Model model) {
+        model.addAttribute("coordenadores",service.findAll() );
+        return "coordenadores";
     }
 
 
