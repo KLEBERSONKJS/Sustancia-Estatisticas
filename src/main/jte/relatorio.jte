@@ -16,7 +16,7 @@
 
 
     @template.layout.main(content = @`
-    <section class="container-relatorio">
+        <section class=" container-relatorio">
 
         <!-- FILTROS no topo, horizontal -->
         <form action="/relatorio" method="get" class="filtros-horizontal">
@@ -123,68 +123,68 @@
             </article>
 
             @for(DadosGraficoDTO d: inseguracaAlimentarList)
-                <article class="grafico-article">
-                    <h3 class="grafico-titulo">${d.getPergunta()}</h3>
-                    <canvas id="${d.hashCode()}" class="grafico-canvas"></canvas>
-                </article>
+            <article class="grafico-article">
+                <h3 class="grafico-titulo">${d.getPergunta()}</h3>
+                <canvas id="${d.hashCode()}" class="grafico-canvas"></canvas>
+            </article>
             @endfor
 
         </div>
 
-    </section>
-    </section>
-    </main>
-    `)
+        </section>
+        </section>
+        </main>
+        `)
 
-    <!-- SCRIPTS -->
-    <script src="/js/menu.js"></script>
-    <script src="/js/logoff.js"></script>
-    <script src="/js/chart-utils.js"></script>
-    <script src="/js/grafico.js"></script>
-<script>
-    // Exemplo: criando os gráficos
-    document.addEventListener("DOMContentLoaded", () => {
-        createPieChart("${refeicaoPCelular.hashCode()}",
-            "${refeicaoPCelular.getPergunta()}",
-            [@for(Resposta r: refeicaoPCelular.getRespostas())
-        "${r.getCampo()}",
-    @endfor], [@for(Resposta r: refeicaoPCelular.getRespostas())
-        "${r.getValor()}",
-    @endfor], 0
+        <!-- SCRIPTS -->
+        <script src="/js/menu.js"></script>
+        <script src="/js/logoff.js"></script>
+        <script src="/js/chart-utils.js"></script>
+        <script src="/js/grafico.js"></script>
+        <script>
+            // Exemplo: criando os gráficos
+            document.addEventListener("DOMContentLoaded", () => {
+                createPieChart("${refeicaoPCelular.hashCode()}",
+                    "${refeicaoPCelular.getPergunta()}",
+                    [@for (Resposta r: refeicaoPCelular.getRespostas())
+            "${r.getCampo()}",
+                @endfor], [@for (Resposta r: refeicaoPCelular.getRespostas())
+            "${r.getValor()}",
+                @endfor], 0
         );
 
-        createPieChart("${refeicoes.hashCode()}",
-            "${refeicoes.getPergunta()}",
-            [@for(Resposta r: refeicoes.getRespostas())
-        "${r.getCampo()}",
-    @endfor], [@for(Resposta r: refeicoes.getRespostas())
-        "${r.getValor()}",
-    @endfor], 0
+            createPieChart("${refeicoes.hashCode()}",
+                "${refeicoes.getPergunta()}",
+                [@for (Resposta r: refeicoes.getRespostas())
+            "${r.getCampo()}",
+                @endfor], [@for (Resposta r: refeicoes.getRespostas())
+            "${r.getValor()}",
+                @endfor], 0
         );
 
-        createPieChart("${consumoOntem.hashCode()}",
-            "${consumoOntem.getPergunta()}",
-            [@for(Resposta r: consumoOntem.getRespostas())
-        "${r.getCampo()}",
-    @endfor], [@for(Resposta r: consumoOntem.getRespostas())
-        ${r.getValor()},
-    @endfor], 0
+            createPieChart("${consumoOntem.hashCode()}",
+                "${consumoOntem.getPergunta()}",
+                [@for (Resposta r: consumoOntem.getRespostas())
+            "${r.getCampo()}",
+                @endfor], [@for (Resposta r: consumoOntem.getRespostas())
+        ${ r.getValor() },
+            @endfor], 0
         );
 
-    @for(DadosGraficoDTO d: inseguracaAlimentarList)
-        createPieChart("${d.hashCode()}",
-            "",
-            [@for(Resposta r: d.getRespostas())
-        "${r.getCampo()}",
-    @endfor], [@for(Resposta r: d.getRespostas())
-        ${r.getValor()},
-    @endfor], 0
+            @for (DadosGraficoDTO d: inseguracaAlimentarList)
+            createPieChart("${d.hashCode()}",
+                "",
+                [@for (Resposta r: d.getRespostas())
+            "${r.getCampo()}",
+                @endfor], [@for (Resposta r: d.getRespostas())
+        ${ r.getValor() },
+            @endfor], 0
         );
-    @endfor
+            @endfor
 
     });
 
 
 
 
-</script>
+        </script>

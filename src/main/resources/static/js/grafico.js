@@ -1,6 +1,12 @@
 function createPieChart(canvasId, title, labels, data, index = 0) {
     const ctx = document.getElementById(canvasId).getContext('2d');
     
+    if (!labels.length || !data.length || data.every(d => d === 0)) {
+        document.getElementById(canvasId).parentElement.innerHTML = `
+            <p class="mensagem-vazia">Nenhum dado disponível para este gráfico.</p>`;
+        return;
+    }
+    
     // Cores base para os gráficos (rotaciona com base no índice)
     const baseColors = [
         '#36A2EB', '#FF6384', '#FFCE56', '#4BC0C0', '#9966FF',
@@ -22,6 +28,9 @@ function createPieChart(canvasId, title, labels, data, index = 0) {
         },
         options: {
             responsive: true,
+            layout:{
+                padding:20
+            },
             plugins: {
                 title: {
                     display: true,
