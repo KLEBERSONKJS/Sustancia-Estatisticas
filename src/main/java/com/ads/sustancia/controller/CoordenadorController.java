@@ -1,9 +1,8 @@
 package com.ads.sustancia.controller;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.access.annotation.Secured;
+import com.ads.sustancia.service.CoordenadorService;
+import com.ads.sustancia.service.EntrevistadorService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,13 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ads.sustancia.dto.request.CoordenadorDTO;
 import com.ads.sustancia.dto.response.ErrorResponse;
-import com.ads.sustancia.model.Coordenador;
-import com.ads.sustancia.service.impl.CoordenadorServiceImpl;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -31,7 +27,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CoordenadorController {
 
    
-    private final CoordenadorServiceImpl coordenadorService;
+    private final CoordenadorService service;
+    private final EntrevistadorService entrevistadorService;
     private final PasswordEncoder encoder;
 
 
@@ -45,7 +42,7 @@ public class CoordenadorController {
     public String cadastrarCoordenador(@Valid CoordenadorDTO dados, Model model) {
         try {
             dados.setSenha(encoder.encode(dados.getSenha()));
-            coordenadorService.save(dados);
+            service.save(dados);
         } catch (RuntimeException e) {
             throw new RuntimeException(e);
         }
@@ -61,7 +58,9 @@ public class CoordenadorController {
 
 
     @GetMapping("/entrevistadores")
-    public String entrevistadores() {
+    public String entrevistadores(Model model) {
+
+        model.addAttribute("entrevistadores",entrevistadorService.findAll() );
         return "entrevistadores";
     }
 
