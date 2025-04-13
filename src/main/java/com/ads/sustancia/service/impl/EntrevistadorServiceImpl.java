@@ -53,7 +53,7 @@ public class EntrevistadorServiceImpl implements EntrevistadorService {
     public List<EntrevistadorDTO> findAll() {
         return repository.findAll()
                 .stream()
-                .map(mapper::toDto)
+                .map(mapper::toDTO)
                 .collect(Collectors.toList());
     }
     

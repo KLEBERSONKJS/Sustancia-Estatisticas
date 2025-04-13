@@ -41,7 +41,7 @@ public class EntrevistadorController {
 
     @GetMapping()
     public String cadastroEntrevistador() {
-        return "entrevistador";
+        return "cadastrEntrevistador";
     }
 
 
