@@ -293,6 +293,7 @@
       <!-- Último botão -->
       <div class="formulario-rodape">
         <button type="submit" class="botao botao-principal">Enviar</button>
+        <a href="/home"  class="botao botao principal">Retorne a página anterior</a>
       </div>
     </fieldset>
   </form>
