@@ -23,7 +23,7 @@
                     Perfil
                 </a></li>
             <li><a href="/logout">
-                    <i class='bx bxs-pie-chart-alt-2' alt="Sair"></i>
+                    <i class='bx bxs-exit' alt="Sair"></i>
                     Sair
                 </a></li>
         </ul>
