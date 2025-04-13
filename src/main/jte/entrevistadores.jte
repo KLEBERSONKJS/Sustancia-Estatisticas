@@ -17,6 +17,9 @@
                     </div>
                 </div>
             </article>
+
+            <div class="retangulo-arredondado"> Botão </div>
+
         @endfor
     @endif
     </div>
