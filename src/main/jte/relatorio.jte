@@ -147,7 +147,7 @@
                 createPieChart("${refeicaoPCelular.hashCode()}",
                     "",
                     [@for (Resposta r: refeicaoPCelular.getRespostas())
-            "${r.getCampo()}",
+            "${r.getCampo().replace("-", " ")}",
                 @endfor], [@for (Resposta r: refeicaoPCelular.getRespostas())
             ${r.getValor()},
                 @endfor], 0
@@ -156,7 +156,7 @@
             createPieChart("${refeicoes.hashCode()}",
                 "",
                 [@for (Resposta r: refeicoes.getRespostas())
-            "${r.getCampo()}",
+            "${r.getCampo().replace("_", " ")}",
                 @endfor], [@for (Resposta r: refeicoes.getRespostas())
             ${r.getValor()},
                 @endfor], 0
@@ -165,7 +165,7 @@
             createPieChart("${consumoOntem.hashCode()}",
                 "${consumoOntem.getPergunta()}",
                 [@for (Resposta r: consumoOntem.getRespostas())
-            "${r.getCampo()}",
+            "${r.getCampo().replace("_", " ")}",
                 @endfor], [@for (Resposta r: consumoOntem.getRespostas())
         ${r.getValor()},
             @endfor], 0

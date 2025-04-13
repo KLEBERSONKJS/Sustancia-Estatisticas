@@ -209,7 +209,7 @@ public final class JterelatorioGenerated {
 		for (Resposta r: refeicaoPCelular.getRespostas()) {
 			jteOutput.writeContent("\n            \"");
 			jteOutput.setContext("script", null);
-			jteOutput.writeUserContent(r.getCampo());
+			jteOutput.writeUserContent(r.getCampo().replace("-", " "));
 			jteOutput.writeContent("\",\n                ");
 		}
 		jteOutput.writeContent("], [");
@@ -226,7 +226,7 @@ public final class JterelatorioGenerated {
 		for (Resposta r: refeicoes.getRespostas()) {
 			jteOutput.writeContent("\n            \"");
 			jteOutput.setContext("script", null);
-			jteOutput.writeUserContent(r.getCampo());
+			jteOutput.writeUserContent(r.getCampo().replace("_", " "));
 			jteOutput.writeContent("\",\n                ");
 		}
 		jteOutput.writeContent("], [");
@@ -246,7 +246,7 @@ public final class JterelatorioGenerated {
 		for (Resposta r: consumoOntem.getRespostas()) {
 			jteOutput.writeContent("\n            \"");
 			jteOutput.setContext("script", null);
-			jteOutput.writeUserContent(r.getCampo());
+			jteOutput.writeUserContent(r.getCampo().replace("_", " "));
 			jteOutput.writeContent("\",\n                ");
 		}
 		jteOutput.writeContent("], [");
