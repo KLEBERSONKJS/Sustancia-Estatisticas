@@ -16,19 +16,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Define a animação usando @keyframes */
-@keyframes waveAnimation {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(20px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
 body {
     display: flex;
     justify-content: center;
@@ -45,7 +32,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(../assets/icons/wave.svg);
+    background: url('/assets/icons/wave.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -78,25 +65,13 @@ body::before {
     transition: 0.6s ease-in-out 1.2s, visibility 0s 1s ease-in-out;
 }
 
-.conteiner.ativo .caixa-de-formulario {
-    right: 50%;
-}
-
-.caixa-de-formulario.cadastro {
-    visibility: hidden;
-}
-
-.conteiner.ativo .caixa-de-formulario.cadastro {
-    visibility: visible;
-}
-
 form {
     width: 100%;
 }
 
 .conteiner h1 {
+    margin-bottom: 10px;
     font-size: 36px;
-    margin: -10px 0;
 }
 
 .conteiner p {
@@ -135,17 +110,6 @@ form {
     color: #888;
 }
 
-.esqueceu-senha {
-    margin: -15px 0 15px;
-}
-
-.esqueceu-senha a {
-    color: var(--cor-texto);
-    font-size: 14.5px;
-    font-weight: 500;
-    text-decoration: none;
-}
-
 .btn {
     width: 100%;
     height: 48px;
@@ -177,10 +141,6 @@ form {
     transition: 2s ease-in-out;
 }
 
-.conteiner.ativo .toggle-box::before {
-    left: 50%;
-}
-
 .toggle-panel {
     position: absolute;
     width: 50%;
@@ -199,21 +159,6 @@ form {
     transition-delay: 1.2s;
 }
 
-.conteiner.ativo .toggle-panel.toggle-esquerdo {
-    left: -50%;
-    transition-delay: 0.6s;
-}
-
-.toggle-panel.toggle-direito {
-    right: -50%;
-    transition-delay: 0.6s;
-}
-
-.conteiner.ativo .toggle-panel.toggle-direito {
-    right: 0;
-    transition-delay: 1.2s;
-}
-
 .toggle-panel p {
     margin-bottom: 20px;
 }
@@ -224,13 +169,6 @@ form {
     background: transparent;
     border: 2px solid var(--cor-bg-login-cadastro);
     box-shadow: none;
-}
-
-@media screen and (max-width: 790px){
-    .toggle-panel.toggle-direito h1 {
-        display: flex;
-        font-size: 28px;
-    }
 }
 
 /* Estilos responsivos */
@@ -245,10 +183,6 @@ form {
         bottom: 0;
     }
 
-    .conteiner.ativo .caixa-de-formulario {
-        bottom: 30%;
-        right: 0;
-    }
 
     .toggle-box::before {
         left: 0;
@@ -258,10 +192,6 @@ form {
         border-radius: 20vw;
     }
 
-    .conteiner.ativo .toggle-box::before {
-        left: 0;
-        top: 70%;
-    }
 
     .toggle-box h1 {
         font-size: 50px;
@@ -281,27 +211,9 @@ form {
         top: -30%;
     }
 
-    .toggle-panel.toggle-direito {
-        right: 0;
-        bottom: -30%;
-    }
-
-    .conteiner.ativo .toggle-panel.toggle-direito {
-        bottom: 0;
-    }
 }
 
 @media screen and (max-width: 650px) {
-    
-    .caixa-de-formulario.cadastro h1 {
-        margin-top: 10px;
-        font-size: 35px;
-    }
-    
-    .caixa-de-formulario.cadastro .btn {
-        margin-top: 5px;
-    }
-
     .caixa-de-input {
         margin-top: 5px;
     }
@@ -310,9 +222,6 @@ form {
         font-size: 12px;
     }
 
-    .toggle-panel.toggle-direito h1 {
-        font-size: 22px;
-    }
     .caixa-de-formulario {
         padding: 20px;
     }
