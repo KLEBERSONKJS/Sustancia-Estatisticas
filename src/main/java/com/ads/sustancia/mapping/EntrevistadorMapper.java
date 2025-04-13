@@ -1,14 +1,17 @@
 package com.ads.sustancia.mapping;
 
+
 import com.ads.sustancia.dto.request.EntrevistadorDTO;
 import com.ads.sustancia.model.Entrevistador;
-
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.NullValueCheckStrategy;
+import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = "spring" )
-public abstract  class   EntrevistadorMapper {
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+public interface EntrevistadorMapper {
 
-    public abstract Entrevistador dtoToEntity(EntrevistadorDTO source);
+    Entrevistador toEntity(EntrevistadorDTO dto);
+    EntrevistadorDTO toDto( Entrevistador entity);
 
-    public abstract EntrevistadorDTO entityToDTO(Entrevistador source);
 }

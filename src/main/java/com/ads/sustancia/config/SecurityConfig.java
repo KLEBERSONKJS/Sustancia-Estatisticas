@@ -5,6 +5,7 @@ import com.ads.sustancia.service.impl.CustomUserDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -23,13 +24,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
+
         return http
                 .authorizeHttpRequests(auth ->
-                    auth.requestMatchers("/cadastro","/coordenador/**", "/", "/img/**", "/js/**", "/css/**", "/error", "/h2/**").permitAll()
-
-                            //.anyRequest().hasAnyAuthority(papeis.toArray(new String[0]))
-                            //.anyRequest().authenticated()
-                            .anyRequest().permitAll()
+                    auth.requestMatchers( "/img/**", "/js/**", "/css/**", "/error", "/h2/**").permitAll()
+                            .requestMatchers("/coordenador/**").hasAuthority("COORDENADOR")
+                            .requestMatchers("/formulario/**").hasAnyAuthority("ADMIN", "COORDENADOR", "ENTREVISTADOR")
+                            .anyRequest().authenticated()
                 )
                 //.formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
                 .formLogin(login -> login.loginPage("/login").permitAll())

@@ -9,7 +9,6 @@ public interface EntrevistadorService {
 
 
   void save(EntrevistadorDTO dto);
-  void delete(Long id); 
-  void update(EntrevistadorDTO dto);  
+  void delete(Long id);
   List<EntrevistadorDTO> findAll(); 
 }

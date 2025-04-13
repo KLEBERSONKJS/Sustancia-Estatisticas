@@ -9,5 +9,6 @@ import org.mapstruct.ReportingPolicy;
 public interface UsuarioMapper {
 
     Usuario toEntity(UsuarioDTO dto);
+    UsuarioDTO toDto(Usuario entity);
 
 }

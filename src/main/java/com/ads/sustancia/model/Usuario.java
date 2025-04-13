@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Table(name = "TB_USUARIO")
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -26,7 +28,6 @@ public class Usuario {
     @Column(nullable = false)
     private String senha;
 
-    @Column
     private String papel;
 
     public Usuario(String nome, String email, String senha) {

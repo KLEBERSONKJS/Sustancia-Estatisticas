@@ -1,5 +1,6 @@
 package com.ads.sustancia.service.impl;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,7 +29,7 @@ public class EntrevistadorServiceImpl implements EntrevistadorService {
             throw new RuntimeException("Email já cadastrado.");
         }
 
-        var entity = mapper.dtoToEntity(entrevistador);
+        var entity = mapper.toEntity(entrevistador);
         entity.setPapel("ENTREVISTADOR");
 
         repository.save(entity);
@@ -45,10 +46,6 @@ public class EntrevistadorServiceImpl implements EntrevistadorService {
         repository.deleteById(id);
     }
 
-    @Override
-    public void update(EntrevistadorDTO dto) {
-
-    }
 
 
     @Override
@@ -56,7 +53,7 @@ public class EntrevistadorServiceImpl implements EntrevistadorService {
     public List<EntrevistadorDTO> findAll() {
         return repository.findAll()
                 .stream()
-                .map(mapper::entityToDTO)
+                .map(mapper::toDto)
                 .collect(Collectors.toList());
     }
     

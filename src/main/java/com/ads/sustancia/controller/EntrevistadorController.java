@@ -1,5 +1,7 @@
 package com.ads.sustancia.controller;
 
+import com.ads.sustancia.dto.request.UsuarioDTO;
+import com.ads.sustancia.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -21,13 +23,14 @@ import lombok.RequiredArgsConstructor;
 public class EntrevistadorController {
 
     private final EntrevistadorService service;
+    private final UsuarioService service2;
     private final PasswordEncoder encoder;
 
     @PostMapping("/cadastrar")
     @Transactional
     public String cadastrarEntrevistador(@Valid EntrevistadorDTO dados, Model model) {
         try {
-            dados.setSenha(encoder.encode(dados.getSenha()));
+            dados.setSenha(encoder.encode(dados.getEmail()));
             service.save(dados);
         } catch (Exception e) {
             model.addAttribute("erro", "Erro ao cadastrar entrevistador: " + e.getMessage());

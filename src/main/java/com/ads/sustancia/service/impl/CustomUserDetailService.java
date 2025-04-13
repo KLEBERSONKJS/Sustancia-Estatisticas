@@ -1,6 +1,5 @@
 package com.ads.sustancia.service.impl;
 
-
 import com.ads.sustancia.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -28,12 +27,11 @@ public class CustomUserDetailService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado."));
 
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-                authorities.add(new SimpleGrantedAuthority("COORDENADOR"));
-                authorities.add(new SimpleGrantedAuthority("ENTREVISTADOR"));
+        authorities.add(new SimpleGrantedAuthority("ADMIN"));
+        authorities.add(new SimpleGrantedAuthority("COORDENADOR"));
+        authorities.add(new SimpleGrantedAuthority("ENTREVISTADOR"));
 
-        log.info("Papeis: {}", authorities);
         return new User(usuario.getEmail(), usuario.getSenha(), authorities);
 
-        //return new User(usuario.getEmail(), usuario.getSenha(), List.of(new SimpleGrantedAuthority("USER")));
     }
 }

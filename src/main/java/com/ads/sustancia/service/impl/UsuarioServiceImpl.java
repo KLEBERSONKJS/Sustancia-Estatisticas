@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashSet;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -16,6 +17,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     private final UsuarioMapper mapper;
     private final UsuarioRepository repository;
+
 
     @Override
     public void save(UsuarioDTO usuario) {
@@ -25,8 +27,16 @@ public class UsuarioServiceImpl implements UsuarioService {
         }
 
         var entity = mapper.toEntity(usuario);
-        entity.setPapel("USER");
+        entity.setPapel("ADMIN");
 
         repository.save(entity);
+    }
+
+    @Override
+    public List<UsuarioDTO> findAll() {
+        return repository.findAll()
+                .stream()
+                .map(mapper::toDto)
+                .toList();
     }
 }

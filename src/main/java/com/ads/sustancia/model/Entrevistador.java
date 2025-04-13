@@ -34,7 +34,6 @@ import lombok.NoArgsConstructor;
 public class Entrevistador extends Usuario{
 
 
-
     private LocalDate dataNascimento;
 
     @ManyToOne
