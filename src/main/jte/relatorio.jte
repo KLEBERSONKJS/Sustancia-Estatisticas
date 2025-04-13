@@ -108,7 +108,7 @@
         <!-- GRÁFICOS embaixo -->
         <div class="graficos-grid">
             <article class="grafico-article">
-                <h3 class="grafico-titulo">"${refeicaoPCelular.getPergunta()}"</h3>
+                <h3 class="grafico-titulo">${refeicaoPCelular.getPergunta()}</h3>
                 <canvas id="${refeicaoPCelular.hashCode()}" class="grafico-canvas"></canvas>
             </article>
 
@@ -145,20 +145,20 @@
             // Exemplo: criando os gráficos
             document.addEventListener("DOMContentLoaded", () => {
                 createPieChart("${refeicaoPCelular.hashCode()}",
-                    "${refeicaoPCelular.getPergunta()}",
+                    "",
                     [@for (Resposta r: refeicaoPCelular.getRespostas())
             "${r.getCampo()}",
                 @endfor], [@for (Resposta r: refeicaoPCelular.getRespostas())
-            "${r.getValor()}",
+            ${r.getValor()},
                 @endfor], 0
         );
 
             createPieChart("${refeicoes.hashCode()}",
-                "${refeicoes.getPergunta()}",
+                "",
                 [@for (Resposta r: refeicoes.getRespostas())
             "${r.getCampo()}",
                 @endfor], [@for (Resposta r: refeicoes.getRespostas())
-            "${r.getValor()}",
+            ${r.getValor()},
                 @endfor], 0
         );
 
@@ -167,7 +167,7 @@
                 [@for (Resposta r: consumoOntem.getRespostas())
             "${r.getCampo()}",
                 @endfor], [@for (Resposta r: consumoOntem.getRespostas())
-        ${ r.getValor() },
+        ${r.getValor()},
             @endfor], 0
         );
 
@@ -177,7 +177,7 @@
                 [@for (Resposta r: d.getRespostas())
             "${r.getCampo()}",
                 @endfor], [@for (Resposta r: d.getRespostas())
-        ${ r.getValor() },
+        ${r.getValor()},
             @endfor], 0
         );
             @endfor
