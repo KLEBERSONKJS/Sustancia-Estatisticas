@@ -7,5 +7,5 @@ import java.security.Principal;
 
 public interface PessoaService {
     
-     Pessoa cadastrarPessoa(PessoaDTO dto, Principal entrevistador);
+     Pessoa cadastrarPessoa(PessoaDTO dto);
 }

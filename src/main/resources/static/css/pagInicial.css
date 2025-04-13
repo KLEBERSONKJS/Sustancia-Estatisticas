@@ -1,0 +1,216 @@
+/* Importação das fontes */
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@700;900&family=Libre+Baskerville&family=DM+Sans:wght@400&display=swap');
+
+/* Paleta de Cores */
+:root {
+    --cor-fundo: #D8F26D;
+    --cor-texto: #424242; /* Cor do texto */
+    --cor-destaque: #000;
+    --cor-botao: #D8F26D;
+    --cor-borda-botao: #000;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-weight: 700; /* BOLD por padrão */
+    color: var(--cor-texto);
+}
+
+body{
+    overflow: hidden;
+}
+/* Seção do Banner */
+.banner {
+    background-color: var(--cor-fundo);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+}
+
+/* Layout Interno */
+.conteudo {
+    width: 100%;
+    max-width: 1400px; /* Mantendo alinhado */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Texto */
+.texto {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5%; /* Melhor alinhamento */
+}
+
+/* Título */
+.texto h1 {
+    font-size: 3vw;
+    font-weight: 700; /* BOLD */
+    margin-bottom: 2vh;
+}
+
+/* Destaque dentro do texto */
+.texto h1 span {
+    font-weight: 900; /* BLACK */
+}
+
+/* Espaçamento entre os elementos do texto */
+.texto h1,
+.texto p,
+.botao {
+    margin-bottom: 45px; /* Espaçamento de 45px */
+}
+
+/* Texto pequeno abaixo do título */
+.texto p {
+    font-family: 'Libre Baskerville', serif; /* Fonte corrigida */
+    font-size: 1.2vw;
+    font-weight: 400; /* Regular */
+}
+
+/* Contêiner do carrossel */
+.carrossel-container {
+    display: inline-block;
+    height: 3.5vw;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+    min-width: 15%;
+    text-align: left;
+}
+
+/* Texto do carrossel */
+.carrossel {
+    display: flex;
+    flex-direction: column;
+    animation: slide 12s infinite ease-in-out;
+    white-space: nowrap;
+    font-weight: 700; /* BOLD */
+    font-size: 3vw;
+}
+
+/* Cada palavra no carrossel */
+.palavra {
+    height: 3.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+/* Ajuste da Imagem */
+.imagem {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.imagem img {
+    width: 100%; /* Ajuste para manter proporção na margem */
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 0; /* Adicionando margem inferior */
+}
+
+/* Animação */
+@keyframes slide {
+    0% { transform: translateY(0); }
+    16.67% { transform: translateY(-3.5vw); }
+    33.33% { transform: translateY(-7vw); }
+    50% { transform: translateY(-10.5vw); }
+    66.67% { transform: translateY(-14vw); }
+    83.33% { transform: translateY(-17.5vw); }
+    100% { transform: translateY(0); }
+}
+
+/* Botão */
+.botao {
+    display: inline-block;
+    padding: 1.5vh 3vw;
+    font-size: 9pt; /* Correção para 9pt */
+    font-weight: 400; /* Regular */
+    font-family: 'DM Sans', sans-serif; /* Fonte corrigida */
+    color: var(--cor-texto);
+    border: 0.3vw solid var(--cor-borda-botao);
+    background: var(--cor-botao);
+    text-decoration: none;
+    border-radius: 0.5vw;
+    transition: 0.3s;
+    text-align: center;
+    width: fit-content; /* Ajuste automático baseado no conteúdo */
+    min-width: 15%; /* Mantém o alinhamento do span */
+}
+
+.botao:hover {
+    background: var(--cor-borda-botao);
+    color: var(--cor-botao);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .conteudo {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .texto {
+        width: 90%;
+        padding-left: 0;
+    }
+
+    .carrossel-container {
+        min-width: 50%;
+        max-width: 80%;
+    }
+
+    .carrossel {
+        font-size: 5vw;
+    }
+
+    .imagem {
+        width: 100%;
+        height: auto;
+    }
+
+    .imagem img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 3vw 3vw 0 0; /* Ajuste para mobile */
+    }
+
+    .botao {
+        font-size: 3vw;
+        padding: 2vh 5vw;
+    }
+}
+/* Responsividade */
+@media (max-width: 768px) {
+    .circulo-animado {
+        width: 250px;
+        height: 250px;
+    }
+
+    .sobre .texto {
+        width: 90%;
+    }
+
+    .sobre .texto h2 {
+        font-size: 2rem;
+    }
+
+    .sobre .texto p {
+        font-size: 1rem;
+    }
+}

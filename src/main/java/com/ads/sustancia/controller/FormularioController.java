@@ -32,7 +32,7 @@ public class FormularioController {
     public String cadastrarPessoa(@Valid PessoaDTO dto, Model model, Principal principal) {
         try {
 
-            service.cadastrarPessoa(dto,principal);
+            service.cadastrarPessoa(dto);
             model.addAttribute("mensagem", "O cadastro de %s teve exito!".formatted(dto.nome()));
         } catch (Exception e) {
             model.addAttribute("error", "Erro ao cadastrar pessoa: " + e.getMessage());

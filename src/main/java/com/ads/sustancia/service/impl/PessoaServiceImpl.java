@@ -26,7 +26,7 @@ public class PessoaServiceImpl implements PessoaService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    public Pessoa cadastrarPessoa(PessoaDTO dadosPessoaForms, Principal principal) {
+    public Pessoa cadastrarPessoa(PessoaDTO dadosPessoaForms) {
 
         if (dadosPessoaForms == null) {
             throw new IllegalArgumentException("Dados do formulário não podem ser nulos.");
@@ -38,9 +38,7 @@ public class PessoaServiceImpl implements PessoaService {
             InsegurancaAlimentar insegurancaAlimentar = criarInsegurancaAlimentar(dadosPessoaForms);
             ConsumoAlimentar consumoAlimentar = criarConsumoAlimentar(dadosPessoaForms);
 
-            entity = new Pessoa(
-                    (Entrevistador) principal,
-                    dadosPessoaForms.nome(),
+            entity = new Pessoa(dadosPessoaForms.entrevistador(),dadosPessoaForms.nome(),
                     dadosPessoaForms.idade(),
                     GeneroEnum.repostaGenero(dadosPessoaForms.genero()),
                     RacaEnum.respostaRaca(dadosPessoaForms.raca()),

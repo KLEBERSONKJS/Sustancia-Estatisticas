@@ -10,6 +10,10 @@
                     <i class='bx bxs-home-circle' alt="Home Page"></i>
                     Home
                 </a></li>
+            <li><a href="/coordenador/perfil">
+                    <i class='bx bxs-user-detail'></i>
+                    Perfil
+                </a></li>
             <li><a href="/relatorio">
                     <i class='bx bxs-network-chart' alt="Visualizar Relatórios"></i>
                     Visualizar Relatórios
@@ -22,13 +26,9 @@
                     <i class='bx bxs-user-badge' alt="Coordenados"></i>
                     Coordenadores
                 </a></li>
-            <li><a href="/coordenador/perfil">
-                    <i class='bx bxs-user-detail'></i>
-                    Perfil
-                </a></li>
             <li><a href="/formulario">
                     <i class='bx bxs-user-detail'></i>
-                    Meu Relatorío
+                    Meu Formulario
                 </a></li>
             <li><a href="/logout">
                     <i class='bx bxs-exit' alt="Sair"></i>

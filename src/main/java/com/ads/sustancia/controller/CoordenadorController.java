@@ -65,7 +65,7 @@ public class CoordenadorController {
     public String entrevistadores(Model model) {
 
         model.addAttribute("entrevistadores",entrevistadorService.findAll() );
-        return "cadastroCoordenador";
+        return "entrevistadores";
     }
 
 
