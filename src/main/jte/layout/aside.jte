@@ -14,23 +14,17 @@
                     <i class='bx bxs-network-chart' alt="Visualizar Relatórios"></i>
                     Visualizar Relatórios
                 </a></li>
-            <li><a href="/entrevistador">
+            <li><a href="/coordenador/entrevistadores">
                     <i class='bx bxs-user-badge' alt="Entrevistadores"></i>
                     Entrevistadores
                 </a></li>
-            <li><a href="/coordenador/perfil?email=mauricio@email.com">
+            <li><a href="/coordenador/perfil">
                     <i class='bx bxs-user-detail'></i>
                     Perfil
                 </a></li>
-            <li><a href="/graficos">
-                    <i class='bx bxs-pie-chart-alt-2' alt="Editar Perfil"></i>
-                    Graficos
-                </a></li>
-            <li>
-                <a  class="sair" href="#sair">
-                    <img src="/assets/icons/botao-sair.svg" alt="Sair">
+            <li><a href="/logout">
+                    <i class='bx bxs-pie-chart-alt-2' alt="Sair"></i>
                     Sair
-                </a>
-            </li>
+                </a></li>
         </ul>
     </nav>

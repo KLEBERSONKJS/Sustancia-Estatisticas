@@ -33,15 +33,10 @@ public class CoordenadorController {
     private final CoordenadorServiceImpl coordenadorService;
     private final PasswordEncoder encoder;
 
-    @GetMapping("/profile")
-    public Coordenador getCoordenadorProfile(@RequestParam String email) {
-        return coordenadorService.getCoordenadorProfile(email);
-    }
+
 
     @GetMapping("/perfil")
-    public String perfil(Model model, @RequestParam String email) {
-        Coordenador coordenador = coordenadorService.getCoordenadorProfile(email); 
-        model.addAttribute("coordenador", coordenador); 
+    public String perfil() {
         return "perfil"; 
     }
 
@@ -62,10 +57,15 @@ public class CoordenadorController {
     public String cadastroCoordenador() {
         return "cadastroCoordenador";
     }
-    
 
-    
-    
+
+    @GetMapping("/entrevistadores")
+    public String entrevistadores() {
+        return "entrevistadores";
+    }
+
+
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public String handleMethodArgumentNotValidException(MethodArgumentNotValidException ex, Model model) {
         log.error("Error ocorrido: {}", ex.getMessage());
