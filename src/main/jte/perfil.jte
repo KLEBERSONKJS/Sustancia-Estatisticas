@@ -1,3 +1,3 @@
 @template.layout.main(content = @`
-    <p> Perfil COORDENADOR</p>
+    <p> Coloque aqui uma caixa com nome e Email do usuário logado </p>
 `)

@@ -6,7 +6,7 @@ public final class JteperfilGenerated {
 	public static void render(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor) {
 		gg.jte.generated.ondemand.layout.JtemainGenerated.render(jteOutput, jteHtmlInterceptor, new gg.jte.html.HtmlContent() {
 			public void writeTo(gg.jte.html.HtmlTemplateOutput jteOutput) {
-				jteOutput.writeContent("\r\n    <p> Perfil COORDENADOR</p>\r\n");
+				jteOutput.writeContent("\r\n    <p> Coloque aqui uma caixa com nome e Email do usuário logado </p>\r\n");
 			}
 		});
 		jteOutput.writeContent("\r\n");
