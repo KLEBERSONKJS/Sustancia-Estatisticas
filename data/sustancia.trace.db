@@ -2554,7 +2554,11 @@ create global temporary table HTE_tb_usuario(data_nascimento date, data_nascimen
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+<<<<<<< Updated upstream
 2025-04-13 20:09:30.260611-03:00 jdbc[3]: exception
+=======
+2025-04-13 20:51:46.846351-03:00 jdbc[3]: exception
+>>>>>>> Stashed changes
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Duplicate column name "DATA_NASCIMENTO"; SQL statement:
 create global temporary table HTE_tb_usuario(data_nascimento date, data_nascimento date, rn_ integer not null, id bigint, email varchar(255), nome varchar(255), papel varchar(255), senha varchar(255), primary key (rn_)) TRANSACTIONAL [42121-232]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
@@ -2611,7 +2615,11 @@ create global temporary table HTE_tb_usuario(data_nascimento date, data_nascimen
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+<<<<<<< Updated upstream
 2025-04-13 20:09:35.347150-03:00 jdbc[3]: exception
+=======
+2025-04-13 20:53:08.164884-03:00 jdbc[3]: exception
+>>>>>>> Stashed changes
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Duplicate column name "DATA_NASCIMENTO"; SQL statement:
 create global temporary table HTE_tb_usuario(data_nascimento date, data_nascimento date, rn_ integer not null, id bigint, email varchar(255), nome varchar(255), papel varchar(255), senha varchar(255), primary key (rn_)) TRANSACTIONAL [42121-232]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
@@ -2668,7 +2676,11 @@ create global temporary table HTE_tb_usuario(data_nascimento date, data_nascimen
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+<<<<<<< Updated upstream
 2025-04-13 20:17:43.926641-03:00 jdbc[3]: exception
+=======
+2025-04-13 20:56:38.098753-03:00 jdbc[3]: exception
+>>>>>>> Stashed changes
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Duplicate column name "DATA_NASCIMENTO"; SQL statement:
 create global temporary table HTE_tb_usuario(data_nascimento date, data_nascimento date, rn_ integer not null, id bigint, email varchar(255), nome varchar(255), papel varchar(255), senha varchar(255), primary key (rn_)) TRANSACTIONAL [42121-232]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
@@ -2725,6 +2737,7 @@ create global temporary table HTE_tb_usuario(data_nascimento date, data_nascimen
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+<<<<<<< Updated upstream
 2025-04-13 20:21:16.775794-03:00 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Duplicate column name "DATA_NASCIMENTO"; SQL statement:
 create global temporary table HTE_tb_usuario(data_nascimento date, data_nascimento date, rn_ integer not null, id bigint, email varchar(255), nome varchar(255), papel varchar(255), senha varchar(255), primary key (rn_)) TRANSACTIONAL [42121-232]
@@ -3182,6 +3195,9 @@ create global temporary table HTE_tb_usuario(data_nascimento date, data_nascimen
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
 2025-04-13 20:48:55.551724-03:00 jdbc[3]: exception
+=======
+2025-04-13 20:57:42.294013-03:00 jdbc[3]: exception
+>>>>>>> Stashed changes
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Duplicate column name "DATA_NASCIMENTO"; SQL statement:
 create global temporary table HTE_tb_usuario(data_nascimento date, data_nascimento date, rn_ integer not null, id bigint, email varchar(255), nome varchar(255), papel varchar(255), senha varchar(255), primary key (rn_)) TRANSACTIONAL [42121-232]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)

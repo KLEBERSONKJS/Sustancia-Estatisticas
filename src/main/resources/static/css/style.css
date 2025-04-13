@@ -279,3 +279,78 @@ li a.ativo img {
     }
 
 }
+
+/* Card perfil usuário */
+/* Card principal */
+.profile-card {
+    width: 100%;
+    max-width: 450px;
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+    background: white;
+}
+
+/* Cabeçalho */
+.card-header {
+    background: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Corpo do card */
+.card-body {
+    padding: 20px;
+}
+
+/* Campos do perfil */
+.profile-field {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: baseline;
+}
+
+.field-label {
+    flex: 0 0 120px;
+    font-weight: 500;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.field-value {
+    flex: 1;
+    color: #333;
+    padding: 8px 0;
+    border-bottom: 1px dashed #e0e0e0;
+    word-break: break-word;
+}
+
+/* Estilo específico para a senha (mostrando que está oculta) */
+#profilePassword {
+    font-family: monospace;
+    letter-spacing: 2px;
+    color: #666;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .profile-field {
+        flex-direction: column;
+    }
+
+    .field-label {
+        margin-bottom: 5px;
+    }
+
+    .field-value {
+        width: 100%;
+    }
+}
