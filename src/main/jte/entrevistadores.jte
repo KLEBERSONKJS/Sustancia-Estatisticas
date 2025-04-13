@@ -4,34 +4,33 @@
 
 @template.layout.main(content = @`
 <<<<<<< Updated upstream
+<section class="conteudo">
 
-    @if(entrevistadores!= null && !entrevistadores.isEmpty())
     <div class="cards">
         <!-- Card exemplo -->
-        @for(EntrevistadorDTO e: entrevistadores)
-            <article class="card">
-                <div class="card-header">
-                    <img src="/assets/icons/portrait.svg" alt="Entrevistador" class="foto-entrevistador">
-                    <div class="info-entrevista">
-                        <h4>${e.getNome()}</h4>
-                        <h4>${e.getEmail()}</h4>
-                        <p>${e.getEmail()}</p>
-                    </div>
+        <article class="card">
+            <div class="card-header">
+                <img src="/assets/icons/portrait.svg" alt="Entrevistador" class="foto-entrevistador">
+                <div class="info-entrevista">
+                    <h4>Nome do Entrevistador</h4>
+                    <p>Data: 01/01/2023</p>
                 </div>
+            </div>
 
-                <div class="card-acoes">
-                    <form method="get" action="/entrevistador/editar/1">
-                        <button type="submit" class="btn-editar">Editar</button>
-                    </form>
-                    <form method="post" action="/entrevistador/excluir/1">
-                        <button type="submit" class="btn-excluir">Excluir</button>
-                    </form>
-                </div>
-            </article>
-        @endfor
-     @endif
+            <div class="card-acoes">
+                <form method="get" action="/entrevistador/editar/1">
+                    <button type="submit" class="btn-editar">Editar</button>
+                </form>
+                <form method="post" action="/entrevistador/excluir/1">
+                    <button type="submit" class="btn-excluir">Excluir</button>
+                </form>
+            </div>
+
+
+        </article>
+        <!-- Repetir o card conforme necessário -->
     </div>
-    </section>
+</section>
 =======
     <section class="conteudo">
 
