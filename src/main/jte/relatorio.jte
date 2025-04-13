@@ -107,27 +107,38 @@
 
         <!-- GRÁFICOS embaixo -->
         <div class="graficos-grid">
+            @if(refeicaoPCelular.getRespostas()!=null && !refeicaoPCelular.getRespostas().isEmpty())
             <article class="grafico-article">
                 <h3 class="grafico-titulo">${refeicaoPCelular.getPergunta()}</h3>
                 <canvas id="${refeicaoPCelular.hashCode()}" class="grafico-canvas"></canvas>
             </article>
+            @endif
 
+            @if(refeicoes.getRespostas()!=null && !refeicoes.getRespostas().isEmpty())
             <article class="grafico-article">
                 <h3 class="grafico-titulo">${refeicoes.getPergunta()}</h3>
                 <canvas id="${refeicoes.hashCode()}" class="grafico-canvas"></canvas>
             </article>
+            @endif
 
+            @if(consumoOntem.getRespostas()!=null && !consumoOntem.getRespostas().isEmpty())
             <article class="grafico-article">
                 <h3 class="grafico-titulo">${consumoOntem.getPergunta()}</h3>
                 <canvas id="${consumoOntem.hashCode()}" class="grafico-canvas"></canvas>
             </article>
+            @endif
 
-            @for(DadosGraficoDTO d: inseguracaAlimentarList)
-            <article class="grafico-article">
-                <h3 class="grafico-titulo">${d.getPergunta()}</h3>
-                <canvas id="${d.hashCode()}" class="grafico-canvas"></canvas>
-            </article>
-            @endfor
+            @if(inseguracaAlimentarList !=null && !inseguracaAlimentarList.isEmpty())
+                @for(DadosGraficoDTO d: inseguracaAlimentarList)
+                    @if(d!= null)
+                    <article class="grafico-article">
+                        <h3 class="grafico-titulo">${d.getPergunta()}</h3>
+                        <canvas id="${d.hashCode()}" class="grafico-canvas"></canvas>
+                    </article>
+                    @endif
+                @endfor
+            @endif
+
 
         </div>
 
@@ -143,23 +154,29 @@
         <script>
             // Exemplo: criando os gráficos
             document.addEventListener("DOMContentLoaded", () => {
+
+
                 createPieChart("${refeicaoPCelular.hashCode()}",
                     "",
                     [@for (Resposta r: refeicaoPCelular.getRespostas())
             "${r.getCampo().replace("NAOSABE", "NÃO SABE").replace("NAO", "NÃO")}",
                 @endfor], [@for (Resposta r: refeicaoPCelular.getRespostas())
-            ${r.getValor()},
+                ${r.getValor()},
                 @endfor], 0
         );
 
-            createPieChart("${refeicoes.hashCode()}",
+
+                createPieChart("${refeicoes.hashCode()}",
                 "",
                 [@for (Resposta r: refeicoes.getRespostas())
             "${r.getCampo().replace("_", " ").replace("ALMOCO", "ALMOÇO").replace("CAFE DA MANHA" ,"CAFÉ DA MANHÃ").replace("LANCHE DA MANHA" ,"LANCHE DA MANHÃ")}",
                 @endfor], [@for (Resposta r: refeicoes.getRespostas())
-            ${r.getValor()},
+                ${r.getValor()},
                 @endfor], 0
         );
+
+
+
 
             createPieChart("${consumoOntem.hashCode()}",
                 "${consumoOntem.getPergunta()}",
@@ -170,7 +187,9 @@
             @endfor], 0
         );
 
+
             @for (DadosGraficoDTO d: inseguracaAlimentarList)
+            @if(d!= null)
             createPieChart("${d.hashCode()}",
                 "",
                 [@for (Resposta r: d.getRespostas())
@@ -179,6 +198,7 @@
         ${r.getValor()},
             @endfor], 0
         );
+            @endif
             @endfor
 
     });

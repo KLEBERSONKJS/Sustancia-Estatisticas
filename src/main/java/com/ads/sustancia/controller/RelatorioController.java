@@ -40,8 +40,8 @@ public class RelatorioController {
     @GetMapping()
     public String visualizarRelatorio(FiltroDTO filtroDTO, Model model) {
         DadosGraficoDTO refeicaoComCelular = new DadosGraficoDTO("Você tem costume de fazer refeições mexendo no computador ou celular?", " Coleta de Marcadores de Consumo Alimentar",relatorioService.refeicaoPorCelular(filtroDTO));
-        DadosGraficoDTO refeicoes = new DadosGraficoDTO("Quais refeições você faz ao longo do dia?","d", relatorioService.refeicoesList(filtroDTO));
-        DadosGraficoDTO consumoOntem = new DadosGraficoDTO("Quais refeições você faz ao longo do dia?","d", relatorioService.tiposRefeicoes(filtroDTO));
+        DadosGraficoDTO refeicoes = new DadosGraficoDTO("Quais refeições você faz ao longo do dia?"," Coleta de Marcadores de Consumo Alimentar", relatorioService.refeicoesList(filtroDTO));
+        DadosGraficoDTO consumoOntem = new DadosGraficoDTO("Ontem, você consumiu?"," Coleta de Marcadores de Consumo Alimentar", relatorioService.tiposRefeicoes(filtroDTO));
         model.addAttribute("refeicaoPCelular",refeicaoComCelular);
         model.addAttribute("refeicoes",refeicoes);
         model.addAttribute("consumoOntem",consumoOntem);
