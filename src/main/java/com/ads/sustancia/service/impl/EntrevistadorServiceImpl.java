@@ -4,6 +4,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.ads.sustancia.model.Entrevistador;
 import org.springframework.stereotype.Service;
 
 import com.ads.sustancia.dto.request.EntrevistadorDTO;
@@ -23,16 +24,16 @@ public class EntrevistadorServiceImpl implements EntrevistadorService {
 
 
     @Override
-    public void save(EntrevistadorDTO entrevistador) {
+    public void save(Entrevistador entrevistador) {
         var existeEmail = repository.existsEntrevistadorByEmail(entrevistador.getEmail());
         if (existeEmail) {
             throw new RuntimeException("Email já cadastrado.");
         }
 
-        var entity = mapper.toEntity(entrevistador);
-        entity.setPapel("ENTREVISTADOR");
 
-        repository.save(entity);
+        entrevistador.setPapel("ENTREVISTADOR");
+
+        repository.save(entrevistador);
     }
     
     

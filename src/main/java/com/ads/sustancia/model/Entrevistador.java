@@ -8,7 +8,8 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
 
 
-
+import com.ads.sustancia.dto.request.CoordenadorDTO;
+import com.ads.sustancia.dto.request.EntrevistadorDTO;
 import com.ads.sustancia.enums.UserRole;
 import com.ads.sustancia.enums.UsuarioStatusEnum;
 
@@ -44,7 +45,7 @@ public class Entrevistador extends Usuario{
     private List<Pessoa> entrevistados;
 
 
-    public Entrevistador( String nome, String email, String senha) {
-        super( nome, email, senha);
+    public Entrevistador(EntrevistadorDTO dados) {
+        super(dados.getNome(), dados.getEmail(), dados.getSenha());
     }
 }

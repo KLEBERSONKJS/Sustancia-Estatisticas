@@ -1,6 +1,7 @@
 package com.ads.sustancia.controller;
 
 
+import com.ads.sustancia.model.Coordenador;
 import com.ads.sustancia.service.CoordenadorService;
 import com.ads.sustancia.service.EntrevistadorService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -42,11 +43,13 @@ public class CoordenadorController {
     public String cadastrarCoordenador(@Valid CoordenadorDTO dados, Model model) {
         try {
             dados.setSenha(encoder.encode(dados.getSenha()));
-            service.save(dados);
+            Coordenador coordenador = new Coordenador(dados);
+            service.save(coordenador);
+            model.addAttribute("mensagem", "O cadastro de %s teve exito".formatted(dados.getNome()));
         } catch (RuntimeException e) {
-            throw new RuntimeException(e);
+            model.addAttribute("erro", "Erro ao cadastrar entrevistador: " + e.getMessage());
         }
-            return "verificacaoCadastro";
+            return "cadastroCoordenador";
     }
 
     
@@ -62,7 +65,7 @@ public class CoordenadorController {
     public String entrevistadores(Model model) {
 
         model.addAttribute("entrevistadores",entrevistadorService.findAll() );
-        return "entrevistadores";
+        return "cadastroCoordenador";
     }
 
 

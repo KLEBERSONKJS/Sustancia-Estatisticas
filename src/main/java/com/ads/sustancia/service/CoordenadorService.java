@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CoordenadorService {
     
-    void save(CoordenadorDTO dto);
+    void save(Coordenador dto);
     List<CoordenadorDTO> findAll();
     Coordenador getCoordenadorProfile(String email);
 }

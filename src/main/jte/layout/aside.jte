@@ -26,6 +26,10 @@
                     <i class='bx bxs-user-detail'></i>
                     Perfil
                 </a></li>
+            <li><a href="/formulario">
+                    <i class='bx bxs-user-detail'></i>
+                    Meu Relatorío
+                </a></li>
             <li><a href="/logout">
                     <i class='bx bxs-exit' alt="Sair"></i>
                     Sair

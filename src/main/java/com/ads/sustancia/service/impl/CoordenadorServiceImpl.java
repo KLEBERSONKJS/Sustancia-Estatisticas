@@ -23,16 +23,15 @@ public class CoordenadorServiceImpl implements CoordenadorService {
 
 
     @Override
-    public void save(CoordenadorDTO coordenador) {
+    public void save(Coordenador coordenador) {
         var existeEmail = repository.existsCoordenadorByEmail(coordenador.getEmail());
         if (existeEmail) {
             throw new RuntimeException("Email já cadastrado.");
         }
 
-        var entity = new Coordenador(coordenador.getNome(),coordenador.getEmail(), coordenador.getSenha());
-        entity.setPapel("COORDENADOR");
+        coordenador.setPapel("COORDENADOR");
 
-        repository.save(entity);
+        repository.save(coordenador);
     }
 
     @Override

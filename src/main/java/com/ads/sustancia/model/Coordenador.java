@@ -3,20 +3,19 @@ package com.ads.sustancia.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.ads.sustancia.dto.request.CoordenadorDTO;
 import com.ads.sustancia.enums.UserRole;
 import com.ads.sustancia.enums.UsuarioStatusEnum;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.validation.Valid;
+import lombok.*;
+import org.mapstruct.Builder;
 
 @Entity
 @NoArgsConstructor
-@ToString
-@Setter
-@Getter
+@Data
+@AllArgsConstructor
 public class Coordenador extends Usuario {
 
 
@@ -25,11 +24,11 @@ public class Coordenador extends Usuario {
     @OneToMany(mappedBy = "coordenador")
     private List<Entrevistador> entrevistadores;
 
-    public Coordenador(String nome, String email, String senha) {
-        super(nome,email,senha);
+
+    public Coordenador(CoordenadorDTO dados) {
+        super(dados.getNome(), dados.getEmail(), dados.getSenha());
     }
-    
-    }
+}
 
 
     

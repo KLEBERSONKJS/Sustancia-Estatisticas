@@ -1,6 +1,7 @@
 package com.ads.sustancia.controller;
 
 import com.ads.sustancia.dto.request.UsuarioDTO;
+import com.ads.sustancia.model.Entrevistador;
 import com.ads.sustancia.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -31,11 +32,13 @@ public class EntrevistadorController {
     public String cadastrarEntrevistador(@Valid EntrevistadorDTO dados, Model model) {
         try {
             dados.setSenha(encoder.encode(dados.getEmail()));
-            service.save(dados);
+            Entrevistador entrevistador = new Entrevistador(dados);
+            service.save(entrevistador);
+            model.addAttribute("mensagem", "O cadastro de %s teve exito".formatted(dados.getNome()));
         } catch (Exception e) {
             model.addAttribute("erro", "Erro ao cadastrar entrevistador: " + e.getMessage());
         }
-        return "entrevistador";
+        return "cadastrEntrevistador";
     }
 
 

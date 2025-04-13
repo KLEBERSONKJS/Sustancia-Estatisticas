@@ -16,20 +16,23 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import java.security.Principal;
+
 @Controller 
 @Slf4j
 @RequestMapping("/formulario")
 @RequiredArgsConstructor
-public class PessoaController {
+public class FormularioController {
     
     private final PessoaService service;
 
 
     @PostMapping("/save")
     @Transactional
-    public String cadastrarPessoa(@Valid PessoaDTO dto, Model model) {
+    public String cadastrarPessoa(@Valid PessoaDTO dto, Model model, Principal principal) {
         try {
-            service.cadastrarPessoa(dto);
+
+            service.cadastrarPessoa(dto,principal);
             model.addAttribute("mensagem", "O cadastro de %s teve exito!".formatted(dto.nome()));
         } catch (Exception e) {
             model.addAttribute("error", "Erro ao cadastrar pessoa: " + e.getMessage());

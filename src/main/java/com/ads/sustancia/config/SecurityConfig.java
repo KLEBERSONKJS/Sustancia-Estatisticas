@@ -27,13 +27,15 @@ public class SecurityConfig {
 
         return http
                 .authorizeHttpRequests(auth ->
-                    auth.requestMatchers( "/img/**", "/js/**", "/css/**", "/error", "/h2/**").permitAll()
+                    auth.requestMatchers( "/img/**", "/", "/js/**", "/css/**", "/error", "/h2/**").permitAll()
                             .requestMatchers("/coordenador/**").hasAuthority("COORDENADOR")
                             .requestMatchers("/formulario/**").hasAnyAuthority("ADMIN", "COORDENADOR", "ENTREVISTADOR")
                             .anyRequest().authenticated()
                 )
                 //.formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
-                .formLogin(login -> login.loginPage("/login").permitAll())
+                .formLogin(login -> login.loginPage("/login")
+                        .defaultSuccessUrl("/home", true)
+                        .permitAll())
                 .logout(logout -> logout.logoutSuccessUrl("/login?logout").permitAll())
                 .userDetailsService(userDetailsService)
                 .csrf(csrf -> csrf.disable())

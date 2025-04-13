@@ -1,8 +1,11 @@
 package com.ads.sustancia.service.impl;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import com.ads.sustancia.model.Entrevistador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +26,7 @@ public class PessoaServiceImpl implements PessoaService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    public Pessoa cadastrarPessoa(PessoaDTO dadosPessoaForms) {
+    public Pessoa cadastrarPessoa(PessoaDTO dadosPessoaForms, Principal principal) {
 
         if (dadosPessoaForms == null) {
             throw new IllegalArgumentException("Dados do formulário não podem ser nulos.");
@@ -36,7 +39,7 @@ public class PessoaServiceImpl implements PessoaService {
             ConsumoAlimentar consumoAlimentar = criarConsumoAlimentar(dadosPessoaForms);
 
             entity = new Pessoa(
-                    dadosPessoaForms.entrevistador(),
+                    (Entrevistador) principal,
                     dadosPessoaForms.nome(),
                     dadosPessoaForms.idade(),
                     GeneroEnum.repostaGenero(dadosPessoaForms.genero()),
