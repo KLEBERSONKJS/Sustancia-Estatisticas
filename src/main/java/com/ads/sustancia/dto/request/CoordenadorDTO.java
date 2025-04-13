@@ -5,18 +5,22 @@ import java.time.LocalDate;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Past;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public record  CoordenadorDTO(
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class CoordenadorDTO{
+
     @NotBlank(message = "O nome não pode estar em branco")
-    String nome,
+    private String nome;
 
     @NotBlank(message = "O email não pode estar em branco")
     @Email(message = "Email inválido")
-    String email,
+    private String email;
 
     @NotBlank(message = "A senha não pode estar em branco")
-    String senha,
-
-    @Past(message= "A Data de Nascimento não pode ser a atual")
-    LocalDate dataNascimento) {
+    private String senha;
 }

@@ -4,14 +4,22 @@ import java.time.LocalDate;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public record EntrevistadorDTO(
-        Long id,
-        @NotBlank String nome, 
-        @NotBlank
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class EntrevistadorDTO{
+
+        @NotBlank(message = "O nome não pode estar em branco")
+        private String nome;
+
+        @NotBlank(message = "O email não pode estar em branco")
         @Email(message = "Email inválido")
-        String email,
-        LocalDate dataNascimento,
-        @NotBlank String senha) {
+        private String email;
 
+        @NotBlank(message = "A senha não pode estar em branco")
+        private String senha;
 }

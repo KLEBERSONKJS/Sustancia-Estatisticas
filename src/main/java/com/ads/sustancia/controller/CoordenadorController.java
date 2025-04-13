@@ -2,6 +2,8 @@ package com.ads.sustancia.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -29,6 +31,7 @@ public class CoordenadorController {
 
    
     private final CoordenadorServiceImpl coordenadorService;
+    private final PasswordEncoder encoder;
 
     @GetMapping("/profile")
     public Coordenador getCoordenadorProfile(@RequestParam String email) {
@@ -44,10 +47,12 @@ public class CoordenadorController {
 
     @PostMapping("/cadastrar")
     public String cadastrarCoordenador(@Valid CoordenadorDTO dados, Model model) {
-
+        try {
+            dados.setSenha(encoder.encode(dados.getSenha()));
             coordenadorService.save(dados);
-            model.addAttribute("email", dados.email());
-            log.info("Cadastro com Suscesso");
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
+        }
             return "verificacaoCadastro";
     }
 
@@ -55,7 +60,7 @@ public class CoordenadorController {
     
     @GetMapping()
     public String cadastroCoordenador() {
-        return "cadastro-coordenador";
+        return "cadastroCoordenador";
     }
     
 
@@ -78,4 +83,6 @@ public class CoordenadorController {
         return "cadastro-coordenador";
         
     }
+
+
 }

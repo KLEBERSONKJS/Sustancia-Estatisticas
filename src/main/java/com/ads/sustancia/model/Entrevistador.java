@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
 
 
@@ -30,47 +31,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Entrevistador {
+public class Entrevistador extends Usuario{
 
-    @Id
-    private String id;
-    @Column(nullable = false)
-    private String nome;
-    @Column(unique = true)
-    private String email;
-    @Column(nullable = false)
-    private String senha;
-    @Column(nullable = false)
+
+
     private LocalDate dataNascimento;
-    @Enumerated(EnumType.STRING)
-    private UsuarioStatusEnum status;
-    @Enumerated(EnumType.STRING)
-    private UserRole role;
+
     @ManyToOne
     @JoinColumn(name = "coordenador_id")
     private Coordenador coordenador;
 
-    private static final AtomicLong contador = new AtomicLong(1);
-
-    public Entrevistador(String nome, String email, String senha,
-                               LocalDate dataNascimento, UserRole userRole) {
-        this.id = gerarId();
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.dataNascimento = dataNascimento;
-        this.role = userRole;
-        this.status = UsuarioStatusEnum.PENDENTE;
-
-    }
-
-    public String gerarId() {
-        DecimalFormat format = new DecimalFormat("0000");
-        return "SUSTANCIA-" + format.format(contador.getAndIncrement());
-        
-    }
-
-    @OneToMany(mappedBy = "entrevistador", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "entrevistador")
     private List<Pessoa> entrevistados;
 
+
+    public Entrevistador( String nome, String email, String senha) {
+        super( nome, email, senha);
+    }
 }

@@ -7,8 +7,8 @@ import com.ads.sustancia.model.Coordenador;
 
 @Mapper(componentModel = "spring" )
 public abstract class CoodenadorMapper {
-    
-    public abstract CoordenadorDTO entityToDto(Coordenador source);
 
-    public abstract Coordenador dtoToEntity(CoordenadorDTO source);
+    public abstract Coordenador toEntity (CoordenadorDTO source);
+
+    public abstract CoordenadorDTO toDTO (Coordenador source);
 }

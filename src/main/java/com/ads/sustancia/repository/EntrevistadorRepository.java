@@ -9,7 +9,7 @@ import com.ads.sustancia.model.Entrevistador;
 
 @Repository
 public interface EntrevistadorRepository extends JpaRepository<Entrevistador, Long> {
-  Optional<Entrevistador> findByEmail(String email);
+  Boolean existsEntrevistadorByEmail(String email);
 
 
 }

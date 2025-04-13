@@ -108,23 +108,23 @@
         <!-- GRÁFICOS embaixo -->
         <div class="graficos-grid">
             <article class="grafico-article">
-                <h3 class="grafico-titulo">Você já passou por insegurança alimentar?</h3>
-                <canvas id="chart0" class="grafico-canvas"></canvas>
+                <h3 class="grafico-titulo">"${refeicaoPCelular.getPergunta()}"</h3>
+                <canvas id="${refeicaoPCelular.hashCode()}" class="grafico-canvas"></canvas>
             </article>
 
             <article class="grafico-article">
-                <h3 class="grafico-titulo">Com que frequência você consome frutas?</h3>
-                <canvas id="chart1" class="grafico-canvas"></canvas>
+                <h3 class="grafico-titulo">${refeicoes.getPergunta()}</h3>
+                <canvas id="${refeicoes.hashCode()}" class="grafico-canvas"></canvas>
             </article>
 
             <article class="grafico-article">
-                <h3 class="grafico-titulo">Com que frequência você consome frutas?</h3>
-                <canvas id="chart2" class="grafico-canvas"></canvas>
+                <h3 class="grafico-titulo">${consumoOntem.getPergunta()}</h3>
+                <canvas id="${consumoOntem.hashCode()}" class="grafico-canvas"></canvas>
             </article>
 
             @for(DadosGraficoDTO d: inseguracaAlimentarList)
                 <article class="grafico-article">
-                    <h3 class="grafico-titulo">Com que frequência você consome frutas?</h3>
+                    <h3 class="grafico-titulo">${d.getPergunta()}</h3>
                     <canvas id="${d.hashCode()}" class="grafico-canvas"></canvas>
                 </article>
             @endfor
@@ -144,7 +144,7 @@
 <script>
     // Exemplo: criando os gráficos
     document.addEventListener("DOMContentLoaded", () => {
-        createPieChart("chart0",
+        createPieChart("${refeicaoPCelular.hashCode()}",
             "${refeicaoPCelular.getPergunta()}",
             [@for(Resposta r: refeicaoPCelular.getRespostas())
         "${r.getCampo()}",
@@ -153,7 +153,7 @@
     @endfor], 0
         );
 
-        createPieChart("chart1",
+        createPieChart("${refeicoes.hashCode()}",
             "${refeicoes.getPergunta()}",
             [@for(Resposta r: refeicoes.getRespostas())
         "${r.getCampo()}",
@@ -162,7 +162,7 @@
     @endfor], 0
         );
 
-        createPieChart("chart2",
+        createPieChart("${consumoOntem.hashCode()}",
             "${consumoOntem.getPergunta()}",
             [@for(Resposta r: consumoOntem.getRespostas())
         "${r.getCampo()}",
@@ -173,7 +173,7 @@
 
     @for(DadosGraficoDTO d: inseguracaAlimentarList)
         createPieChart("${d.hashCode()}",
-            "${d.getPergunta()}",
+            "",
             [@for(Resposta r: d.getRespostas())
         "${r.getCampo()}",
     @endfor], [@for(Resposta r: d.getRespostas())

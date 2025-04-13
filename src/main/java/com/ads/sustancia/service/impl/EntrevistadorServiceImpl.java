@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.ads.sustancia.dto.request.EntrevistadorDTO;
 import com.ads.sustancia.mapping.EntrevistadorMapper;
-import com.ads.sustancia.model.Entrevistador;
 import com.ads.sustancia.repository.EntrevistadorRepository;
 import com.ads.sustancia.service.EntrevistadorService;
 
@@ -21,14 +20,18 @@ public class EntrevistadorServiceImpl implements EntrevistadorService {
     private final EntrevistadorRepository repository;
     private final EntrevistadorMapper mapper;
 
-    @Override
-    @Transactional
-    public void save(EntrevistadorDTO dto) {
 
-        if (repository.findByEmail(dto.email()).isPresent()) {
-            throw new RuntimeException("Email ja Cadastrado");
+    @Override
+    public void save(EntrevistadorDTO entrevistador) {
+        var existeEmail = repository.existsEntrevistadorByEmail(entrevistador.getEmail());
+        if (existeEmail) {
+            throw new RuntimeException("Email já cadastrado.");
         }
-            repository.save(mapper.dtoToEntity(dto));
+
+        var entity = mapper.dtoToEntity(entrevistador);
+        entity.setPapel("ENTREVISTADOR");
+
+        repository.save(entity);
     }
     
     
@@ -43,17 +46,10 @@ public class EntrevistadorServiceImpl implements EntrevistadorService {
     }
 
     @Override
-    @Transactional
     public void update(EntrevistadorDTO dto) {
-        Entrevistador entity = repository.findById(dto.id())
-            .orElseThrow(() -> new RuntimeException("Entrevistador não encontrado!"));
 
-        entity.setNome(dto.nome());
-        entity.setEmail(dto.email());
-        entity.setDataNascimento(dto.dataNascimento());
-
-        repository.save(entity);
     }
+
 
     @Override
     @Transactional
