@@ -1,5 +1,5 @@
 <header>
-    <button id="menu-toggle" onclick="toggleMenu()">
-        <img src="/assets/icons/menu-burguer.svg" alt="menu-burguer">
+    <button class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">
+        <i class='bx bx-menu' alt="menu"></i>
     </button>
 </header>
