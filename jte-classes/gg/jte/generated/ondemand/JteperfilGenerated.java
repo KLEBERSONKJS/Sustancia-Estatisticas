@@ -6,10 +6,10 @@ public final class JteperfilGenerated {
 	public static void render(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor) {
 		gg.jte.generated.ondemand.layout.JtemainGenerated.render(jteOutput, jteHtmlInterceptor, new gg.jte.html.HtmlContent() {
 			public void writeTo(gg.jte.html.HtmlTemplateOutput jteOutput) {
-				jteOutput.writeContent("\r\n    <p> Perfil COORDENADOR</p>\r\n");
+				jteOutput.writeContent("\n    <p> Perfil COORDENADOR</p>\n");
 			}
 		});
-		jteOutput.writeContent("\r\n");
+		jteOutput.writeContent("\n");
 	}
 	public static void renderMap(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, java.util.Map<String, Object> params) {
 		render(jteOutput, jteHtmlInterceptor);
