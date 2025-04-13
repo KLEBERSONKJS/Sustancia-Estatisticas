@@ -4,13 +4,13 @@ public final class JteindexGenerated {
 	public static final String JTE_NAME = "index.jte";
 	public static final int[] JTE_LINE_INFO = {1,1,1,1,1,1,1,1,1,3,3,3,5,5,5,5,5,5};
 	public static void render(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor) {
-		jteOutput.writeContent("\n    ");
+		jteOutput.writeContent("\r\n    ");
 		gg.jte.generated.ondemand.layout.JtemainGenerated.render(jteOutput, jteHtmlInterceptor, new gg.jte.html.HtmlContent() {
 			public void writeTo(gg.jte.html.HtmlTemplateOutput jteOutput) {
-				jteOutput.writeContent("\n    <p> CONTEUDO AQUI</p>\n    ");
+				jteOutput.writeContent("\r\n    <p> CONTEUDO AQUI</p>\r\n    ");
 			}
 		});
-		jteOutput.writeContent("\n\n   ");
+		jteOutput.writeContent("\r\n\r\n   ");
 	}
 	public static void renderMap(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, java.util.Map<String, Object> params) {
 		render(jteOutput, jteHtmlInterceptor);
