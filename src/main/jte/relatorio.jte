@@ -138,7 +138,6 @@
 
         <!-- SCRIPTS -->
         <script src="/js/menu.js"></script>
-        <script src="/js/logoff.js"></script>
         <script src="/js/chart-utils.js"></script>
         <script src="/js/grafico.js"></script>
         <script>
@@ -183,8 +182,5 @@
             @endfor
 
     });
-
-
-
 
         </script>

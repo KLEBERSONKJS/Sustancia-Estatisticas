@@ -20,6 +20,7 @@
 
     <div class="wrapper">
     @template.layout.aside()
+    @template.layout.header()
         <div class="main container">
             ${content}
         </div>

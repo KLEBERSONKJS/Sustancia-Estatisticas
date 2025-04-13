@@ -8,7 +8,6 @@
         overflow-y: auto; /* ADICIONAR */
         box-sizing: border-box;
         padding: 2rem;
-        margin-left: 220px; /* Se sidebar for fixa com 220px */
 }
 
 .titulo-pagina {
@@ -116,12 +115,12 @@
     margin-top: 2rem;
 }
 
-/* Grid de gráficos (2 colunas) */
-.graficos-grid {
+  /* Grid de gráficos (2 colunas) */
+  .graficos-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 2rem;
-}
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
 
 
 .grafico-article {
