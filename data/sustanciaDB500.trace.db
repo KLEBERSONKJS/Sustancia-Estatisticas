@@ -42530,3 +42530,12 @@ INSERT INTO PESSOA_TIPOS_REFEICOES_LIST VALUES (500, 'HAMBURGUER_E_EMBUTIDOS') [
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-04-14 00:34:22.674399-03:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "RACA" not found; SQL statement:
+select * from raca [42102-232]
+2025-04-14 00:34:31.614777-03:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "RACA" not found; SQL statement:
+select * from RACA [42102-232]
+2025-04-14 00:34:43.501326-03:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "RACA" not found; SQL statement:
+SELECT * FROM RACA [42102-232]
