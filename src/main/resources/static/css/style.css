@@ -303,24 +303,6 @@ li a.ativo img {
     background: white;
 }
 
-/* Cabeçalho */
-.card-header {
-    background: #4CAF50;
-    color: white;
-    padding: 15px 20px;
-}
-
-.card-header h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-
-/* Corpo do card */
-.card-body {
-    padding: 20px;
-}
-
 /* Campos do perfil */
 .profile-field {
     display: flex;

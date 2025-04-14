@@ -98,7 +98,6 @@
       </div>
 
       <div class="campo campo-checkbox">
-        <label>Auxílios:</label>
         <label for="auxilios">Auxílios:</label>
         <label><input type="checkbox" name="auxilios" value="Nenhum"> Nenhum</label>
         <label><input type="checkbox" name="auxilios" value="Bolsa familia"> Bolsa Familia</label>
