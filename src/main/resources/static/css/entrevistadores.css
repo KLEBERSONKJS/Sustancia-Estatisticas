@@ -24,6 +24,7 @@ section.conteudo {
 .card-header {
     display: flex;
     align-items: center;
+    
 }
 
 .foto-entrevistador {
