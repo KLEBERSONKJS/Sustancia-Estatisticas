@@ -308,10 +308,12 @@ li a.ativo img {
     display: flex;
     margin-bottom: 15px;
     align-items: baseline;
+    padding: 10px 10px;
+    
 }
 
 .field-label {
-    flex: 0 0 120px;
+    flex: 0 0 115px;
     font-weight: 500;
     color: #555;
     font-size: 0.95rem;
@@ -323,6 +325,8 @@ li a.ativo img {
     padding: 8px 0;
     border-bottom: 1px dashed #e0e0e0;
     word-break: break-word;
+    text-align: left;
+    margin-left: 0;
 }
 
 /* Estilo específico para a senha (mostrando que está oculta) */
