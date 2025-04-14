@@ -1,63 +1,23 @@
-header.cabecalho {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2vh;
-}
-
-.container-pesquisa {
-    display: flex;
-    align-items: center;
-    background-color: var(--cor-branca);
-    border: 1px solid #ccc;
-    border-radius: var(--border-radius-padrao);
-    /* Border radius padrão */
-    padding: 0.5vh 1vh;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    /* Ajustar a largura conforme necessário */
-}
-
-.container-pesquisa i {
-    width: 2vh;
-    height: 2vh;
-    margin-right: 1vh;
-}
-
-.container-pesquisa input {
-    border: none;
-    outline: none;
-    padding: 0.5vh;
-    width: 100%;
-}
-
-button.menu-hamburguer {
-    display: none;
-    /* Esconde no modo desktop */
-}
-
 section.conteudo {
     padding: 2vh;
     background-color: var(--cor-fundo);
 }
 
+/* Cards abaixo do formulário */
 .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* 3 cards por linha */
-    grid-gap: 2vh;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Layout dinâmico */
+    gap: 2rem; /* Espaço entre os cards */
 }
 
 .card {
-    background-color: var(--cor-card);
+    background-color: #fff; /* Fundo branco */
     border: 1px solid var(--cor-card-borda);
     border-radius: var(--border-radius-padrao);
-    /* Border radius padrão */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 2vh;
+    padding: 1.5rem;
     display: flex;
     flex-direction: row;
-    /* Alinhar a foto e as informações lado a lado */
     align-items: center;
 }
 
@@ -70,7 +30,7 @@ section.conteudo {
     border-radius: 50%;
     width: 8vh;
     height: 8vh;
-    margin-right: 2vh;
+    margin-right: 1rem;
 }
 
 .info-entrevista {
@@ -79,29 +39,28 @@ section.conteudo {
 
 .info-entrevista h4 {
     margin: 0;
-    font-size: 2.4vh;
+    font-size: 1.2rem;
     color: var(--cor-texto);
 }
 
 .info-entrevista p {
-    margin: 0.5vh 0 0;
-    font-size: 1.8vh;
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
     color: var(--cor-texto);
 }
 
-.btn-filtro {
+.btn-formulario {
     background-color: var(--cor-barra-lateral-escura);
     color: var(--cor-branca);
     border: none;
     padding: 1vh 2vh;
     border-radius: var(--border-radius-padrao);
-    /* Border radius padrão */
     font-size: 1.6vh;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.btn-filtro:hover {
+.btn-formulario:hover {
     background-color: var(--cor-botao-ativo);
 }
 
@@ -229,33 +188,111 @@ section.conteudo {
     font-size: 1.5rem;
 }
 
-/* Formulário em si */
-.entrevistador-form {
+/* Formulário horizontal no topo */
+.formulario-horizontal {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    align-items: flex-end; /* Alinha os campos e o botão ao final */
+    gap: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem; /* Espaço entre o formulário e os cards */
+}
+
+.formulario-horizontal .form-group {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    min-width: 150px; /* Evita que os campos fiquem muito estreitos */
 }
 
-/* Grupo de campos */
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+.formulario-horizontal .form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
 }
 
-/* Labels */
-.form-group label {
-    font-weight: 500;
-    color: #555;
-}
-
-/* Campos de input */
-.form-group input {
+.formulario-horizontal .form-group input {
     padding: 0.8rem;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
-    transition: border-color 0.3s;
+}
+
+.formulario-horizontal .btn-salvar {
+    margin-left: auto; /* Empurra o botão para a direita */
+    padding: 0.8rem 1.5rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.formulario-horizontal .btn-salvar:hover {
+    background-color: #3e8e41;
+}
+
+.formulario-container {
+    border: none;
+    padding: 1.5rem;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.formularios-legenda {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+.formularios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.formulario-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+}
+
+.formulario-item label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.formulario-item select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #fff;
+    appearance: none;
+}
+
+.formularios-horizontal .botao-principal {
+    margin-left: auto;
+}
+
+.botoes-form {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+.botao {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 .form-group input:focus {
@@ -264,7 +301,6 @@ section.conteudo {
     box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
 }
 
-/* Botão de submit */
 .btn-salvar {
     padding: 0.8rem;
     background-color: #4CAF50;
@@ -282,7 +318,28 @@ section.conteudo {
     background-color: #3e8e41;
 }
 
+/* Container principal para o formulário e os cards */
+.entrevistador-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Espaço entre o formulário e os cards */
+    margin-top: 1rem; /* Distância do topo da página */
+    width: 100%;
+    padding: 2rem; /* Espaçamento interno */
+    box-sizing: border-box;
+}
+
 /* Responsividade */
+@media (max-width: 768px) {
+    .formulario-horizontal {
+        flex-direction: column; /* Campos em uma única coluna */
+    }
+
+    .cards {
+        grid-template-columns: 1fr; /* Cards em uma única coluna */
+    }
+}
+
 @media (max-width: 600px) {
     .form-container {
         padding: 1.5rem;
@@ -290,5 +347,17 @@ section.conteudo {
 
     .form-group input {
         padding: 0.7rem;
+    }
+
+    .btn-salvar {
+        font-size: 0.9rem;
+    }
+
+    .formulario-horizontal .form-group input {
+        padding: 0.7rem;
+    }
+
+    .formulario-horizontal .btn-salvar {
+        font-size: 0.9rem;
     }
 }
