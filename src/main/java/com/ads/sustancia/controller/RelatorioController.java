@@ -47,6 +47,7 @@ public class RelatorioController {
         model.addAttribute("consumoOntem",consumoOntem);
         model.addAttribute("inseguracaAlimentarList", insegurancaAlimentar(filtroDTO));
         model.addAttribute("filtro",filtroDTO);
+        //TESTE
         return "relatorio";
     }
 
