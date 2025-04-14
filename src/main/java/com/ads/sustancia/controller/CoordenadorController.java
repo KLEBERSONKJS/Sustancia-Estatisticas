@@ -1,6 +1,7 @@
 package com.ads.sustancia.controller;
 
 
+import com.ads.sustancia.dto.request.EntrevistadorDTO;
 import com.ads.sustancia.model.Coordenador;
 import com.ads.sustancia.model.Usuario;
 import com.ads.sustancia.repository.UsuarioRepository;
@@ -23,6 +24,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -66,15 +69,18 @@ public class CoordenadorController {
     
     @GetMapping("/admin")
     public String cadastroCoordenador(Model model) {
-        model.addAttribute("coordenadores",service.findAll() );
+        List<CoordenadorDTO> coordenadores = new ArrayList<>();
+        coordenadores = service.findAll();
+        model.addAttribute("coordenadores",coordenadores );
         return "coordenadores";
     }
 
 
     @GetMapping("/entrevistadores")
     public String entrevistadores(Model model) {
-
-        model.addAttribute("entrevistadores",entrevistadorService.findAll() );
+        List<EntrevistadorDTO> entrevistadores = new ArrayList<>();
+        entrevistadores = entrevistadorService.findAll();
+        model.addAttribute("entrevistadores", entrevistadores);
         return "entrevistadores";
     }
 

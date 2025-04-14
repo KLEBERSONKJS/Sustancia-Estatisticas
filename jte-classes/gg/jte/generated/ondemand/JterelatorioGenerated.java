@@ -9,7 +9,7 @@ import java.util.List;;
 @SuppressWarnings("unchecked")
 public final class JterelatorioGenerated {
 	public static final String JTE_NAME = "relatorio.jte";
-	public static final int[] JTE_LINE_INFO = {0,0,1,2,3,4,5,6,9,9,9,9,17,17,17,17,20,22,28,28,29,29,29,29,29,29,29,29,29,29,29,29,30,30,38,38,39,39,39,39,39,39,39,39,39,39,43,43,43,43,43,43,44,44,52,52,53,53,53,53,53,53,53,53,53,53,54,54,54,55,55,63,63,64,64,64,64,64,64,64,64,64,64,71,71,71,71,71,71,71,71,71,72,72,80,80,81,81,81,81,81,81,81,81,81,81,81,81,82,82,90,90,91,91,91,91,91,91,91,91,91,91,91,91,92,92,100,100,101,101,101,101,101,101,101,101,101,101,101,101,102,102,110,110,111,111,111,111,111,111,111,111,111,111,111,111,112,112,119,121,121,123,123,123,124,124,124,124,124,124,124,124,124,126,126,128,128,130,130,130,131,131,131,131,131,131,131,131,131,133,133,135,135,137,137,137,138,138,138,138,138,138,138,138,138,140,140,142,142,143,143,144,144,146,146,146,147,147,147,147,147,147,147,147,147,149,149,150,150,151,151,159,159,159,161,166,170,170,170,172,172,173,173,173,174,174,174,174,175,175,175,176,176,176,180,180,180,182,182,183,183,183,184,184,184,184,185,185,185,186,186,186,192,192,192,193,193,193,194,194,195,195,195,196,196,196,196,197,197,197,198,198,198,202,202,203,203,204,204,204,206,206,207,207,207,208,208,208,208,209,209,209,210,210,210,212,212,213,213,217,217,217,9,10,11,12,13,13,13,13};
+	public static final int[] JTE_LINE_INFO = {0,0,1,2,3,4,5,6,9,9,9,9,17,17,17,17,20,22,28,28,29,29,29,29,29,29,29,29,29,29,29,29,30,30,38,38,39,39,39,39,39,39,39,39,39,39,43,43,43,43,43,43,44,44,52,52,53,53,53,53,53,53,53,53,53,53,54,54,54,55,55,63,63,64,64,64,64,64,64,64,64,64,64,71,71,71,71,71,71,71,71,71,72,72,80,80,81,81,81,81,81,81,81,81,81,81,81,81,82,82,90,90,91,91,91,91,91,91,91,91,91,91,92,92,92,93,93,101,101,102,102,102,102,102,102,102,102,102,102,102,102,103,103,111,111,112,112,112,112,112,112,112,112,112,112,112,112,113,113,120,122,122,124,124,124,125,125,125,125,125,125,125,125,125,127,127,129,129,131,131,131,132,132,132,132,132,132,132,132,132,134,134,136,136,138,138,138,139,139,139,139,139,139,139,139,139,141,141,143,143,144,144,145,145,147,147,147,148,148,148,148,148,148,148,148,148,150,150,151,151,152,152,160,160,160,162,167,171,171,171,173,173,174,174,174,175,175,175,175,176,176,176,177,177,177,181,181,181,183,183,184,184,184,185,185,185,185,186,186,186,187,187,187,193,193,193,194,194,194,195,195,196,196,196,197,197,197,197,198,198,198,199,199,199,203,203,204,204,205,205,205,207,207,208,208,208,209,209,209,209,210,210,210,211,211,211,213,213,214,214,218,218,218,9,10,11,12,13,13,13,13};
 	public static void render(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, FiltroDTO filtro, DadosGraficoDTO refeicaoPCelular, DadosGraficoDTO refeicoes, DadosGraficoDTO consumoOntem, List<DadosGraficoDTO> inseguracaAlimentarList) {
 		jteOutput.writeContent("\n\n\n    ");
 		gg.jte.generated.ondemand.layout.JtemainGenerated.render(jteOutput, jteHtmlInterceptor, new gg.jte.html.HtmlContent() {
@@ -105,7 +105,7 @@ public final class JterelatorioGenerated {
 					}
 					jteOutput.writeContent(">");
 					jteOutput.setContext("option", null);
-					jteOutput.writeUserContent(estadoCivil.name());
+					jteOutput.writeUserContent(estadoCivil.name().replace("PREFIRONAODIZER","PREFERE NÃO DIZER"));
 					jteOutput.writeContent("</option>\n                    ");
 				}
 				jteOutput.writeContent("\n                </select>\n            </div>\n\n            <div class=\"filtro-item\">\n                <label for=\"emprego\">Situação de Emprego:</label>\n                <select id=\"emprego\" name=\"emprego\">\n                    <option value=\"\">Todas</option>\n                    ");
@@ -121,7 +121,8 @@ public final class JterelatorioGenerated {
 					}
 					jteOutput.writeContent(">");
 					jteOutput.setContext("option", null);
-					jteOutput.writeUserContent(emprego.name());
+					jteOutput.writeUserContent(emprego.name().replace("PREFERENAODIZER","PREFERE NÃO DIZER")
+                                                                       .replace("INCAPAZDETRABALHAR","INCAPAZ DE TRABALHAR"));
 					jteOutput.writeContent("</option>\n                    ");
 				}
 				jteOutput.writeContent("\n                </select>\n            </div>\n\n            <div class=\"filtro-item\">\n                <label for=\"dependentes\">Número de Dependentes:</label>\n                <select id=\"dependentes\" name=\"dependentes\">\n                    <option value=\"\">Todos</option>\n                    ");
@@ -137,7 +138,7 @@ public final class JterelatorioGenerated {
 					}
 					jteOutput.writeContent(">");
 					jteOutput.setContext("option", null);
-					jteOutput.writeUserContent(dependentes.name());
+					jteOutput.writeUserContent(dependentes.name().replace("PREFIRONAODIZER","PREFERE NÃO DIZER"));
 					jteOutput.writeContent("</option>\n                    ");
 				}
 				jteOutput.writeContent("\n                </select>\n            </div>\n\n            <div class=\"filtro-item\">\n                <label for=\"auxilio\">Auxílio do Governo:</label>\n                <select id=\"auxilio\" name=\"auxilio\">\n                    <option value=\"\">Todos</option>\n                    ");

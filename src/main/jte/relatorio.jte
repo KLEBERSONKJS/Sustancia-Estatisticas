@@ -79,7 +79,7 @@
                 <select id="estadoCivil" name="estadoCivil">
                     <option value="">Todos</option>
                     @for (EstadoCivilEnum estadoCivil : EstadoCivilEnum.values())
-                    <option value="${estadoCivil.name()}">${estadoCivil.name()}</option>
+                    <option value="${estadoCivil.name()}">${estadoCivil.name().replace("PREFIRONAODIZER","PREFERE NÃO DIZER")}</option>
                     @endfor
                 </select>
             </div>
@@ -89,7 +89,8 @@
                 <select id="emprego" name="emprego">
                     <option value="">Todas</option>
                     @for (EmpregoEnum emprego : EmpregoEnum.values())
-                    <option value="${emprego.name()}">${emprego.name()}</option>
+                    <option value="${emprego.name()}">${emprego.name().replace("PREFERENAODIZER","PREFERE NÃO DIZER")
+                                                                       .replace("INCAPAZDETRABALHAR","INCAPAZ DE TRABALHAR")}</option>
                     @endfor
                 </select>
             </div>
@@ -99,7 +100,7 @@
                 <select id="dependentes" name="dependentes">
                     <option value="">Todos</option>
                     @for (DependentesEnum dependentes : DependentesEnum.values())
-                    <option value="${dependentes.name()}">${dependentes.name()}</option>
+                    <option value="${dependentes.name()}">${dependentes.name().replace("PREFIRONAODIZER","PREFERE NÃO DIZER")}</option>
                     @endfor
                 </select>
             </div>
