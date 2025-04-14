@@ -27,7 +27,7 @@
 		
 		<p>A página que você está procurando não está disponivel!</p>
 		
-		<a href="/auth" class="link_404">Home</a>
+		<a href="/" class="link_404">Home</a>
 	</div>
 		</div>
 		</div>

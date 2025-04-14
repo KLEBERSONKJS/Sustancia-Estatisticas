@@ -54,10 +54,12 @@ public class CoordenadorController {
             coordenador.setSenha(encoder.encode(dados.getSenha()));
             service.save(coordenador);
             model.addAttribute("mensagem", "O cadastro de %s teve exito".formatted(dados.getNome()));
+            return "redirect:/coordenador/admin";
         } catch (RuntimeException e) {
             model.addAttribute("erro", "Erro ao cadastrar entrevistador: " + e.getMessage());
+            return "coordenadores";
         }
-            return "cadastroCoordenador";
+
     }
 
     

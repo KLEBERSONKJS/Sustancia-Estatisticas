@@ -28,7 +28,11 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(auth ->
                     auth.requestMatchers( "/assets/**","/img/**", "/", "/js/**", "/css/**", "/error", "/h2/**").permitAll()
-                            .requestMatchers("/coordenador/**").hasAuthority("COORDENADOR")
+                            .requestMatchers("/entrevistador/**").hasAuthority("COORDENADOR")
+                            .requestMatchers("/coordenador/perfil").hasAuthority("COORDENADOR")
+                            .requestMatchers("/coordenador/entrevistadores").hasAuthority("COORDENADOR")
+                            .requestMatchers("/coordenador/cadastrar").hasAuthority("ADMIN")
+                            .requestMatchers("/coordenador/admin").hasAuthority("ADMIN")
                             .requestMatchers("/formulario/**").hasAnyAuthority("ADMIN", "COORDENADOR", "ENTREVISTADOR")
                             .anyRequest().authenticated()
                 )

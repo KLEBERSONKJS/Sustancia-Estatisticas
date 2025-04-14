@@ -1,12 +1,19 @@
 @import com.ads.sustancia.dto.request.EntrevistadorDTO
 @import java.util.List;
 @param List<EntrevistadorDTO> entrevistadores = null
-
+@param String error
+@param String mensagem
 @template.layout.main(content = @`
 
 <section class="entrevistador-container">
     <div class="entrevistadores-formulario-horizontal">
         <h3>Cadastrar Entrevistador</h3>
+        @if(error!=null)
+        <p style="color:red">${error}</p>
+        @endif
+        @if(mensagem!=null)
+            <p style="color:red">${mensagem}</p>
+        @endif
         <form action="/entrevistador/cadastrar" method="post" class="formulario-horizontal">
             <div class="form-group">
                 <label for="nome">Nome:</label>
@@ -40,8 +47,8 @@
             <div class="card-header">
                 <img src="/assets/icons/portrait.svg" alt="Entrevistador" class="foto-entrevistador">
                 <div class="info-entrevista">
-                    <h4>${e.getNome()}</h4>
-                    <p>${e.getEmail()}</p>
+                    <h2>${e.getNome()}</h2>
+                    <h1>${e.getEmail()}</h1>
                 </div>
             </div>
         </article>

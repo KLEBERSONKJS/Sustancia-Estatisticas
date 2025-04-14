@@ -35,18 +35,12 @@ public class EntrevistadorController {
             entrevistador.setSenha(encoder.encode(dados.getSenha()));
             service.save(entrevistador);
             model.addAttribute("mensagem", "O cadastro de %s teve exito".formatted(dados.getNome()));
-        } catch (Exception e) {
+            return "redirect:/coordenador/entrevistadores";
+        } catch (RuntimeException e) {
             model.addAttribute("erro", "Erro ao cadastrar entrevistador: " + e.getMessage());
         }
-        return "cadastrEntrevistador";
+        return "entrevistadores";
     }
-
-
-    @GetMapping()
-    public String cadastroEntrevistador() {
-        return "cadastrEntrevistador";
-    }
-
 
 
 }

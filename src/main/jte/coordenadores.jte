@@ -1,12 +1,19 @@
 @import com.ads.sustancia.dto.request.CoordenadorDTO
 @import java.util.List;
 @param List<CoordenadorDTO> coordenadores = null
-
+@param String error
+@param String mensagem
 @template.layout.main(content = @`
 
 <section class="entrevistador-container">
     <div class="entrevistadores-formulario-horizontal">
         <h3>Cadastrar Entrevistador</h3>
+        @if(error!=null)
+            <p style="color:red">${error}</p>
+        @endif
+        @if(mensagem!=null)
+            <p style="color:red">${mensagem}</p>
+        @endif
         <form action="/coordenador/cadastrar" method="post" class="formulario-horizontal">
             <div class="form-group">
                 <label for="nome">Nome:</label>
