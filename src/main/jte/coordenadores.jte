@@ -4,23 +4,51 @@
 
 @template.layout.main(content = @`
 
+<section class="entrevistador-container">
+    <div class="entrevistadores-formulario-horizontal">
+        <h3>Cadastrar Entrevistador</h3>
+        <form action="/coordenador/cadastrar" method="post" class="formulario-horizontal">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required placeholder="Digite o Nome do Coordenador">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Digite o email do Coordenador">
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required placeholder="Digite a senha">
+            </div>
+
+            <div class="form-group">
+                <label for="dataNascimento">Data de Nascimento:</label>
+                <input type="date" id="dataNascimento" name="dataNascimento" required>
+            </div>
+
+            <button type="submit" class="btn-salvar">Cadastrar Coordenador</button>
+        </form>
+    </div>
+
     @if(coordenadores!= null && !coordenadores.isEmpty())
+<div class="entrevistadores-cards"> 
     <div class="cards">
-        <!-- Card exemplo -->
         @for(CoordenadorDTO c: coordenadores)
             <article class="card">
                 <div class="card-header">
-                    <img src="/assets/icons/portrait.svg" alt="Entrevistador" class="foto-entrevistador">
+                    <img src="/assets/icons/portrait.svg" alt="Coordenador" class="foto-entrevistador">
                     <div class="info-entrevista">
                         <h4>${c.getNome()}</h4>
                         <p>${c.getEmail()}</p>
-                    </div>
                 </div>
-
-
-            </article>
+            </div>
+        </article>
         @endfor
-     @endif
     </div>
-    </section>
+</div>
+    @endif
+</section>
+
 `)

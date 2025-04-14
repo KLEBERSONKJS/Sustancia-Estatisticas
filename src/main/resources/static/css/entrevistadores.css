@@ -292,24 +292,25 @@ section.conteudo {
 }
 
 /* Container principal para o formulário e os cards */
-.entrevistadores-container {
+.entrevistador-container {
     padding: 2rem;
     margin-top: 0 !important; /* importante */
     display: flex;
+    position: relative;
     flex-direction: column;
     gap: 2rem;
     width: 100%;
     height: 100vh;
     overflow-y: auto;
     box-sizing: border-box;
-    padding: 2rem;
 }
 
 /* Formulário horizontal */
 .entrevistadores-formulario-horizontal {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: center;
+    flex-direction: column;
     gap: 1rem;
     background-color: #fff;
     padding: 1rem;

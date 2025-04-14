@@ -5,32 +5,33 @@
 @template.layout.main(content = @`
 
 <section class="entrevistador-container">
-<div class="entrevistadores-formulario-horizontal">
-    <h3>Cadastrar Entrevistador</h3>
-    <form action="/entrevistador/cadastrar" method="post" class="formulario-horizontal">
-        <div class="form-group">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required placeholder="Digite o Nome do Entrevistador">
-        </div>
+    <div class="entrevistadores-formulario-horizontal">
+        <h3>Cadastrar Entrevistador</h3>
+        <form action="/entrevistador/cadastrar" method="post" class="formulario-horizontal">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required placeholder="Digite o Nome do Entrevistador">
+            </div>
 
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required placeholder="Digite o email do Entrevistador">
-        </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Digite o email do Entrevistador">
+            </div>
 
-        <div class="form-group">
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required placeholder="Digite a senha">
-        </div>
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required placeholder="Digite a senha">
+            </div>
 
-        <div class="form-group">
-            <label for="dataNascimento">Data de Nascimento:</label>
-            <input type="date" id="dataNascimento" name="dataNascimento" required>
-        </div>
+            <div class="form-group">
+                <label for="dataNascimento">Data de Nascimento:</label>
+                <input type="date" id="dataNascimento" name="dataNascimento" required>
+            </div>
 
-        <button type="submit" class="btn-salvar">Cadastrar Entrevistador</button>
-    </form>
-</div>
+            <button type="submit" class="btn-salvar">Cadastrar Entrevistador</button>
+        </form>
+    </div>
+    
     @if(entrevistadores != null && !entrevistadores.isEmpty())
  <div class="entrevistadores-cards">    
     <div class="cards">
