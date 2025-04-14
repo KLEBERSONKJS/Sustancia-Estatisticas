@@ -11,5 +11,5 @@ public interface EntrevistadorService {
 
   void save(Entrevistador dto);
   void delete(Long id);
-  List<EntrevistadorDTO> findAll(); 
+  List<EntrevistadorDTO> findAll();
 }

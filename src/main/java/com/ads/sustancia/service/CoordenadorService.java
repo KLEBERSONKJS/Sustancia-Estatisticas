@@ -9,5 +9,4 @@ public interface CoordenadorService {
     
     void save(Coordenador dto);
     List<CoordenadorDTO> findAll();
-    Coordenador getCoordenadorProfile(String email);
 }

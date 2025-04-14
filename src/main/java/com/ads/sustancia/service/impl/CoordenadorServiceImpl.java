@@ -42,10 +42,8 @@ public class CoordenadorServiceImpl implements CoordenadorService {
                 .toList();
     }
 
-    @Override
-    public Coordenador getCoordenadorProfile(String email) {
-        return null;
-    }
+
+
 
 
 }

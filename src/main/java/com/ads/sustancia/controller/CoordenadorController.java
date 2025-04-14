@@ -2,6 +2,8 @@ package com.ads.sustancia.controller;
 
 
 import com.ads.sustancia.model.Coordenador;
+import com.ads.sustancia.model.Usuario;
+import com.ads.sustancia.repository.UsuarioRepository;
 import com.ads.sustancia.service.CoordenadorService;
 import com.ads.sustancia.service.EntrevistadorService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,6 +22,8 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import java.security.Principal;
+
 
 @Controller
 @RequestMapping("/coordenador")
@@ -30,12 +34,18 @@ public class CoordenadorController {
    
     private final CoordenadorService service;
     private final EntrevistadorService entrevistadorService;
+    private final UsuarioRepository repository;
     private final PasswordEncoder encoder;
 
 
 
     @GetMapping("/perfil")
-    public String perfil() {
+    public String perfil(Model model, Principal principal) {
+        Usuario user = repository.findByEmail(principal.getName())
+                .orElseThrow();
+        ;
+        var email =  principal.getName();
+        model.addAttribute("user", user);
         return "perfil"; 
     }
 

@@ -27,7 +27,7 @@ public class SecurityConfig {
 
         return http
                 .authorizeHttpRequests(auth ->
-                    auth.requestMatchers( "/img/**", "/", "/js/**", "/css/**", "/error", "/h2/**").permitAll()
+                    auth.requestMatchers( "/assets/**","/img/**", "/", "/js/**", "/css/**", "/error", "/h2/**").permitAll()
                             .requestMatchers("/coordenador/**").hasAuthority("COORDENADOR")
                             .requestMatchers("/formulario/**").hasAnyAuthority("ADMIN", "COORDENADOR", "ENTREVISTADOR")
                             .anyRequest().authenticated()

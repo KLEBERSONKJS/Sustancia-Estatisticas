@@ -10,5 +10,4 @@ import java.util.Optional;
 public interface CoordenadorRepository extends JpaRepository<Coordenador, Long> {
 
     boolean existsCoordenadorByEmail(String email);
- 
 }

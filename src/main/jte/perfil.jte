@@ -1,3 +1,6 @@
+@import com.ads.sustancia.model.Usuario
+
+@param Usuario user
 @template.layout.main(content = @`
     <div class="profile-card">
         <div class="card-header">
@@ -6,11 +9,11 @@
         <div class="card-body">
             <div class="profile-field">
                 <span class="field-label">Nome:</span>
-                <span class="field-value" id="profileName">Carlos Silva</span>
+                <span class="field-value" id="profileName">${user.getNome()}</span>
             </div>
             <div class="profile-field">
                 <span class="field-label">Email:</span>
-                <span class="field-value" id="profileEmail">carlos.silva@exemplo.com</span>
+                <span class="field-value" id="profileEmail">${user.getEmail()}</span>
             </div>
             <div class="profile-field">
                 <span class="field-label">Senha:</span>
@@ -18,7 +21,7 @@
             </div>
             <div class="profile-field">
                 <span class="field-label">Nascimento:</span>
-                <span class="field-value" id="profileBirthdate">15/03/1985</span>
+                <span class="field-value" id="profileBirthdate">*********</span>
             </div>
         </div>
     </div>
