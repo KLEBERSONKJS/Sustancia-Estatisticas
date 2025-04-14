@@ -7,7 +7,11 @@ public final class JteindexGenerated {
 		jteOutput.writeContent("\r\n    ");
 		gg.jte.generated.ondemand.layout.JtemainGenerated.render(jteOutput, jteHtmlInterceptor, new gg.jte.html.HtmlContent() {
 			public void writeTo(gg.jte.html.HtmlTemplateOutput jteOutput) {
+<<<<<<< Updated upstream
 				jteOutput.writeContent("\r\n    <p> SEJA BEM VINDO!</p>\r\n        <p>Coloque aqui a nossa logo ou alguma imagem que remete a nós</p>\r\n    ");
+=======
+				jteOutput.writeContent("\r\n        <img src=\"/assets/icons/cactinho.svg\" class=\"cactus\">\r\n\r\n    ");
+>>>>>>> Stashed changes
 			}
 		});
 		jteOutput.writeContent("\r\n\r\n   ");

@@ -26,6 +26,16 @@
     overflow: hidden;
 }
 
+.cactus{
+    position: absolute;
+    top: 0;
+    width: calc(100% - 250px); /* Ajuste para a largura da barra lateral */
+    height: 100vh;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    z-index: -10000;
+}
 
 /*fim geral*/
 
