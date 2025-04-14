@@ -243,37 +243,10 @@ section.conteudo {
     background-color: transparent;
 }
 
-.formularios-legenda {
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    padding: 0;
-}
-
 .formularios-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
-}
-
-.formulario-item {
-    display: flex;
-    flex-direction: column;
-    min-width: 150px;
-}
-
-.formulario-item label {
-    font-weight: 600;
-    margin-bottom: 0.3rem;
-}
-
-.formulario-item select {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-    background-color: #fff;
-    appearance: none;
 }
 
 .formularios-horizontal .botao-principal {
@@ -319,15 +292,38 @@ section.conteudo {
 }
 
 /* Container principal para o formulário e os cards */
-.entrevistador-container {
+.entrevistadores-container {
+    padding: 2rem;
+    margin-top: 0 !important; /* importante */
     display: flex;
     flex-direction: column;
-    gap: 2rem; /* Espaço entre o formulário e os cards */
-    margin-top: 1rem; /* Distância do topo da página */
+    gap: 2rem;
     width: 100%;
-    padding: 2rem; /* Espaçamento interno */
+    height: 100vh;
+    overflow-y: auto;
     box-sizing: border-box;
+    padding: 2rem;
 }
+
+/* Formulário horizontal */
+.entrevistadores-formulario-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 1rem;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Cards */
+.entrevistadores-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
 
 /* Responsividade */
 @media (max-width: 768px) {

@@ -5,6 +5,7 @@
 @template.layout.main(content = @`
 
 <section class="entrevistador-container">
+<div class="entrevistadores-formulario-horizontal">
     <h3>Cadastrar Entrevistador</h3>
     <form action="/entrevistador/cadastrar" method="post" class="formulario-horizontal">
         <div class="form-group">
@@ -29,8 +30,9 @@
 
         <button type="submit" class="btn-salvar">Cadastrar Entrevistador</button>
     </form>
-
+</div>
     @if(entrevistadores != null && !entrevistadores.isEmpty())
+ <div class="entrevistadores-cards">    
     <div class="cards">
         @for(EntrevistadorDTO e: entrevistadores)
         <article class="card">
@@ -44,6 +46,7 @@
         </article>
         @endfor
     </div>
+</div>
     @endif
 </section>
 
