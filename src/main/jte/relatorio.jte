@@ -27,7 +27,7 @@
                 <select id="raca" name="raca">
                     <option value="">Todas</option>
                     @for (RacaEnum raca : RacaEnum.values())
-                    <option value="${raca.name()}">${raca.name()}</option>
+                    <option value="${raca.name()}">${raca.name().replace("POVOSORIGINARIOS", "POVOS ORIGINÁRIOS")}</option>
                     @endfor
                 </select>
             </div>
@@ -37,7 +37,11 @@
                 <select id="religiao" name="religiao">
                     <option value="">Todas</option>
                     @for (ReligiaoEnum religiao : ReligiaoEnum.values())
-                    <option value="${religiao.name()}">${religiao.name()}</option>
+                    <option value="${religiao.name()}">${religiao.name().replace("CATOLICO", "CATÓLICO")
+                                                                        .replace("EVANGELICO", "EVANGÉLICO")
+                                                                        .replace("CANDOMBLE", "CANDOMBLÉ")
+                                                                        .replace("ESPIRITA", "ESPÍRITA")
+                                                                        .replace("PREFERENAODIZER","PREFERE NÃO DIZER")}</option>
                     @endfor
                 </select>
             </div>
@@ -47,7 +51,8 @@
                 <select id="genero" name="genero">
                     <option value="">Todos</option>
                     @for (GeneroEnum genero : GeneroEnum.values())
-                    <option value="${genero.name()}">${genero.name()}</option>
+                    <option value="${genero.name()}">${genero.name().replace("TRANSGENERO", "TRANSGÊNERO")
+                                                                     .replace("NAOBINARIO", "NÃO BINÁRIO")}</option>
                     @endfor
                 </select>
             </div>
@@ -57,7 +62,14 @@
                 <select id="escolaridade" name="escolaridade">
                     <option value="">Todas</option>
                     @for (EscolaridadeEnum escolaridade : EscolaridadeEnum.values())
-                    <option value="${escolaridade.name()}">${escolaridade.name()}</option>
+                    <option value="${escolaridade.name()}">${escolaridade.name().replace("ENSINOFUNDAMENTALINCOMPLETO"," ENSINO FUNDAMENTAL INCOMPLETO")
+                                                                                 .replace("ENSINOFUNDAMENTALCOMPLETO","ENSINO FUNDAMENTAL COMPLETO")
+                                                                                 .replace("ENSINOMEDIOINCOMPLETO","ENSINO MÉDIO INCOMPLETO")
+                                                                                 .replace("ENSINOMEDIOCOMPLETO","ENSINO MÉDIO COMPLETO")
+                                                                                 .replace("GRADUACAOINCOMPLETA","GRADUAÇÃO INCOMPLETA")
+                                                                                 .replace("GRADUACAOCOMPLETA","GRADUAÇÃO COMPLETA")
+                                                                                 .replace("PREFIRONAODIZER","PREFERE NÃO DIZER")
+}</option>
                     @endfor
                 </select>
             </div>
