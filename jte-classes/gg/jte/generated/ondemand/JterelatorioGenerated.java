@@ -9,7 +9,7 @@ import java.util.List;;
 @SuppressWarnings("unchecked")
 public final class JterelatorioGenerated {
 	public static final String JTE_NAME = "relatorio.jte";
-	public static final int[] JTE_LINE_INFO = {0,0,1,2,3,4,5,6,9,9,9,9,17,17,17,17,20,22,28,28,29,29,29,29,29,29,29,29,29,29,29,29,30,30,38,38,39,39,39,39,39,39,39,39,39,39,39,39,40,40,48,48,49,49,49,49,49,49,49,49,49,49,49,49,50,50,58,58,59,59,59,59,59,59,59,59,59,59,59,59,60,60,68,68,69,69,69,69,69,69,69,69,69,69,69,69,70,70,78,78,79,79,79,79,79,79,79,79,79,79,79,79,80,80,88,88,89,89,89,89,89,89,89,89,89,89,89,89,90,90,98,98,99,99,99,99,99,99,99,99,99,99,99,99,100,100,107,109,109,111,111,111,112,112,112,112,112,112,112,112,112,114,114,116,116,118,118,118,119,119,119,119,119,119,119,119,119,121,121,123,123,125,125,125,126,126,126,126,126,126,126,126,126,128,128,130,130,131,131,132,132,134,134,134,135,135,135,135,135,135,135,135,135,137,137,138,138,139,139,147,147,147,149,153,157,157,157,159,159,160,160,160,161,161,161,161,162,162,162,163,163,167,167,167,169,169,170,170,170,171,171,171,171,172,172,172,173,173,179,179,179,180,180,180,181,181,182,182,182,183,183,183,183,184,184,184,185,185,189,189,190,190,191,191,191,193,193,194,194,194,195,195,195,195,196,196,196,197,197,199,199,200,200,204,204,204,9,10,11,12,13,13,13,13};
+	public static final int[] JTE_LINE_INFO = {0,0,1,2,3,4,5,6,9,9,9,9,17,17,17,17,20,22,28,28,29,29,29,29,29,29,29,29,29,29,29,29,30,30,38,38,39,39,39,39,39,39,39,39,39,39,39,39,40,40,48,48,49,49,49,49,49,49,49,49,49,49,49,49,50,50,58,58,59,59,59,59,59,59,59,59,59,59,59,59,60,60,68,68,69,69,69,69,69,69,69,69,69,69,69,69,70,70,78,78,79,79,79,79,79,79,79,79,79,79,79,79,80,80,88,88,89,89,89,89,89,89,89,89,89,89,89,89,90,90,98,98,99,99,99,99,99,99,99,99,99,99,99,99,100,100,107,109,109,111,111,111,112,112,112,112,112,112,112,112,112,114,114,116,116,118,118,118,119,119,119,119,119,119,119,119,119,121,121,123,123,125,125,125,126,126,126,126,126,126,126,126,126,128,128,130,130,131,131,132,132,134,134,134,135,135,135,135,135,135,135,135,135,137,137,138,138,139,139,147,147,147,149,154,158,158,158,160,160,161,161,161,162,162,162,162,163,163,163,164,164,164,168,168,168,170,170,171,171,171,172,172,172,172,173,173,173,174,174,174,180,180,180,181,181,181,182,182,183,183,183,184,184,184,184,185,185,185,186,186,186,190,190,191,191,192,192,192,194,194,195,195,195,196,196,196,196,197,197,197,198,198,198,200,200,201,201,205,205,205,9,10,11,12,13,13,13,13};
 	public static void render(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, FiltroDTO filtro, DadosGraficoDTO refeicaoPCelular, DadosGraficoDTO refeicoes, DadosGraficoDTO consumoOntem, List<DadosGraficoDTO> inseguracaAlimentarList) {
 		jteOutput.writeContent("\r\n\r\n\r\n    ");
 		gg.jte.generated.ondemand.layout.JtemainGenerated.render(jteOutput, jteHtmlInterceptor, new gg.jte.html.HtmlContent() {
@@ -221,8 +221,8 @@ public final class JterelatorioGenerated {
 			}
 		});
 		jteOutput.writeContent("\r\n\r\n        ");
-		jteOutput.writeContent("\r\n        <script src=\"/js/chart-utils.js\"></script>\r\n        <script src=\"/js/grafico.js\"></script>\r\n        <script>\r\n            ");
-		jteOutput.writeContent("\n            document.addEventListener(\"DOMContentLoaded\", () => {\r\n\r\n\r\n                createPieChart(\"");
+		jteOutput.writeContent("\r\n        <script src=\"/js/menu.js\"></script>\r\n        <script src=\"/js/chart-utils.js\"></script>\r\n        <script src=\"/js/grafico.js\"></script>\r\n        <script>\r\n            ");
+		jteOutput.writeContent("\n            document.addEventListener(\"DOMContentLoaded\", () => {\r\n\r\n\r\n                createChart(\"");
 		jteOutput.setContext("script", null);
 		jteOutput.writeUserContent(refeicaoPCelular.hashCode());
 		jteOutput.writeContent("\",\r\n                    \"\",\r\n                    [");
@@ -239,7 +239,8 @@ public final class JterelatorioGenerated {
 			jteOutput.writeUserContent(r.getValor());
 			jteOutput.writeContent(",\r\n                ");
 		}
-		jteOutput.writeContent("], 0\r\n        );\r\n\r\n\r\n                createPieChart(\"");
+		jteOutput.writeContent("], 'bar', 0 ");
+		jteOutput.writeContent("\n        );\r\n\r\n\r\n                createChart(\"");
 		jteOutput.setContext("script", null);
 		jteOutput.writeUserContent(refeicoes.hashCode());
 		jteOutput.writeContent("\",\r\n                \"\",\r\n                [");
@@ -256,7 +257,8 @@ public final class JterelatorioGenerated {
 			jteOutput.writeUserContent(r.getValor());
 			jteOutput.writeContent(",\r\n                ");
 		}
-		jteOutput.writeContent("], 0\r\n        );\r\n\r\n\r\n\r\n\r\n            createPieChart(\"");
+		jteOutput.writeContent("], 'bar', 0 ");
+		jteOutput.writeContent("\n        );\r\n\r\n\r\n\r\n\r\n            createChart(\"");
 		jteOutput.setContext("script", null);
 		jteOutput.writeUserContent(consumoOntem.hashCode());
 		jteOutput.writeContent("\",\r\n                \"");
@@ -276,11 +278,12 @@ public final class JterelatorioGenerated {
 			jteOutput.writeUserContent(r.getValor());
 			jteOutput.writeContent(",\r\n            ");
 		}
-		jteOutput.writeContent("], 0\r\n        );\r\n\r\n\r\n            ");
+		jteOutput.writeContent("], 'bar', 0 ");
+		jteOutput.writeContent("\n        );\r\n\r\n\r\n            ");
 		for (DadosGraficoDTO d: inseguracaAlimentarList) {
 			jteOutput.writeContent("\r\n            ");
 			if (d!= null) {
-				jteOutput.writeContent("\r\n            createPieChart(\"");
+				jteOutput.writeContent("\r\n            createChart(\"");
 				jteOutput.setContext("script", null);
 				jteOutput.writeUserContent(d.hashCode());
 				jteOutput.writeContent("\",\r\n                \"\",\r\n                [");
@@ -297,7 +300,8 @@ public final class JterelatorioGenerated {
 					jteOutput.writeUserContent(r.getValor());
 					jteOutput.writeContent(",\r\n            ");
 				}
-				jteOutput.writeContent("], 0\r\n        );\r\n            ");
+				jteOutput.writeContent("], 'pie', 0 ");
+				jteOutput.writeContent("\n        );\r\n            ");
 			}
 			jteOutput.writeContent("\r\n            ");
 		}

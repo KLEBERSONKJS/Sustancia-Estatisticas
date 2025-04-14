@@ -11,11 +11,7 @@ public final class JtemainGenerated {
 		jteOutput.writeContent("\r\n        <div class=\"main container\">\r\n            ");
 		jteOutput.setContext("div", null);
 		jteOutput.writeUserContent(content);
-<<<<<<< Updated upstream
 		jteOutput.writeContent("\r\n        </div>\r\n    </div>\r\n\r\n<script src=\"/js/menu.js\"></script>\r\n</body>\r\n\r\n</html>");
-=======
-		jteOutput.writeContent("\r\n        </div>\r\n    </div>\r\n\r\n</body>\r\n\r\n</html>");
->>>>>>> Stashed changes
 	}
 	public static void renderMap(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, java.util.Map<String, Object> params) {
 		gg.jte.Content content = (gg.jte.Content)params.get("content");

@@ -156,47 +156,47 @@
             document.addEventListener("DOMContentLoaded", () => {
 
 
-                createPieChart("${refeicaoPCelular.hashCode()}",
+                createChart("${refeicaoPCelular.hashCode()}",
                     "",
                     [@for (Resposta r: refeicaoPCelular.getRespostas())
             "${r.getCampo().replace("NAOSABE", "NÃO SABE").replace("NAO", "NÃO")}",
                 @endfor], [@for (Resposta r: refeicaoPCelular.getRespostas())
                 ${r.getValor()},
-                @endfor], 0
+                @endfor], 'bar', 0 // ou 'pie'
         );
 
 
-                createPieChart("${refeicoes.hashCode()}",
+                createChart("${refeicoes.hashCode()}",
                 "",
                 [@for (Resposta r: refeicoes.getRespostas())
             "${r.getCampo().replace("_", " ").replace("ALMOCO", "ALMOÇO").replace("CAFE DA MANHA" ,"CAFÉ DA MANHÃ").replace("LANCHE DA MANHA" ,"LANCHE DA MANHÃ")}",
                 @endfor], [@for (Resposta r: refeicoes.getRespostas())
                 ${r.getValor()},
-                @endfor], 0
+                @endfor], 'bar', 0 // ou 'pie'
         );
 
 
 
 
-            createPieChart("${consumoOntem.hashCode()}",
+            createChart("${consumoOntem.hashCode()}",
                 "${consumoOntem.getPergunta()}",
                 [@for (Resposta r: consumoOntem.getRespostas())
             "${r.getCampo().replace("_", " ").replace("BEBIDAS ADOCADAS", "BEBIDAS ADOÇADAS").replace("FEIJAO", "FEIJÃO")}",
                 @endfor], [@for (Resposta r: consumoOntem.getRespostas())
         ${r.getValor()},
-            @endfor], 0
+            @endfor], 'bar', 0 // ou 'pie'
         );
 
 
             @for (DadosGraficoDTO d: inseguracaAlimentarList)
             @if(d!= null)
-            createPieChart("${d.hashCode()}",
+            createChart("${d.hashCode()}",
                 "",
                 [@for (Resposta r: d.getRespostas())
             "${r.getCampo().replace("NAOSABE", "NÃO SABE").replace("NAO", "NÃO")}",
                 @endfor], [@for (Resposta r: d.getRespostas())
         ${r.getValor()},
-            @endfor], 0
+            @endfor], 'pie', 0 // ou 'pie'
         );
             @endif
             @endfor
