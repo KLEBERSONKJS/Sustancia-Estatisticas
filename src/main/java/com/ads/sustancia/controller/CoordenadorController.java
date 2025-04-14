@@ -43,8 +43,6 @@ public class CoordenadorController {
     public String perfil(Model model, Principal principal) {
         Usuario user = repository.findByEmail(principal.getName())
                 .orElseThrow();
-        ;
-        var email =  principal.getName();
         model.addAttribute("user", user);
         return "perfil"; 
     }
@@ -52,8 +50,8 @@ public class CoordenadorController {
     @PostMapping("/cadastrar")
     public String cadastrarCoordenador(@Valid CoordenadorDTO dados, Model model) {
         try {
-            dados.setSenha(encoder.encode(dados.getSenha()));
             Coordenador coordenador = new Coordenador(dados);
+            coordenador.setSenha(encoder.encode(dados.getSenha()));
             service.save(coordenador);
             model.addAttribute("mensagem", "O cadastro de %s teve exito".formatted(dados.getNome()));
         } catch (RuntimeException e) {

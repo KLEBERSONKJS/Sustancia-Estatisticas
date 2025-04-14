@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 @Table(name = "TB_USUARIO")
@@ -30,9 +31,16 @@ public class Usuario {
 
     private String papel;
 
-    public Usuario(String nome, String email, String senha) {
+    private LocalDate dataNascimento;
+
+    public Usuario(String nome, String email, String senha, LocalDate dataNascimento) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.dataNascimento = dataNascimento;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
     }
 }

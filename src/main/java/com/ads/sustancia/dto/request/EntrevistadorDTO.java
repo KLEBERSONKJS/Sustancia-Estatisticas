@@ -7,6 +7,8 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
 @NoArgsConstructor
@@ -22,4 +24,6 @@ public class EntrevistadorDTO{
 
         @NotBlank(message = "A senha não pode estar em branco")
         private String senha;
+
+        private LocalDate dataNascimento;
 }

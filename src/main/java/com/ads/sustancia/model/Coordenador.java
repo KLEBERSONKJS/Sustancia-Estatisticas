@@ -19,14 +19,13 @@ import org.mapstruct.Builder;
 public class Coordenador extends Usuario {
 
 
-    private LocalDate dataNascimento;
 
     @OneToMany(mappedBy = "coordenador")
     private List<Entrevistador> entrevistadores;
 
 
     public Coordenador(CoordenadorDTO dados) {
-        super(dados.getNome(), dados.getEmail(), dados.getSenha());
+        super(dados.getNome(), dados.getEmail(), dados.getSenha(),dados.getDataNascimento());
     }
 }
 

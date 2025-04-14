@@ -35,8 +35,6 @@ import lombok.NoArgsConstructor;
 public class Entrevistador extends Usuario{
 
 
-    private LocalDate dataNascimento;
-
     @ManyToOne
     @JoinColumn(name = "coordenador_id")
     private Coordenador coordenador;
@@ -46,6 +44,6 @@ public class Entrevistador extends Usuario{
 
 
     public Entrevistador(EntrevistadorDTO dados) {
-        super(dados.getNome(), dados.getEmail(), dados.getSenha());
+        super(dados.getNome(), dados.getEmail(), dados.getSenha(), dados.getDataNascimento());
     }
 }

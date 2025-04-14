@@ -1,5 +1,5 @@
 @import com.ads.sustancia.model.Usuario
-
+@import java.time.format.DateTimeFormatter
 @param Usuario user
 @template.layout.main(content = @`
     <div class="profile-card">
@@ -21,7 +21,7 @@
             </div>
             <div class="profile-field">
                 <span class="field-label">Nascimento:</span>
-                <span class="field-value" id="profileBirthdate">*********</span>
+                <span class="field-value" id="profileBirthdate">${user.getDataNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))}</span>
             </div>
         </div>
     </div>

@@ -23,4 +23,6 @@ public class CoordenadorDTO{
 
     @NotBlank(message = "A senha não pode estar em branco")
     private String senha;
+
+    private LocalDate dataNascimento;
 }

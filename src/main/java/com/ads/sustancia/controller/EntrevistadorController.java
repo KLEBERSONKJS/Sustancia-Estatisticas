@@ -31,8 +31,8 @@ public class EntrevistadorController {
     @Transactional
     public String cadastrarEntrevistador(@Valid EntrevistadorDTO dados, Model model) {
         try {
-            dados.setSenha(encoder.encode(dados.getEmail()));
             Entrevistador entrevistador = new Entrevistador(dados);
+            entrevistador.setSenha(encoder.encode(dados.getSenha()));
             service.save(entrevistador);
             model.addAttribute("mensagem", "O cadastro de %s teve exito".formatted(dados.getNome()));
         } catch (Exception e) {
