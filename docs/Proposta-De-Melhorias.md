@@ -251,7 +251,7 @@ Abaixo está a hierarquia de arquivos do projeto:
 4. **Melhoria na Estrutura de Diretórios**: Avaliar a necessidade de subdiretórios adicionais para organizar melhor os arquivos.
 5. **Otimização de Templates JTE**: Revisar os templates para garantir eficiência e reutilização máxima.
 
-## Área para Anotações
+## Anotações, Ideias de Upgrade e Aprimoramento do Software, e Possiveis Mudanças Implementáveis
 
 Ideias para implementação e aprimoramento da Aplicação Sustância:
 
