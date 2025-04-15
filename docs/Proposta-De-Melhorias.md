@@ -340,4 +340,4 @@ Considerar a utilização de um serviço de nuvem para hospedar a aplicação, p
 
 - Implementar um sistema de gerenciamento de tarefas, permitindo que os usuários possam criar, atribuir e acompanhar o progresso de tarefas dentro da aplicação (planejamento estratégico de projetos)
 
-- 
+- Implementar sistema de exportação de arquivos gerados nos relatórios para formatos mais convencionais como PDF, XLSX e XML
