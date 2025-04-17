@@ -32,4 +32,4 @@ A aplicação é desenvolvida com foco na **usabilidade** e **acessibilidade**, 
 >
 >O projeto é desenvolvido por estudantes e não possui suporte técnico oficial. Qualquer dúvida ou problema deve ser reportado no repositório do projeto.  
 >
->Está na versão **1.0.0 (PTY)**, e pode ser/será atualizado para versões futuras, com melhorias e correções de bugs.
+>Está na versão de Protótipo de Media Fidelidade **v1.0.0 (PTY)**, e pode ser/será atualizado para versões futuras, com melhorias e correções de bugs.
