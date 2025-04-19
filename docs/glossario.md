@@ -1,12 +1,12 @@
-# Nomeclatura Para Construção e Versionamento Do Projeto  
+# Nomenclatura Para Construção e Versionamento Do Projeto  
 
-Adoção de um sistema de nomeclatura para versionamento de projeto à fim de diferenciar as mudanças implementadas para agregação de monitoriamento e um padrão de nomeclatura para seguir à fim de clarear as informações ali contidas, favorecendo a manutenabilidade e o entendimento do codigo como um todo.  
+Adoção de um sistema de Nomenclatura para versionamento de projeto à fim de diferenciar as mudanças implementadas para agregação de monitoriamento e um padrão de Nomenclatura para seguir à fim de clarear as informações ali contidas, favorecendo a manutenabilidade e o entendimento do codigo como um todo.  
 
 ## 1. Nomenclatura de Classes  
 
 ### Front-End  
 
-Para criação de classes nas _tags_ do Front-End, assim como o seu uso para o CSS, adota-se um padrão de nomeclatura, em português, para referenciar o componente (objeto), a função que irá exercer dentro do documento (página) e o seu estado.  
+Para criação de classes nas _tags_ do Front-End, assim como o seu uso para o CSS, adota-se um padrão de Nomenclatura, em português, para referenciar o componente (objeto), a função que irá exercer dentro do documento (página) e o seu estado.  
 
 #### Formato Geral  
   
@@ -19,7 +19,8 @@ Exemplo:
 ```cartao-cabecalho-titulo``` → Título do cabeçalho de um card.  
 
 ```formulario-grupo-erro``` → Grupo de formulário com erro.  
-> - Salvo exceções para auto-explicação explicita e sem estado de uso único e especifico, **absoluto**
+>
+> - Excetuam-se casos onde o nome da classe já é autoexplicativo, de uso único e absoluto, como elementos dinâmicos ou contextuais
 >
 > - Exemplo: ```cartao-cliente``` pode ser utilizado para designar um _card_ que suporta informações dos clientes desde que seu uso seja **único**, **não reutilizável** e **absoluto**, ou para classes **dinâmicas** (que seu estado altera de acordo com a execução de uma função.)  
 >
@@ -30,9 +31,9 @@ Exemplo:
 
 ### Back-End  
 
-Para criação de ```Classes```, adota-se um padrão de nomeclatura, para referenciar a entidade (objeto), a ação lógica que executará e o detalhe (se necessário).  
+Para criação de ```Classes```, adota-se um padrão de Nomenclatura, para referenciar a entidade (objeto), a ação lógica que executará e o detalhe (se necessário).  
 
-#### Padrão de Nomeclatura de Classes (_Java_)
+#### Padrão de Nomenclatura de Classes (_Java_)
 
 ```[entidade][ação][detalhe]```  
 
@@ -101,6 +102,15 @@ Formato Geral:
 ```PATCH```: Correções de bugs ou melhorias pequenas.  
 
 ```TAG```: Identifica o estágio do projeto.  
+
+Para mapeamento do ciclo de vida do software assim como de suas mudanças ao longo do desenvolvimento, é adotado o seguinte parametro:  
+
+```[MAJOR].[MINOR].[PATCH]-[TAG]+[build]```  
+
+os Builds serão utilizados para mapear a versão da resolução da Tag atribuida.  
+Ex.: 1.0.0-stable+20250419  
+
+> OBS: o versionamento da build não tem padrão fixo adotado ainda, se será crescente ou datado, acima, é apenas um exemplo comum
 
 ---
 
@@ -189,7 +199,7 @@ Formato Geral:
 
 ## 3. Nomenclatura de Diretórios e Arquivos
 
-Para criação de diretórios e arquivos, adota-se um padrão de nomeclatura, em português, para referenciar o tipo de arquivo e a sua função.
+Para criação de diretórios e arquivos, adota-se um padrão de Nomenclatura, em português, para referenciar o tipo de arquivo e a sua função.
 
 Formato Geral:  
 
@@ -205,12 +215,20 @@ Exemplo:
 
 ```dto-entrevistador``` → Objeto de transferência de dados para entrevistadores.
   
-```config-database``` → Configuração do banco de dados.
+```config-database``` → Configuração do banco de dados.  
+>
+>Use “em minúsculas e com hífen” para indicar como o nome deve ser escrito (pois isso não está explícito).
+>
+>- Ex: controller-usuario, service-relatorio → “em minúsculas e separados por hífen.
 
 ---
 
 ## Conclusão
 
-A adoção de um padrão de nomeclatura e versionamento é essencial para garantir a clareza, organização e manutenibilidade do projeto. Seguir essas diretrizes ajudará a equipe a trabalhar de forma mais eficiente e colaborativa, facilitando a compreensão do código e a identificação de problemas.
+A adoção de um padrão de Nomenclatura e versionamento é essencial para garantir a clareza, organização e manutenibilidade do projeto. Seguir essas diretrizes ajudará a equipe a trabalhar de forma mais eficiente e colaborativa, facilitando a compreensão do código e a identificação de problemas.
 
 O documento acima é um prototipo inicial e pode ser atualizado conforme necessário. A equipe deve revisar e ajustar as diretrizes conforme o projeto evolui e novas necessidades surgem.
+
+---
+> Versão 1.0.0  
+> 19 de Abril de 2025
