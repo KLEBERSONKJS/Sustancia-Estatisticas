@@ -73,7 +73,7 @@ Considerar a utilização de um serviço de nuvem para hospedar a aplicação, p
 
 - Melhoria na tecnologia de geração de gráficos estatisticos
 
-- Utilização de APIs estatísticas como PowerBI para geração dos graficos, bem como mapas de calor e dendogramas.
+- Utilização de D3.js para criação de graficos dinamicos, responsivos e elaborados.
 
 - Atualização de formulário para acrescentar à pesquisa a regionalidade e a profissão do entrevistado, bem como a data que foi feita a entrevista.
 
