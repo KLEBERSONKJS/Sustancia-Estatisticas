@@ -74,6 +74,8 @@
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+
+
 .logo img {
   width: auto;
   height: 21vh; /* Ajustar conforme necessário */
