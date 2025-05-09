@@ -12,13 +12,13 @@ O banco de dados utilizado é o **H2**, um banco de dados em memória leve e fá
 
 O projeto também utiliza o **Maven** como ferramenta de gerenciamento de dependências e construção, facilitando a integração e o gerenciamento de bibliotecas externas.  
 
-O projeto é estruturado em camadas, seguindo o padrão **MVC** (_Model-View-Controller_), o que promove uma separação clara entre a lógica de negócios, a apresentação e o controle de fluxo da aplicação.  
+O projeto é estruturado em camadas, seguindo o padrão **Monolito**, promovendo o fluxo continuo dos dados onde todas as camadas estão interligadas.  
 
 Essa abordagem facilita a manutenção e a escalabilidade do código, permitindo que diferentes equipes trabalhem em diferentes partes do projeto simultaneamente.
 
 ## Proposta da Aplicação
 
-A **Sustância** inicialmente surgiu como um trabalho acadêmico, mas propensão evolutiva para um projeto mais robusto e complexo. Voltado para o público de **analistas** e **pesquisadores** do âmbito academico, especificamente da àrea de estudo da **Nutrição e afins**, com ênfase em **coletas de dados estatisticos** de pesquisas de campo e informações **sociais** e **socioeconômicas**, o objetivo principal é criar uma aplicação que permita a **coleta**, **análise** e **visualização** de dados de forma eficiente e intuitiva.  
+A **Sustância** inicialmente surgiu como um trabalho acadêmico, mas com propensão evolutiva para um projeto mais robusto e complexo. Voltado para o público de **analistas** e **pesquisadores** do âmbito academico, especificamente da área de estudo da **Nutrição e afins**, com ênfase em **coletas de dados estatisticos** de pesquisas de campo e informações **sociais** e **socioeconômicas**, o objetivo principal é criar uma aplicação que permita a **coleta**, **análise** e **visualização** de dados de forma eficiente e intuitiva.  
 Conta com um sistema de **formulários** que permite a coleta de dados de forma estruturada, facilitando a análise posterior.  
 A aplicação também possui um sistema de **relatórios** que permite a geração de gráficos e tabelas a partir dos dados coletados, facilitando a visualização e interpretação dos resultados.  
 Além dos citados, o projeto também possui um sistema de **autenticação** e **autorização**, garantindo que apenas usuários autorizados possam acessar e manipular os dados.
