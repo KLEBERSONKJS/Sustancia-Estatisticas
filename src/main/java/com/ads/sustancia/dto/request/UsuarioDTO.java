@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,5 +24,8 @@ public class UsuarioDTO {
     @NotNull
     @Size(min = 8, max = 20)
     private String senha;
+
+    @NotNull
+    private LocalDate dataNascimento;
 
 }

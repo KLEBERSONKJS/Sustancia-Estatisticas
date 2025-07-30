@@ -1,5 +1,6 @@
 package com.ads.sustancia.model;
 
+import com.ads.sustancia.dto.request.UsuarioDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +14,6 @@ import java.util.Set;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class Usuario {
 
     @Id
@@ -38,6 +38,16 @@ public class Usuario {
         this.email = email;
         this.senha = senha;
         this.dataNascimento = dataNascimento;
+    }
+
+    public Usuario() {
+    }
+
+    public Usuario(UsuarioDTO data) {
+        this.nome = data.getNome();
+        this.email = data.getEmail();
+        this.senha = data.getSenha();
+        this.dataNascimento = data.getDataNascimento();
     }
 
     public LocalDate getDataNascimento() {
