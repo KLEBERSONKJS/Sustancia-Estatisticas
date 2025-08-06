@@ -1,13 +1,12 @@
 package com.ads.sustancia.repository;
 
+import com.ads.sustancia.dto.request.FiltroDTO;
+import com.ads.sustancia.model.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
-import com.ads.sustancia.dto.request.FiltroDTO;
-import com.ads.sustancia.model.Pessoa;
 
 import java.util.List;
 

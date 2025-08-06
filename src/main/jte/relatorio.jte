@@ -13,10 +13,8 @@
 @param DadosGraficoDTO consumoOntem
 @param List<DadosGraficoDTO> inseguracaAlimentarList = null
 
-
-
     @template.layout.main(content = @`
-        <section class=" container-relatorio">
+        <section class="container-relatorio">
 
         <!-- FILTROS no topo, horizontal -->
         <form action="/relatorio" method="get" class="filtros-horizontal">
@@ -69,7 +67,8 @@
                                                                                  .replace("GRADUACAOINCOMPLETA","GRADUAÇÃO INCOMPLETA")
                                                                                  .replace("GRADUACAOCOMPLETA","GRADUAÇÃO COMPLETA")
                                                                                  .replace("PREFIRONAODIZER","PREFERE NÃO DIZER")
-}</option>
+                }</option>
+
                     @endfor
                 </select>
             </div>
@@ -157,11 +156,9 @@
 
         </section>
         </section>
-        </main>
-        `)
+`)
 
         <!-- SCRIPTS -->
-        <script src="/js/menu.js"></script>
         <script src="/js/chart-utils.js"></script>
         <script src="/js/grafico.js"></script>
         <script>

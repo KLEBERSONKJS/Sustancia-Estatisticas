@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sustância - Pesquisa de Campo</title>
-    <link rel="stylesheet" href="/css/pagInicial.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
@@ -27,7 +27,8 @@
                     </span>
             </h1>
             <p>Alimentando pesquisas, promovendo saúde.</p>
-            <a href="/home" class="botao">Dê inicio a sua Experiência</a>
+            <a href="/home" class="botao-inicial">Dê inicio a sua Experiência</a>
+            <a href="/formulario" class="botao-inicial">Acessar Formulario</a>
         </div>
         <div class="imagem">
             <img src="/assets/icons/prato-saudável.svg" alt="Tigela de frutas">

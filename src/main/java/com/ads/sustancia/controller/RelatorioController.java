@@ -1,8 +1,13 @@
 package com.ads.sustancia.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.ads.sustancia.dto.request.FiltroDTO;
+import com.ads.sustancia.dto.response.DadosGraficoDTO;
+import com.ads.sustancia.dto.response.ErrorResponse;
+import com.ads.sustancia.enums.*;
+import com.ads.sustancia.model.InsegurancaAlimentar;
+import com.ads.sustancia.service.impl.RelatorioServiceImpl;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -11,25 +16,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ads.sustancia.dto.request.FiltroDTO;
-import com.ads.sustancia.dto.response.DadosGraficoDTO;
-import com.ads.sustancia.dto.response.ErrorResponse;
-import com.ads.sustancia.enums.AuxilioEnum;
-import com.ads.sustancia.enums.DependentesEnum;
-import com.ads.sustancia.enums.EmpregoEnum;
-import com.ads.sustancia.enums.EscolaridadeEnum;
-import com.ads.sustancia.enums.EstadoCivilEnum;
-import com.ads.sustancia.enums.GeneroEnum;
-import com.ads.sustancia.enums.RacaEnum;
-import com.ads.sustancia.enums.ReligiaoEnum;
-import com.ads.sustancia.model.InsegurancaAlimentar;
-import com.ads.sustancia.service.impl.RelatorioServiceImpl;
-
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
-@RequestMapping("relatorio")
+@RequestMapping("/relatorio")
 @RequiredArgsConstructor
 @Slf4j
 public class RelatorioController {

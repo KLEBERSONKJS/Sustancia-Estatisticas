@@ -1,54 +1,53 @@
 package com.ads.sustancia.dto.request;
 
-import com.ads.sustancia.model.Entrevistador;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
+@Data
+public class PessoaDTO {
 
-public record PessoaDTO(
-        Entrevistador entrevistador,
+        private Long idEntrevistador;
         @NotBlank(message = "Campo Nome não pode está em branco")
-        String nome,
+        private String nome;
         @NotNull(message = "Campo Idade não pode está em branco")
-        int idade,
+        private int idade;
         @NotBlank(message = "Campo Gênero não pode está em branco")
-        String genero,
+        private String genero;
         @NotBlank(message = "Campo Raça não pode está em branco")
-        String raca,
+        private String raca;
         @NotBlank(message = "Campo Escolaridade não pode está em branco")
-        String escolaridade,
+        private String escolaridade;
         @NotBlank(message = "Campo Estado Civil não pode está em branco")
-        String estado_civil,
+        private String estado_civil;
         @NotBlank(message = "Campo Emprego não pode está em branco")
-        String emprego,
+        private String emprego;
         @NotBlank(message = "Campo Auxilios não pode está em branco")
-        String auxilios,
+        private String auxilios;
         @NotBlank(message = "Campo Família não pode está em branco")
-        String familia,
+        private String familia;
         @NotBlank(message = "Campo Relígião não pode está em branco")
-        String religiao,
+        private String religiao;
         @NotBlank(message = "Campo Refeições com tecnlogia não pode está em branco")
-        String refeicoes_com_tecnologia,
+        private String refeicoes_com_tecnologia;
         @NotBlank(message = "Campo Refeições ao logo do dia não pode está em branco")
-        String refeicoes,
+        private String refeicoes;
         @NotBlank(message = "Campo Ontem Você consumiu não pode está em branco")
-        String consumo,
+        private String consumo;
         @NotBlank(message = "Campo Pergunta 1 não pode está em branco")
-        String ebia_1,
+        private String ebia_1;
         @NotBlank(message = "Campo Pergunta 2 não pode está em branco")
-        String ebia_2,
+        private String ebia_2;
         @NotBlank(message = "Campo Pergunta 3 não pode está em branco")
-        String ebia_3,
+        private String ebia_3;
         @NotBlank(message = "Campo Pergunta 4 não pode está em branco")
-        String ebia_4,
+        private String ebia_4;
         @NotBlank(message = "Campo Pergunta 5 não pode está em branco")
-        String ebia_5,
+        private String ebia_5;
         @NotBlank(message = "Campo Pergunta 6 não pode está em branco")
-        String ebia_6,
+        private String ebia_6;
         @NotBlank(message = "Campo Pergunta 7 não pode está em branco")
-        String ebia_7,
+        private String ebia_7;
         @NotBlank(message = "Campo Pergunta 8 não pode está em branco")
-        String ebia_8
-) {
-
+        private String ebia_8;
 }

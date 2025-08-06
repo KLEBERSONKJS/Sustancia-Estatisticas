@@ -17,7 +17,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @RequiredArgsConstructor
-public class SecurityConfig {
+public class  SecurityConfig {
 
     private final CustomUserDetailService userDetailsService;
 
@@ -27,15 +27,14 @@ public class SecurityConfig {
 
         return http
                 .authorizeHttpRequests(auth ->
-                    auth.requestMatchers( "/assets/**","/img/**", "/", "/js/**", "/css/**", "/error", "/h2/**").permitAll()
-                            .requestMatchers("/entrevistador/**").hasAuthority("COORDENADOR")
-                            .requestMatchers("/coordenador/**").hasAuthority("COORDENADOR")
-                            .requestMatchers("/formulario/**").hasAnyAuthority("ADMIN", "COORDENADOR", "ENTREVISTADOR")
-                            .anyRequest().authenticated()
+                        auth.requestMatchers( "/assets/**","/img/**", "/", "/js/**", "/css/**", "/error", "/h2/**").permitAll()
+//                                .requestMatchers("/formulario/**").hasAnyAuthority("ADMIN","COORDENADOR","ENTREVISTADOR")
+//                                .requestMatchers("/coordenador/perfil").hasAnyAuthority("ADMIN","COORDENADOR")
+//                                .requestMatchers("/coordenador/admin/**").hasAuthority("ADMIN")
+                                .anyRequest().authenticated()
                 )
                 //.formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
                 .formLogin(login -> login.loginPage("/login")
-                        .defaultSuccessUrl("/home", true)
                         .permitAll())
                 .logout(logout -> logout.logoutSuccessUrl("/login?logout").permitAll())
                 .userDetailsService(userDetailsService)

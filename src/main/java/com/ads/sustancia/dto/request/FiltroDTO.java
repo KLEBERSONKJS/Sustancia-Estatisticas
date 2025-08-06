@@ -1,7 +1,8 @@
 package com.ads.sustancia.dto.request;
 
 import com.ads.sustancia.enums.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

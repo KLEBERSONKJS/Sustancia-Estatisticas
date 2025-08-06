@@ -1,17 +1,16 @@
 package com.ads.sustancia.model;
 
-import java.util.List;
-
 import com.ads.sustancia.enums.ConsumoOntemEnum;
 import com.ads.sustancia.enums.RefeicaoDiaEnum;
 import com.ads.sustancia.enums.SimNaoNaoSabeEnum;
-
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Embeddable
 @NoArgsConstructor

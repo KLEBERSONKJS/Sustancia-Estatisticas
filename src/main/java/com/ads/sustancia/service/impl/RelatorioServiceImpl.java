@@ -1,12 +1,5 @@
 package com.ads.sustancia.service.impl;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
-import org.springframework.stereotype.Service;
-
 import com.ads.sustancia.dto.request.FiltroDTO;
 import com.ads.sustancia.dto.response.DadosGraficoDTO;
 import com.ads.sustancia.enums.SimNaoNaoSabeEnum;
@@ -16,8 +9,13 @@ import com.ads.sustancia.model.Pessoa;
 import com.ads.sustancia.model.Resposta;
 import com.ads.sustancia.repository.PessoaRepository;
 import com.ads.sustancia.service.RelatorioService;
-
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Objects;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

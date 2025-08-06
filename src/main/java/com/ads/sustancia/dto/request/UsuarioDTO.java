@@ -22,10 +22,16 @@ public class UsuarioDTO {
     private String email;
 
     @NotNull
+    private String cpf;
+
+
+    @NotNull
     @Size(min = 8, max = 20)
     private String senha;
 
     @NotNull
     private LocalDate dataNascimento;
+
+
 
 }

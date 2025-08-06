@@ -1,12 +1,11 @@
 package com.ads.sustancia.dto.response;
 
-import java.util.List;
-
 import com.ads.sustancia.model.Resposta;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @NoArgsConstructor

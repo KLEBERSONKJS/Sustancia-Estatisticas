@@ -1,13 +1,5 @@
 package com.ads.sustancia.service.impl;
 
-import java.security.Principal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import com.ads.sustancia.model.Entrevistador;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.ads.sustancia.dto.request.PessoaDTO;
 import com.ads.sustancia.enums.*;
@@ -16,8 +8,13 @@ import com.ads.sustancia.model.InsegurancaAlimentar;
 import com.ads.sustancia.model.Pessoa;
 import com.ads.sustancia.repository.PessoaRepository;
 import com.ads.sustancia.service.PessoaService;
-
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -26,28 +23,28 @@ public class PessoaServiceImpl implements PessoaService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    public Pessoa cadastrarPessoa(PessoaDTO dadosPessoaForms) {
+    public Pessoa cadastrarPessoa(PessoaDTO dto) {
 
-        if (dadosPessoaForms == null) {
+        if (dto == null) {
             throw new IllegalArgumentException("Dados do formulário não podem ser nulos.");
         }
 
         Pessoa entity = null;
         try {
 
-            InsegurancaAlimentar insegurancaAlimentar = criarInsegurancaAlimentar(dadosPessoaForms);
-            ConsumoAlimentar consumoAlimentar = criarConsumoAlimentar(dadosPessoaForms);
+            InsegurancaAlimentar insegurancaAlimentar = criarInsegurancaAlimentar(dto);
+            ConsumoAlimentar consumoAlimentar = criarConsumoAlimentar(dto);
 
-            entity = new Pessoa(dadosPessoaForms.entrevistador(),dadosPessoaForms.nome(),
-                    dadosPessoaForms.idade(),
-                    GeneroEnum.repostaGenero(dadosPessoaForms.genero()),
-                    RacaEnum.respostaRaca(dadosPessoaForms.raca()),
-                    ReligiaoEnum.repostaReligiao(dadosPessoaForms.religiao()),
-                    EscolaridadeEnum.repostEscolariade(dadosPessoaForms.escolaridade()),
-                    EstadoCivilEnum.respostaEstadoCivil(dadosPessoaForms.estado_civil()),
-                    EmpregoEnum.respostaEmprego(dadosPessoaForms.emprego()),
-                    addAuxilioEnum(dadosPessoaForms.auxilios()),
-                    DependentesEnum.respostaDependentes(dadosPessoaForms.familia()),
+            entity = new Pessoa(dto.getIdEntrevistador(),dto.getNome(),
+                    dto.getIdade(),
+                    GeneroEnum.repostaGenero(dto.getGenero()),
+                    RacaEnum.respostaRaca(dto.getRaca()),
+                    ReligiaoEnum.repostaReligiao(dto.getReligiao()),
+                    EscolaridadeEnum.repostEscolariade(dto.getEscolaridade()),
+                    EstadoCivilEnum.respostaEstadoCivil(dto.getEstado_civil()),
+                    EmpregoEnum.respostaEmprego(dto.getEmprego()),
+                    addAuxilioEnum(dto.getAuxilios()),
+                    DependentesEnum.respostaDependentes(dto.getFamilia()),
                     consumoAlimentar,
                     insegurancaAlimentar);
         } catch (IllegalArgumentException e) {
@@ -93,21 +90,21 @@ public class PessoaServiceImpl implements PessoaService {
 
     private ConsumoAlimentar criarConsumoAlimentar(PessoaDTO dadosPessoaForms) {
         return new ConsumoAlimentar(
-                dadosPessoaForms.refeicoes_com_tecnologia(),
-                addConsumoOntem(dadosPessoaForms.consumo()),
-                addRefeicoes(dadosPessoaForms.refeicoes()));
+                dadosPessoaForms.getRefeicoes_com_tecnologia(),
+                addConsumoOntem(dadosPessoaForms.getConsumo()),
+                addRefeicoes(dadosPessoaForms.getRefeicoes()));
     }
 
     private InsegurancaAlimentar criarInsegurancaAlimentar(PessoaDTO dadosPessoaForms) {
         return new InsegurancaAlimentar(
-                dadosPessoaForms.ebia_1(),
-                dadosPessoaForms.ebia_2(),
-                dadosPessoaForms.ebia_3(),
-                dadosPessoaForms.ebia_4(),
-                dadosPessoaForms.ebia_5(),
-                dadosPessoaForms.ebia_6(),
-                dadosPessoaForms.ebia_7(),
-                dadosPessoaForms.ebia_8());
+                dadosPessoaForms.getEbia_1(),
+                dadosPessoaForms.getEbia_2(),
+                dadosPessoaForms.getEbia_3(),
+                dadosPessoaForms.getEbia_4(),
+                dadosPessoaForms.getEbia_5(),
+                dadosPessoaForms.getEbia_6(),
+                dadosPessoaForms.getEbia_7(),
+                dadosPessoaForms.getEbia_8());
     }
 
 }

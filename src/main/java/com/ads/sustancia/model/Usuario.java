@@ -1,13 +1,10 @@
 package com.ads.sustancia.model;
 
-import com.ads.sustancia.dto.request.UsuarioDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 @Table(name = "TB_USUARIO")
 @Entity
@@ -26,6 +23,9 @@ public class Usuario {
     @Column(unique = true, nullable = true)
     private String email;
 
+    @Column(unique = true, nullable = true)
+    private String cpf;
+
     @Column(nullable = false)
     private String senha;
 
@@ -33,24 +33,39 @@ public class Usuario {
 
     private LocalDate dataNascimento;
 
-    public Usuario(String nome, String email, String senha, LocalDate dataNascimento) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.dataNascimento = dataNascimento;
-    }
-
     public Usuario() {
     }
 
-    public Usuario(UsuarioDTO data) {
-        this.nome = data.getNome();
-        this.email = data.getEmail();
-        this.senha = data.getSenha();
-        this.dataNascimento = data.getDataNascimento();
+    public Usuario(Long id, String nome, String email, String cpf, String senha, LocalDate dataNascimento) {
+        this.Id = id;
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
+        this.senha = senha;
+        this.dataNascimento = dataNascimento;
+       
+    }
+
+    public Usuario(String nome, String email, String cpf, String senha, LocalDate dataNascimento) {
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
+        this.senha = senha;
+        this.dataNascimento = dataNascimento;
+        
+    }
+
+    public Usuario(Long id) {
+        Id = id;
+    }
+
+
+    public Long getId() {
+        return Id;
     }
 
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
+
 }

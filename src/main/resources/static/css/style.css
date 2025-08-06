@@ -1,16 +1,40 @@
+/* Importação das fontes */
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@700;900&family=Libre+Baskerville&family=DM+Sans:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 /*Geral*/
 :root {
-    --cor-fundo: #f5f7fa;
-    --cor-barra-lateral: #ddffd0;
-    --cor-barra-lateral-escura: #3e8e41;
-    --cor-botao-ativo: #66bb6a;
-    --cor-texto: #424242;
-    --cor-branca: #ffffff;
-    --cor-icone: #363232; /* Cor padrão dos ícones */
-    --cor-icone-ativo: #ffffff; /* Cor dos ícones ativos */
-    --cor-card: #ffffff; /* Cor dos cards */
-    --cor-card-borda: #e0e0e0; /* Cor da borda dos cards */
-    --border-radius-padrao: 2.5vh; /* Border radius padrão */
+
+  --cor-barra-lateral: #ddffd0;
+  --cor-barra-lateral-escura: #3e8e41;
+  --cor-botao-ativo: #66bb6a;
+  --cor-botao: #D8F26D;
+  --cor-borda-botao: #000;
+  --cor-icone: #363232; /* Cor padrão dos ícones */
+  --cor-icone-ativo: #ffffff; /* Cor dos ícones ativos */
+  --cor-card: #ffffff; /* Cor dos cards */
+  --cor-card-borda: #e0e0e0; /* Cor da borda dos cards */
+  --cor-fundo: #D8F26D;
+  --cor-texto: #424242; /* Cor do texto */
+  --cor-destaque: #000;
+  --cor-branca: #ffffff;
+  --border-radius-padrao: 2.5vh; /* Border radius padrão */
+  --cor-bg: #719a37;
+  --cor-botao-toggle: #ab3d1c;
+  --gradiente-bg: linear-gradient(90deg, #c8ea97, #eafad4);
+  --cor-input: #fefdf3;
+  --cor-texto2: #140b0c;
+  --cor-bg-login-cadastro: #c8ea97;
+  --cor-principal: #719a37;
+  --cor-secundaria: #c8ea97;
+  --cor-hover: #d27a00;
+  --cor-hover-claro: #ffd816;
+  --cor-texto3: #ffffff;
+  --cor-texto-escuro: #4e1018;
+  --cor-fundo2: #f8f9fa;
+  --cor-bloco: #f0fdfa;
+  --cor-borda: #cde5d2;
 }
 
 * {
@@ -21,48 +45,64 @@
 
 .wrapper {
     display: flex;
-    justify-content: center;
     min-height: 100vh;
     overflow: hidden;
 }
 
-.cactus{
-    position: absolute;
-    top: 0;
-    width: calc(100% - 250px); /* Ajuste para a largura da barra lateral */
-    height: 100vh;
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
-    z-index: -10000;
-}
-
-/*fim geral*/
-
-
 .main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    padding: 1rem ;
-    height: 100%;
-    height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 1rem ;
+  height: 100%;
+  height: 100vh;
 }
 
 /*Fim do Geral*/
 
+/*Header*/
+.menu-toggle i {
+  align-content: center;
+  width: 30px;
+  height: 30px;
+}
+.menu-toggle {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 5px;
+  z-index: 1000;
+  border: none;
+  cursor: pointer;
+  display: none;
+  background-color: var(--cor-barra-lateral);
+  border-radius: 5px;
+}
+
+.menu-toggle:hover {
+  background-color: var(--cor-botao-ativo);
+}
+
+/*Fim do Header*/
+
 /*Aside*/
 .barra-lateral {
+  position: sticky;
   width: 250px;
   background-color: var(--cor-barra-lateral);
   height: 100vh;
   display: flex;
+  overflow-y: auto;
   flex-direction: column;
   align-items: center;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   justify-content: space-between;
   transition: transform 0.3s ease-in-out;
+}
+
+.barra-lateral.active {
+  display: block;
 }
 
 .logo {
@@ -73,8 +113,6 @@
   padding: 2vh 0;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-
-
 
 .logo img {
   width: auto;
@@ -140,40 +178,677 @@ li a.ativo img {
   transition: color 0.3s;
 }
 
-/*Header*/
-.menu-toggle i {
-  align-content: center;
-  width: 30px;
-  height: 30px;
-}
-.menu-toggle {
+/*Fim do Aside (Sidebar)*/
+
+/*Content*/
+
+/* Home */
+.cactus {
   position: fixed;
-  top: 10px;
-  left: 10px;
-  padding: 5px;
-  z-index: 1000;
-  border: none;
-  cursor: pointer;
-  background-color: var(--cor-barra-lateral);
-  border-radius: 5px;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  z-index: -10000;
+}
+/* Fim da Home */
+
+/* Perfil */
+
+/*Card perfil usuário*/
+/*Card principal*/
+.profile-card {
+  width: 100%;
+  max-width: 450px;
+  margin: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', sans-serif;
+  background: white;
 }
 
-.menu-toggle:hover {
-  background-color: var(--cor-botao-ativo);
-}
-
-.container-relatorio {
+/* Campos do perfil */
+.profile-field {
   display: flex;
-  flex-direction: column;
-  gap: 2rem; /* Espaço entre os filtros e os gráficos */
-  margin-top: 1rem; /* Ajuste se quiser reduzir a distância do título */
+  margin-bottom: 15px;
+  align-items: baseline;
+  padding: 10px 10px;
+  
+}
+
+.field-label {
+  flex: 0 0 80px;
+  font-weight: 500;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.field-value {
+  flex: 1;
+  color: #333;
+  padding: 8px 0;
+  border-bottom: 1px dashed #e0e0e0;
+  word-break: break-word;
+  text-align: left;
+  margin-left: 0;
+}
+
+/* Estilo específico para a senha (mostrando que está oculta) */
+#profilePassword {
+  font-family: monospace;
+  letter-spacing: 2px;
+  color: #666;
+}
+/* Fim do Perfil */
+
+/* Login */
+.body-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--gradiente-bg);
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+
+.body-login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/icons/wave.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: waveAnimation 15s infinite alternate-reverse;
+}
+
+.container-login {
+  position: relative;
+  width: 850px;
+  height: 550px;
+  background: var(--cor-bg-login-cadastro);
+  border-radius: 30px;
+  box-shadow: 0 0px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 20px;
+}
+
+.caixa-de-formulario {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: var(--cor-bg-login-cadastro);
+  display: flex;
+  align-items: center;
+  color: var(--cor-texto2);
+  text-align: center;
+  padding: 40px;
+  z-index: 2;
+  transition: 0.6s ease-in-out 1.2s, visibility 0s 1s ease-in-out;
+}
+
+form {
   width: 100%;
 }
 
-.pagina-relatorio {
-  max-width: 1200px;
-  margin: 2rem auto;
+.container-login h1 {
+  margin-bottom: 10px;
+  font-size: 36px;
+}
+
+.container-login p {
+  font-size: 14.5px;
+  margin: 15px 0;
+}
+
+.caixa-de-input {
+  position: relative;
+  margin: 30px 0;
+}
+
+.caixa-de-input input {
+  width: 100%;
+  padding: 13px 50px 13px 20px;
+  background: var(--cor-input);
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: var(--cor-texto2);
+  font-weight: 500;
+}
+
+.caixa-de-input input::placeholder {
+  color: #888;
+  font-weight: 400;
+}
+
+.caixa-de-input i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #888;
+}
+
+.btn {
+  width: 100%;
+  height: 48px;
+  background: var(--cor-botao-toggle);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toggle-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.toggle-box::before {
+  content: '';
+  position: absolute;
+  left: -250%;
+  width: 300%;
+  height: 100%;
+  background: var(--cor-bg);
+  border-radius: 150px;
+  z-index: 4;
+  transition: 2s ease-in-out;
+}
+
+.toggle-panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 4;
+  transition: 0.6s ease-in-out;
+}
+
+.toggle-panel.toggle-esquerdo {
+  left: 0;
+  transition-delay: 1.2s;
+}
+
+.toggle-panel p {
+  margin-bottom: 20px;
+}
+
+.toggle-panel .btn {
+  width: 160px;
+  height: 46px;
+  background: transparent;
+  border: 2px solid var(--cor-bg-login-cadastro);
+  box-shadow: none;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 660px) {
+  .container-login {
+      height: calc(100vh - 40px);
+  }
+
+  .caixa-de-formulario {
+      width: 100%;
+      height: 70%;
+      bottom: 0;
+  }
+
+
+  .toggle-box::before {
+      left: 0;
+      width: 100%;
+      height: 300%;
+      top: -270%;
+      border-radius: 20vw;
+  }
+
+
+  .toggle-box h1 {
+      font-size: 50px;
+  }
+
+  .toggle-panel {
+      width: 100%;
+      height: 30%;
+  }
+
+  .toggle-panel.toggle-esquerdo {
+      top: 0;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .caixa-de-input {
+      margin-top: 5px;
+  }
+
+  .caixa-de-input input {
+      font-size: 12px;
+  }
+
+  .caixa-de-formulario {
+      padding: 20px;
+  }
+
+  .toggle-panel h1 {
+      font-size: 30px;
+  }
+}
+/* Fim do Login */
+
+/* Página Inicial */
+/* Seção do Banner */
+.banner {
+  background-color: var(--cor-fundo);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+}
+
+/* Layout Interno */
+.conteudo {
+  width: 100%;
+  max-width: 1400px; /* Mantendo alinhado */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Texto */
+.texto {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5%; /* Melhor alinhamento */
+}
+
+/* Título */
+.texto h1 {
+  font-size: 3vw;
+  font-weight: 700; /* BOLD */
+  margin-bottom: 2vh;
+}
+
+/* Destaque dentro do texto */
+.texto h1 span {
+  font-weight: 900; /* BLACK */
+}
+
+/* Espaçamento entre os elementos do texto */
+.texto h1,
+.texto p,
+.botao-inicial {
+  margin-bottom: 45px; /* Espaçamento de 45px */
+}
+
+/* Texto pequeno abaixo do título */
+.texto p {
+  font-family: 'Libre Baskerville', serif; /* Fonte corrigida */
+  font-size: 1.2vw;
+  font-weight: 400; /* Regular */
+}
+
+/* Contêiner do carrossel */
+.carrossel-container {
+  display: inline-block;
+  height: 3.5vw;
+  overflow: hidden;
+  position: relative;
+  vertical-align: middle;
+  align-items: center;
+  min-width: 15%;
+  text-align: left;
+}
+
+/* Texto do carrossel */
+.carrossel {
+  display: flex;
+  flex-direction: column;
+  animation: slide 12s infinite ease-in-out;
+  white-space: nowrap;
+  font-weight: 700; /* BOLD */
+  font-size: 3vw;
+}
+
+/* Cada palavra no carrossel */
+.palavra {
+  height: 3.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+/* Ajuste da Imagem */
+.imagem {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.imagem img {
+  width: 100%; /* Ajuste para manter proporção na margem */
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 0; /* Adicionando margem inferior */
+}
+
+/* Animação */
+@keyframes slide {
+  0% { transform: translateY(0); }
+  16.67% { transform: translateY(-3.5vw); }
+  33.33% { transform: translateY(-7vw); }
+  50% { transform: translateY(-10.5vw); }
+  66.67% { transform: translateY(-14vw); }
+  83.33% { transform: translateY(-17.5vw); }
+  100% { transform: translateY(0); }
+}
+
+/* Botão */
+.botao-inicial {
+  display: inline-block;
+  padding: 1.5vh 3vw;
+  font-size: 9pt; /* Correção para 9pt */
+  font-weight: 400; /* Regular */
+  font-family: 'DM Sans', sans-serif; /* Fonte corrigida */
+  color: var(--cor-texto);
+  border: 0.3vw solid var(--cor-borda-botao);
+  background: var(--cor-botao);
+  text-decoration: none;
+  border-radius: 0.5vw;
+  transition: 0.3s;
+  text-align: center;
+  width: fit-content; /* Ajuste automático baseado no conteúdo */
+  min-width: 15%; /* Mantém o alinhamento do span */
+}
+
+.botao-inicial:hover {
+  background: var(--cor-borda-botao);
+  color: var(--cor-botao);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .conteudo {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .texto {
+      width: 90%;
+      padding-left: 0;
+  }
+
+  .carrossel-container {
+      min-width: 50%;
+      max-width: 80%;
+  }
+
+  .carrossel {
+      font-size: 5vw;
+  }
+
+  .imagem {
+      width: 100%;
+      height: auto;
+  }
+
+  .imagem img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 3vw 3vw 0 0; /* Ajuste para mobile */
+  }
+
+  .botao-inicial {
+      font-size: 3vw;
+      padding: 2vh 5vw;
+  }
+}
+/* Responsividade */
+@media (max-width: 768px) {
+  .circulo-animado {
+      width: 250px;
+      height: 250px;
+  }
+
+  .sobre .texto {
+      width: 90%;
+  }
+
+  .sobre .texto h2 {
+      font-size: 2rem;
+  }
+
+  
+  .texto h1 {
+      font-size: 1rem;
+  }
+
+  .texto p {
+      font-size: 1rem;
+  }
+
+}
+/* Fim da Página Inicial */
+
+/*Formulário*/
+.body-form {
+  font-family: "Public Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--cor-texto-escuro);
+  background-color: var(--cor-fundo2);
   padding: 1rem;
+}
+
+/* Estrutura principal */
+.formulario {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.formulario-titulo {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--cor-principal);
+}
+
+.formulario-corpo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Seções */
+.formulario-secao {
+  border: 2px solid var(--cor-borda);
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: var(--cor-bloco);
+}
+
+.formulario-legenda {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--cor-principal);
+}
+
+/* Campos base */
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.campo label,
+.campo .campo-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--cor-texto-escuro);
+}
+
+/* Input, select e textarea */
+.campo input[type="text"],
+.campo input[type="number"],
+.campo select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.campo input:focus,
+.campo select:focus {
+  border-color: var(--cor-principal);
+  outline: none;
+}
+
+/* Grupo de opções: radio e checkbox */
+.grupo-opcoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+
+.grupo-opcoes label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: #444;
+}
+
+/* Campo específico por tipo */
+.campo-radio .grupo-opcoes,
+.campo-checkbox .grupo-opcoes {
+  margin-top: 0.25rem;
+}
+
+.campo-select select {
+  width: 100%;
+}
+
+/* Instruções EBIA */
+.formulario-instrucoes {
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Rodapé do formulário */
+.formulario-rodape {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.formulario-rodape a {
+  margin-left: 10px;
+}
+
+/* Botões */
+.botao {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.botao-principal {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto3);
+}
+
+.botao-principal:hover {
+  background-color: var(--cor-hover);
+  color: var(--cor-texto3);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .formulario {
+    padding: 1rem;
+  }
+
+  .formulario-titulo {
+    font-size: 1.5rem;
+  }
+
+  .formulario-secao {
+    padding: 1rem;
+  }
+
+  .grupo-opcoes {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .formulario-rodape button {
+    margin-bottom: 5px;
+  }
+
+  .formulario-rodape a {
+    font-size: 15px;
+    padding: 0px;
+  }
+
+  .grupo-opcoes strong {
+    font-size: 15px;
+  }
+}
+
+/* Fim do Formulário */
+
+/* Relatório */
+.container-relatorio {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto; /* ADICIONAR */
+  box-sizing: border-box;
+  padding: 2rem;
 }
 
 .titulo-pagina {
@@ -188,16 +863,18 @@ li a.ativo img {
 
 .filtros-horizontal {
   display: flex;
-  flex-wrap: wrap;         /* Quebra linha se a tela for pequena */
-  align-items: flex-end;   /* Alinha o botão ao final */
+  flex-wrap: wrap;
+  /* Quebra linha se a tela for pequena */
+  align-items: flex-end;
+  /* Alinha o botão ao final */
   gap: 1rem;
   background-color: #fff;
   padding: 1rem;
   border-radius: 6px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 0; /* Se quiser reduzir espaço extra embaixo do bloco */
+  margin-bottom: 0;
+  /* Se quiser reduzir espaço extra embaixo do bloco */
 }
-
 
 .filtro-container {
   border: none;
@@ -223,7 +900,8 @@ li a.ativo img {
 .filtro-item {
   display: flex;
   flex-direction: column;
-  min-width: 150px; /* Ajuste para evitar estreitar demais */
+  min-width: 150px;
+  /* Ajuste para evitar estreitar demais */
 }
 
 .filtro-item label {
@@ -242,7 +920,8 @@ li a.ativo img {
 
 /* Botão à direita */
 .filtros-horizontal .botao-principal {
-  margin-left: auto; /* Empurra o botão para a direita */
+  margin-left: auto;
+  /* Empurra o botão para a direita */
 }
 
 .botoes-form {
@@ -270,7 +949,451 @@ li a.ativo img {
   background-color: #43a047;
 }
 
-/* Media Queries para Responsividade */
+/* === GRÁFICOS === */
+.graficos-secao {
+  margin-top: 2rem;
+}
+
+/* Grid de gráficos (2 colunas) */
+.graficos-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+}
+
+.grafico-article {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2;
+  max-height: 400px; /* opcional */
+  overflow: auto;
+}
+
+.grafico-canvas {
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain;
+}
+
+/* === MENSAGEM VAZIA === */
+.mensagem-vazia {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+  padding: 2rem 1rem;
+}
+
+@media (max-width: 500px) {
+  .container-relatorio {
+    padding: 2rem 0rem;
+  }
+
+  .filtros-horizontal {
+    padding: 1rem 0.1rem;
+  }
+}
+
+/* Fim do Relatórios */
+
+/* Entrevistadores / Coordenadores */
+section.conteudo {
+  padding: 2vh;
+  background-color: var(--cor-fundo);
+}
+
+/* Cards abaixo do formulário */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Layout dinâmico */
+  gap: 2rem; /* Espaço entre os cards */
+}
+
+.card {
+  background-color: #fff; /* Fundo branco */
+  border: 1px solid var(--cor-card-borda);
+  border-radius: var(--border-radius-padrao);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  
+}
+
+.card-top {
+  width: 200%;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.foto-entrevistador {
+  border-radius: 50%;
+  width: 8vh;
+  height: 8vh;
+  margin-right: 1rem;
+}
+
+.info-entrevista {
+  flex-grow: 1;
+}
+
+.info-entrevista h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--cor-texto);
+}
+
+.info-entrevista p {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  color: var(--cor-texto);
+}
+
+.btn-formulario {
+  background-color: var(--cor-barra-lateral-escura);
+  color: var(--cor-branca);
+  border: none;
+  padding: 1vh 2vh;
+  border-radius: var(--border-radius-padrao);
+  font-size: 1.6vh;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-formulario:hover {
+  background-color: var(--cor-botao-ativo);
+}
+
+.form-card {
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+}
+
+.form-card h3 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #2e2e2e;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.btn-salvar {
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-salvar:hover {
+  background-color: #45a049;
+}
+
+.card-acoes {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+.card-acoes form {
+  flex: 1;
+}
+
+.card-acoes button {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Outfit', sans-serif;
+}
+
+.card-busca {
+  display: flex;
+}
+
+.secao-edit {
+  margin-top: 5%;
+}
+
+/* Botão Editar */
+.btn-editar {
+  padding: 6px 8px;
+  background-color: #2e699d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer; 
+}
+
+.btn-editar:hover {
+  background-color: #1e486c;
+}
+
+/* Botão Excluir */
+.btn-excluir {
+  padding: 6px 8px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer; 
+}
+
+.btn-excluir:hover {
+  background-color: #c0392b;
+}
+
+/* Formulario Editar*/
+.form-editar {
+  display: flex; 
+  flex-direction: column; 
+  gap: 8px;
+
+}
+
+.form-editar > input {
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.form-editar > input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* formulario cadastro entrevistador */
+/* Container principal do formulário */
+.form-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do título */
+.form-container h3 {
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Formulário horizontal no topo */
+.formulario-horizontal {
+  display: flex;
+  flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem; /* Espaço entre o formulário e os cards */
+}
+
+.formulario-horizontal .form-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px; /* Evita que os campos fiquem muito estreitos */
+}
+
+.formulario-horizontal .form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.formulario-horizontal .form-group input {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.formulario-horizontal .btn-salvar {
+  margin-left: auto; /* Empurra o botão para a direita */
+  padding: 0.8rem 1.5rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.formulario-horizontal .btn-salvar:hover {
+  background-color: #3e8e41;
+}
+
+.formulario-container {
+  border: none;
+  padding: 1.5rem;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.formularios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.formularios-horizontal .botao-principal {
+  margin-left: auto;
+}
+
+.botoes-form {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.botao {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.btn-salvar {
+  padding: 0.8rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 0.5rem;
+}
+
+.btn-salvar:hover {
+  background-color: #3e8e41;
+}
+
+/* Container principal para o formulário e os cards */
+.entrevistador-container {
+  padding: 1rem 0.1rem;
+  margin-top: 0 !important; /* importante */
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* Formulário horizontal */
+.entrevistadores-formulario-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Cards */
+.entrevistadores-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Fim de Entrevistadores / Coordenadores */
+
+/* Error */
+.page_404{ padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+}
+
+.page_404  img{ width:100%;}
+
+.four_zero_four_bg{
+ 
+ background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    height: 400px;
+    background-position: center;
+ }
+ 
+ 
+ .four_zero_four_bg h1{
+ font-size:80px;
+ }
+ 
+.four_zero_four_bg h3{
+	font-size:80px;
+}
+			 
+.link_404{			 
+	color: #fff!important;
+    padding: 10px 20px;
+    background: #39ac31;
+    margin: 20px 0;
+    display: inline-block;}
+.contant_box_404{ margin-top:-50px;}
+/*Fim de Error*/
+
+/* Responsividade */
 @media (max-width: 768px) {
     main,
     main.pagina-relatorio {
@@ -283,68 +1406,82 @@ li a.ativo img {
     }
 
     .barra-lateral {
-        display:none;
+      display: none;
+      position: fixed;
+      z-index: 999;
     }
 
     .menu-toggle {
-        display: block;
+      display: block;
     }
 
+  section.conteudo {
+      padding: 1vh;
+  }
+
+  .cards {
+      grid-template-columns: 1fr;
+  }
+
+  .formulario-horizontal {
+      flex-direction: column; /* Campos em uma única coluna */
+  }
+
+  .cards {
+      grid-template-columns: 1fr; /* Cards em uma única coluna */
+  }
+
+  .card-busca {
+    flex-direction: column; /* Campos de busca em uma única coluna */
+  }
 }
 
-/* Card perfil usuário */
-/* Card principal */
-.profile-card {
-    width: 100%;
-    max-width: 450px;
-    margin: 20px 0;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    font-family: 'Segoe UI', sans-serif;
-    background: white;
+@media (max-width: 600px) {
+  .form-container {
+      padding: 1.5rem;
+  }
+
+  .form-group input {
+      padding: 0.7rem;
+  }
+
+  .btn-salvar {
+      font-size: 0.9rem;
+  }
+
+  .formulario-horizontal .form-group input {
+      padding: 0.7rem;
+  }
+
+  .formulario-horizontal .btn-salvar {
+      font-size: 0.9rem;
+  }
+
+  .card {
+      padding: 5px;
+  }
+
+  .card img {
+      width: 30px;
+  }
+
+  .botoes-form {
+      text-align: center;
+  }
+
+  .botao {
+      width: 100%;
+  }
 }
 
-/* Campos do perfil */
-.profile-field {
-    display: flex;
-    margin-bottom: 15px;
-    align-items: baseline;
-    padding: 10px 10px;
-    
-}
+@media (max-width: 500px) {
+    /*Perfil*/
+    .card-header {
+      justify-content: center;
+    }
 
-.field-label {
-    flex: 0 0 115px;
-    font-weight: 500;
-    color: #555;
-    font-size: 0.95rem;
-}
-
-.field-value {
-    flex: 1;
-    color: #333;
-    padding: 8px 0;
-    border-bottom: 1px dashed #e0e0e0;
-    word-break: break-word;
-    text-align: left;
-    margin-left: 0;
-}
-
-/* Estilo específico para a senha (mostrando que está oculta) */
-#profilePassword {
-    font-family: monospace;
-    letter-spacing: 2px;
-    color: #666;
-}
-
-/* Responsividade */
-@media (max-width: 480px) {
     .profile-field {
         flex-direction: column;
-    }
-
-    .field-label {
         margin-bottom: 5px;
     }
 

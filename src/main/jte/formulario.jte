@@ -9,11 +9,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/css/formulario.css" />
+  <link rel="stylesheet" href="/css/style.css" />
   <title>Ficha de Análise - (In)Segurança Alimentar</title>
 </head>
 
-<body>
+<body class="body-form">
 <main class="formulario">
   <h1 class="formulario-titulo">Ficha para Análise das Condições de (In)Segurança Alimentar</h1>
 

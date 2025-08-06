@@ -8,7 +8,6 @@ import com.ads.sustancia.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.LinkedHashSet;
 import java.util.List;
 
 @Service
@@ -38,5 +37,10 @@ public class UsuarioServiceImpl implements UsuarioService {
                 .stream()
                 .map(mapper::toDto)
                 .toList();
+    }
+
+    @Override
+    public UsuarioDTO findByEmail(String email) {
+        return mapper.toDto(repository.findByEmail(email).orElseThrow());
     }
 }
