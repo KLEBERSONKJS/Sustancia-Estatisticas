@@ -59,7 +59,7 @@ public class EntrevistadorServiceImpl implements EntrevistadorService {
             throw new RuntimeException("Email já cadastrado.");
         }
     
-        var entity = mapper.toEntity(dto);
+        var entity = new Entrevistador(dto);
 
         entity.setCoordenador(new Coordenador(dto.getIdCoordenador()));
         entity.setPapel("ENTREVISTADOR");

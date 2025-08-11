@@ -28,9 +28,10 @@ public class  SecurityConfig {
         return http
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers( "/assets/**","/img/**", "/", "/js/**", "/css/**", "/error", "/h2/**").permitAll()
-//                                .requestMatchers("/formulario/**").hasAnyAuthority("ADMIN","COORDENADOR","ENTREVISTADOR")
-//                                .requestMatchers("/coordenador/perfil").hasAnyAuthority("ADMIN","COORDENADOR")
-//                                .requestMatchers("/coordenador/admin/**").hasAuthority("ADMIN")
+                                .requestMatchers("/formulario/**").hasAnyAuthority("ADMIN","COORDENADOR","ENTREVISTADOR")
+                                .requestMatchers("/coordenador/perfil").hasAnyAuthority("ADMIN","COORDENADOR")
+                                .requestMatchers("/coordenador/admin/**").hasAnyAuthority("ADMIN","COORDENADOR")
+                                .requestMatchers("/home").hasAnyAuthority("ADMIN","COORDENADOR")
                                 .anyRequest().authenticated()
                 )
                 //.formLogin(AbstractAuthenticationFilterConfigurer::permitAll)

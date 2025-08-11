@@ -2,9 +2,12 @@ package com.ads.sustancia.model;
 
 import com.ads.sustancia.dto.request.EntrevistadorDTO;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -29,4 +32,6 @@ public class Entrevistador extends Usuario{
 
     public Entrevistador() {
     }
+
+
 }
