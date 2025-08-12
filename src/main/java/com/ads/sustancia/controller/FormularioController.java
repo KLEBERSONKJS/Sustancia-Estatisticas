@@ -31,8 +31,8 @@ public class FormularioController {
     @Transactional
     public String cadastrarPessoa(@Valid PessoaDTO dto, Model model, Principal principal) {
         try {
-            var entrevistador = entrevistadorService.findByEmail(principal.getName());
-            dto.setIdEntrevistador(entrevistador.getId());
+            //var entrevistador = entrevistadorService.findByEmail(principal.getName());
+           // dto.setIdEntrevistador(entrevistador.getId());
             service.cadastrarPessoa(dto);
             model.addAttribute("mensagem", "O cadastro de %s teve exito!".formatted(dto.getNome()));
         } catch (Exception e) {

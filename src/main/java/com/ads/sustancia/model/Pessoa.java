@@ -58,15 +58,14 @@ public class Pessoa {
     private InsegurancaAlimentar inseguracaAlimentar;
 
     @ManyToOne
-    @JoinColumn(name = "entrevistador_id")  
+    @JoinColumn(name = "entrevistador_id")
     private Entrevistador entrevistador;
-  
+
 
     public Pessoa(Long id, String nome, int idade, GeneroEnum genero, RacaEnum raca, ReligiaoEnum religiao, EscolaridadeEnum escolaridade,
                   EstadoCivilEnum estadoCivil, EmpregoEnum emprego, List<AuxilioEnum> auxiliosList, DependentesEnum dependentes,
                   ConsumoAlimentar consumoAlimentar, InsegurancaAlimentar inseguracaAlimentar) {
 
-        this.entrevistador = new Entrevistador(id);
         this.nome = nome;
         this.idade = idade;
         this.genero = genero;

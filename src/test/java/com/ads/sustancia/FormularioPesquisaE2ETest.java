@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.time.Duration;
 
@@ -17,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@ActiveProfiles("test")
 public class FormularioPesquisaE2ETest {
 
     private WebDriver driver;
@@ -28,14 +30,14 @@ public class FormularioPesquisaE2ETest {
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        loginComoAdmin();
+        loginComoEntrevistador();
     }
 
-    private void loginComoAdmin() {
+    private void loginComoEntrevistador() {
         driver.get("http://localhost:8080/login");
 
-        driver.findElement(By.name("username")).sendKeys("admin@gmail.com");
-        driver.findElement(By.name("password")).sendKeys("admin");
+        driver.findElement(By.name("username")).sendKeys("entrevistador@gmail.com");
+        driver.findElement(By.name("password")).sendKeys("entrevistador");
         driver.findElement(By.cssSelector("button[type='submit']")).click();
 
         // Pequena espera para garantir redirecionamento

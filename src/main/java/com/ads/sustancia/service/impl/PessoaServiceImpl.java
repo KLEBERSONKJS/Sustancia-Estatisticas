@@ -35,7 +35,7 @@ public class PessoaServiceImpl implements PessoaService {
             InsegurancaAlimentar insegurancaAlimentar = criarInsegurancaAlimentar(dto);
             ConsumoAlimentar consumoAlimentar = criarConsumoAlimentar(dto);
 
-            entity = new Pessoa(dto.getIdEntrevistador(),dto.getNome(),
+            entity = new Pessoa(null,dto.getNome(),
                     dto.getIdade(),
                     GeneroEnum.repostaGenero(dto.getGenero()),
                     RacaEnum.respostaRaca(dto.getRaca()),

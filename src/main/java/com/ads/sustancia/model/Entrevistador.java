@@ -34,4 +34,5 @@ public class Entrevistador extends Usuario{
     }
 
 
+
 }
