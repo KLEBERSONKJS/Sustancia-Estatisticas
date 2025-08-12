@@ -1,11 +1,13 @@
 package com.ads.sustancia.controller;
 
 import com.ads.sustancia.dto.request.EntrevistadorDTO;
+import com.ads.sustancia.dto.response.ErrorResponse;
 import com.ads.sustancia.service.CoordenadorService;
 import com.ads.sustancia.service.EntrevistadorService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -84,6 +86,14 @@ public class EntrevistadorController {
             model.addAttribute("erro", "Erro ao deletar entrevistador: " + e.getMessage());
             return "/entrevistador/entrevistadores";
         }
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public String handleRuntimeException(RuntimeException ex, Model model) {
+        ErrorResponse error = new ErrorResponse("", ex.getMessage());
+        model.addAttribute("error", error);
+        return "cadastro-coordenador";
     }
 
 }
