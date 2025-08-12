@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PessoaRepository extends JpaRepository<Pessoa, Long>, JpaSpecificationExecutor<Pessoa> {
@@ -55,10 +56,11 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long>, JpaSpecif
                      "))")
        List<Pessoa> filtrarPessoas(@Param("filtro") FiltroDTO filtro);
 
+       Optional<Pessoa> findByNome(String nome);
 
 
 
-       
+
        // @Query("SELECT " +
        //               "SUM(CASE WHEN p.consumoAlimentar.refeicaoComCelular = 'SIM' THEN 1 ELSE 0 END), " +
        //               "SUM(CASE WHEN p.consumoAlimentar.refeicaoComCelular = 'NAO' THEN 1 ELSE 0 END), " +
