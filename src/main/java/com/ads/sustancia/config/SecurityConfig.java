@@ -31,6 +31,7 @@ public class  SecurityConfig {
                                 .requestMatchers("/formulario/**").hasAnyAuthority("ADMIN","COORDENADOR","ENTREVISTADOR")
                                 .requestMatchers("/coordenador/perfil").hasAnyAuthority("ADMIN","COORDENADOR")
                                 .requestMatchers("/coordenador/admin/**").hasAnyAuthority("ADMIN","COORDENADOR")
+                                .requestMatchers("/entrevistador/entrevistadores/**").hasAnyAuthority("ADMIN","COORDENADOR")
                                 .requestMatchers("/home").hasAnyAuthority("ADMIN","COORDENADOR")
                                 .anyRequest().authenticated()
                 )

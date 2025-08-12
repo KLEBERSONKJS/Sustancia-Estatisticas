@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-// @ActiveProfiles("test")
+@ActiveProfiles("test")
 public class FormularioPesquisaE2ETest {
 
     private WebDriver driver;

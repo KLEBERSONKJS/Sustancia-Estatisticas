@@ -88,12 +88,6 @@ public class EntrevistadorController {
         }
     }
 
-    @ExceptionHandler(RuntimeException.class)
-    @ResponseStatus(HttpStatus.FORBIDDEN)
-    public String handleRuntimeException(RuntimeException ex, Model model) {
-        ErrorResponse error = new ErrorResponse("", ex.getMessage());
-        model.addAttribute("error", error);
-        return "cadastro-coordenador";
-    }
+
 
 }

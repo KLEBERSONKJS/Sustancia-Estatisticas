@@ -93,12 +93,11 @@ public class CadastrarEntrevistadorTest {
 
         loginComoEntrevistador();
 
-
         // Pega o cookie de sessão do Selenium
         Cookie jsessionid = driver.manage().getCookieNamed("JSESSIONID");
 
         // Faz requisição HTTP direta para /home com o cookie do login
-        URL url = new URL("http://localhost:8080/entrevistador/entrevistadores");
+        URL url = new URL("http://localhost:8080/home");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestProperty("Cookie", "JSESSIONID=" + jsessionid.getValue());
         connection.connect();
@@ -158,9 +157,6 @@ public class CadastrarEntrevistadorTest {
         driver.findElement(By.name("password")).sendKeys("entrevistador");
         driver.findElement(By.cssSelector("button[type='submit']")).click();
 
-        driver.get("http://localhost:8080/home");
-        new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.urlContains("/home"));
     }
 
     private void loginComoAdministrador() {
