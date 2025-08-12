@@ -35,6 +35,7 @@ public class AcessarDashboardEntrevistadorTest {
 
     @Test
     @Order(1)
+    @DisplayName("FALHA - ENTREVISTADOR NÃO FEZ LOGIN E TENTA ACESSAR A DASHBOARD - O SISTEMA DEVE REDIRECIONAR A PAGINA DE LOGIN")
     public void acessarDashNaoLogado() {
         driver.get("http://localhost:8080/home");
 
@@ -48,6 +49,7 @@ public class AcessarDashboardEntrevistadorTest {
 
     @Test
     @Order(2)
+    @DisplayName("FALHA - ENTREVISTADOR FEZ LOGIN E TENTA ACESSAR A DASHBOARD - O SISTEMA DEVE RETORNAR  403 FORBIDDEN")
     public void acessarHomeComoEntrevistadorDeveSerForbidden() throws Exception {
         // Faz login como entrevistador no navegador
         loginComoEntrevistador();
