@@ -29,6 +29,9 @@ public class EntrevistadorServiceImpl implements EntrevistadorService {
     
     @Override
     public List<EntrevistadorDTO> findByNome(String nome) {
+        if (nome == null) {
+            throw new IllegalArgumentException("Nome não pode ser nulo");
+        }
         return repository.findByNomeContainingIgnoreCase(nome)
             .stream()
             .map(mapper::toDTO)
