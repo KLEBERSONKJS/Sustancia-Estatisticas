@@ -41,7 +41,10 @@ public class FormularioPesquisaE2ETest {
         driver.findElement(By.cssSelector("button[type='submit']")).click();
 
         // Pequena espera para garantir redirecionamento
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ignored) {
+        }
     }
 
     @Test
@@ -101,7 +104,10 @@ public class FormularioPesquisaE2ETest {
         driver.findElement(By.id("raca")).sendKeys("Branca");
         driver.findElement(By.className("botao-principal")).click();
 
-        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ignored) {
+        }
 
         boolean temCanvasFiltrado = driver.findElements(By.tagName("canvas")).size() > 0;
         assertTrue(temCanvasFiltrado, "O gráfico não foi renderizado após o filtro");
