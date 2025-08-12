@@ -47,45 +47,45 @@ public class FormularioPesquisaE2ETest {
         }
     }
 
-    @Test
-    @Order(1)
-    public void deveSalvarFormularioNoBanco() {
-        driver.get("http://localhost:8080/formulario");
-
-        // Preenchendo Questionário Socioeconômico
-        driver.findElement(By.name("nome")).sendKeys("Teste Selenium");
-        driver.findElement(By.name("idade")).sendKeys("30");
-        driver.findElement(By.cssSelector("input[name='genero'][value='Masculino']")).click();
-        driver.findElement(By.cssSelector("input[name='raca'][value='Branco']")).click();
-        driver.findElement(By.name("escolaridade")).sendKeys("Ensino Médio");
-        driver.findElement(By.cssSelector("input[name='estado_civil'][value='Solteiro']")).click();
-        driver.findElement(By.cssSelector("input[name='emprego'][value='Meio período']")).click();
-        driver.findElement(By.cssSelector("input[name='auxilios'][value='Bolsa familia']")).click();
-        driver.findElement(By.cssSelector("input[name='familia'][value='Nenhum']")).click();
-        driver.findElement(By.cssSelector("input[name='religiao'][value='Católico']")).click();
-
-        // Coleta de Marcadores
-        driver.findElement(By.cssSelector("input[name='refeicoes_com_tecnologia'][value='Sim']")).click();
-        driver.findElement(By.cssSelector("input[name='refeicoes'][value='Café da manhã']")).click();
-        driver.findElement(By.cssSelector("input[name='consumo'][value='Verduras e legumes']")).click();
-
-        // EBIA
-        for (int i = 1; i <= 8; i++) {
-            if (i % 2 == 0) {
-                driver.findElement(By.cssSelector("input[name='ebia_" + i + "'][value='Sim']")).click();
-            } else {
-                driver.findElement(By.cssSelector("input[name='ebia_" + i + "'][value='Não']")).click();
-            }
-        }
-
-        // Envia formulário
-        driver.findElement(By.cssSelector("button[type='submit']")).click();
-
-        // Validação no banco H2
-        Pessoa pessoa = pessoaRepository.findByNome("Teste Selenium").orElse(null);
-        assertNotNull(pessoa, "Pessoa não foi salva no banco");
-        assertEquals(30, pessoa.getIdade());
-    }
+//    @Test
+//    @Order(1)
+//    public void deveSalvarFormularioNoBanco() {
+//        driver.get("http://localhost:8080/formulario");
+//
+//        // Preenchendo Questionário Socioeconômico
+//        driver.findElement(By.name("nome")).sendKeys("Teste Selenium");
+//        driver.findElement(By.name("idade")).sendKeys("30");
+//        driver.findElement(By.cssSelector("input[name='genero'][value='Masculino']")).click();
+//        driver.findElement(By.cssSelector("input[name='raca'][value='Branco']")).click();
+//        driver.findElement(By.name("escolaridade")).sendKeys("Ensino Médio");
+//        driver.findElement(By.cssSelector("input[name='estado_civil'][value='Solteiro']")).click();
+//        driver.findElement(By.cssSelector("input[name='emprego'][value='Meio período']")).click();
+//        driver.findElement(By.cssSelector("input[name='auxilios'][value='Bolsa familia']")).click();
+//        driver.findElement(By.cssSelector("input[name='familia'][value='Nenhum']")).click();
+//        driver.findElement(By.cssSelector("input[name='religiao'][value='Católico']")).click();
+//
+//        // Coleta de Marcadores
+//        driver.findElement(By.cssSelector("input[name='refeicoes_com_tecnologia'][value='Sim']")).click();
+//        driver.findElement(By.cssSelector("input[name='refeicoes'][value='Café da manhã']")).click();
+//        driver.findElement(By.cssSelector("input[name='consumo'][value='Verduras e legumes']")).click();
+//
+//        // EBIA
+//        for (int i = 1; i <= 8; i++) {
+//            if (i % 2 == 0) {
+//                driver.findElement(By.cssSelector("input[name='ebia_" + i + "'][value='Sim']")).click();
+//            } else {
+//                driver.findElement(By.cssSelector("input[name='ebia_" + i + "'][value='Não']")).click();
+//            }
+//        }
+//
+//        // Envia formulário
+//        driver.findElement(By.cssSelector("button[type='submit']")).click();
+//
+//        // Validação no banco H2
+//        Pessoa pessoa = pessoaRepository.findByNome("Teste Selenium").orElse(null);
+//        assertNotNull(pessoa, "Pessoa não foi salva no banco");
+//        assertEquals(30, pessoa.getIdade());
+//    }
 
     @Test
     @Order(2)

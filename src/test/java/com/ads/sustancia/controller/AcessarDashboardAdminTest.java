@@ -31,6 +31,7 @@ public class AcessarDashboardAdminTest {
 
     @Test
     @Order(1)
+    @DisplayName("FALHA - ADMINSTRADOR NÃO ESTÁ LOGADO E TENTA ACESSAR A DASHBOARD- O SISTEMA DEVE REDIRECIONAR A PAGINA DE LOGIN")
     public void acessarDashNaoLogado() {
         driver.get("http://localhost:8080/home");
 
@@ -44,10 +45,10 @@ public class AcessarDashboardAdminTest {
 
     @Test
     @Order(2)
+    @DisplayName("SUSCESSO - ADMINSTRADOR FAZ LOGIN E TENTA ACESSAR A DASHBOARD - O SISTEMA DEVE DEVER PERMITIR QUE O USUARIO ACESSSE A DASHBOARD")
     public void acessarHomeComoAdmin() throws Exception {
         // Faz login como entrevistador no navegador
         loginComoAdmin();
-
         driver.get("http://localhost:8080/home");
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.urlContains("/home"));
