@@ -141,4 +141,74 @@ public class EntrevistadorServiceImplTest {
         verify(repository).findById(id);
         verifyNoMoreInteractions(repository);
     }
+
+    // Teste busca por CPF
+    @Test
+    void deveBuscarPorCpfComSucesso() {
+        String cpf = dto.getCpf();
+
+        when(repository.findByCpf(cpf)).thenReturn(Optional.of(entity));
+
+        // Simula o mapper convertendo para DTO
+        when(mapper.toDTO(entity)).thenReturn(dto);
+
+        //Executando o método
+        List<EntrevistadorDTO> resultado = service.findByCpf(cpf);
+
+        assertThat(resultado, notNullValue());
+        assertEquals(1, resultado.size());
+        assertEquals(cpf, resultado.get(0).getCpf());
+
+        verify(repository).findByCpf(cpf);
+        verify(mapper).toDTO(entity);
+        verifyNoMoreInteractions(repository);
+    }
+
+    @Test
+    void deveRetornarListaVaziaQuandoCpfNaoEncontrado() {
+        String cpf = "00000000000"; // CPF inexistente
+
+        when(repository.findByCpf(cpf)).thenReturn(Optional.empty());
+
+        List<EntrevistadorDTO> resultado = service.findByCpf(cpf);
+
+        assertThat(resultado, notNullValue());
+        assertEquals(0, resultado.size());
+        verify(repository).findByCpf(cpf);
+        verifyNoMoreInteractions(repository);
+    }
+
+    // Teste para buscar todos
+    @Test
+    void deveBuscarTodosComSucesso() {
+    
+        when(repository.findAll()).thenReturn(Collections.singletonList(entity));
+        when(mapper.toDTO(entity)).thenReturn(dto);
+
+        List<EntrevistadorDTO> resultado = service.findAll();
+
+        assertThat(resultado, notNullValue());
+        assertEquals(1, resultado.size());
+        assertEquals(dto.getId(), resultado.get(0).getId());
+        verify(repository).findAll();
+        verify(mapper).toDTO(entity);
+        verifyNoMoreInteractions(repository);
+    }
+
+    @Test
+    void deveRetornarListaVaziaQuandoNaoExistiremEntrevistadores() {
+       
+        when(repository.findAll()).thenReturn(Collections.emptyList());
+
+        List<EntrevistadorDTO> resultado = service.findAll();
+
+        assertThat(resultado, notNullValue());
+        assertEquals(0, resultado.size());
+
+        verify(repository).findAll();
+        verifyNoMoreInteractions(repository);
+    }
+
+
+
 }
