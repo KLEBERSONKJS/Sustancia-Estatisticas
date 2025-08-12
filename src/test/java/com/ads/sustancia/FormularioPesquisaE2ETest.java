@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-// @ActiveProfiles("test")
+@ActiveProfiles("test")
 public class FormularioPesquisaE2ETest {
 
     private WebDriver driver;
@@ -53,7 +53,7 @@ public class FormularioPesquisaE2ETest {
         driver.get("http://localhost:8080/formulario");
 
         // Preenchendo Questionário Socioeconômico
-        driver.findElement(By.name("nome")).sendKeys("Teste Selenium2");
+        driver.findElement(By.name("nome")).sendKeys("Teste Selenium");
         driver.findElement(By.name("idade")).sendKeys("30");
         driver.findElement(By.cssSelector("input[name='genero'][value='Masculino']")).click();
         driver.findElement(By.cssSelector("input[name='raca'][value='Branco']")).click();
@@ -82,10 +82,9 @@ public class FormularioPesquisaE2ETest {
         driver.findElement(By.cssSelector("button[type='submit']")).click();
 
         // Validação no banco H2
-        Pessoa pessoa = pessoaRepository.findByNome("Teste Selenium2").stream().findFirst().orElse(null);
+        Pessoa pessoa = pessoaRepository.findByNome("Teste Selenium").orElse(null);
         assertNotNull(pessoa, "Pessoa não foi salva no banco");
         assertEquals(30, pessoa.getIdade());
-
     }
 
     @Test

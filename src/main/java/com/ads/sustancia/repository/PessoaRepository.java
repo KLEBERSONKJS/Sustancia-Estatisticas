@@ -56,7 +56,7 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long>, JpaSpecif
                      "))")
        List<Pessoa> filtrarPessoas(@Param("filtro") FiltroDTO filtro);
 
-       List<Pessoa> findByNome(String nome);
+       Optional<Pessoa> findByNome(String nome);
 
 
 
