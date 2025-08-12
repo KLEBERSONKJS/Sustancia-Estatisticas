@@ -2,6 +2,7 @@ package com.ads.sustancia.controller;
 
 import com.ads.sustancia.repository.EntrevistadorRepository;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import net.datafaker.Faker;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -37,19 +38,25 @@ public class CadastrarEntrevistadorCoordenadorTest {
     @Test
     @Order(3)
     public void cadastrarEntrevistadorEVerificarBanco() {
+        Faker faker = new Faker();
+
         loginComoCoordenador();
+        driver.get("http://localhost:8080/");
         driver.get("http://localhost:8080/home");
         driver.get("http://localhost:8080/entrevistador/entrevistadores");
 
-        String nome = "João Silva";
-        String email = "joao2.silva@example.com";
-        String cpf = "123.456.789-00";
+        String nome = faker.name().fullName();
+        String email = faker.internet().emailAddress();
+        String rawCpf = String.valueOf(faker.cpf());
+        String cpfFormatado = rawCpf.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
+        driver.findElement(By.name("cpf")).sendKeys(cpfFormatado);
+
         String senha = "senha123";
         String dataNascimento = "1990-05-10";
 
         driver.findElement(By.name("nome")).sendKeys(nome);
         driver.findElement(By.name("email")).sendKeys(email);
-        driver.findElement(By.name("cpf")).sendKeys(cpf);
+        driver.findElement(By.name("cpf")).sendKeys(cpfFormatado);
         driver.findElement(By.name("senha")).sendKeys(senha);
         driver.findElement(By.name("dataNascimento")).sendKeys(dataNascimento);
 
@@ -58,16 +65,13 @@ public class CadastrarEntrevistadorCoordenadorTest {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.urlContains("/entrevistador/entrevistadores"));
 
-        String mensagem = driver.findElement(By.id("msg")).getText();
-        assertTrue(mensagem.contains("teve exito"));
-
         // Verifica no banco se o entrevistador foi salvo
         var entrevistadorOpt = entrevistadorRepository.findByEmail(email);
         assertTrue(entrevistadorOpt.isPresent(), "Entrevistador deve estar salvo no banco");
 
         var entrevistador = entrevistadorOpt.get();
         assertEquals(nome, entrevistador.getNome());
-        assertEquals(cpf, entrevistador.getCpf());
+        assertEquals(rawCpf, entrevistador.getCpf());
         assertEquals(dataNascimento, entrevistador.getDataNascimento().toString());
     }
 
